@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DefaultEntandoResourceClient.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Entando K8S Operator Common Library</a> &gt; <a href="index.source.html" class="el_package">org.entando.kubernetes.client</a> &gt; <span class="el_source">DefaultEntandoResourceClient.java</span></div><h1>DefaultEntandoResourceClient.java</h1><pre class="source lang-java linenums">/*
+ *
+ * Copyright 2015-Present Entando Inc. (http://www.entando.com) All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ *  This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ */
+
+package org.entando.kubernetes.client;
+
+import static java.lang.String.format;
+import static java.util.Optional.ofNullable;
+
+import io.fabric8.kubernetes.api.model.ConfigMap;
+import io.fabric8.kubernetes.api.model.DoneableConfigMap;
+import io.fabric8.kubernetes.api.model.Secret;
+import io.fabric8.kubernetes.api.model.Service;
+import io.fabric8.kubernetes.api.model.apps.Deployment;
+import io.fabric8.kubernetes.api.model.extensions.Ingress;
+import io.fabric8.kubernetes.client.CustomResourceList;
+import io.fabric8.kubernetes.client.KubernetesClient;
+import io.fabric8.kubernetes.client.dsl.Resource;
+import io.fabric8.kubernetes.client.dsl.internal.CustomResourceOperationsImpl;
+import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+import org.entando.kubernetes.controller.ExposedService;
+import org.entando.kubernetes.controller.KeycloakConnectionConfig;
+import org.entando.kubernetes.controller.KubeUtils;
+import org.entando.kubernetes.controller.common.InfrastructureConfig;
+import org.entando.kubernetes.controller.common.KeycloakConnectionSecret;
+import org.entando.kubernetes.controller.common.KeycloakName;
+import org.entando.kubernetes.controller.database.ExternalDatabaseDeployment;
+import org.entando.kubernetes.controller.k8sclient.EntandoResourceClient;
+import org.entando.kubernetes.model.AbstractServerStatus;
+import org.entando.kubernetes.model.ClusterInfrastructureAwareSpec;
+import org.entando.kubernetes.model.DbmsVendor;
+import org.entando.kubernetes.model.DoneableEntandoCustomResource;
+import org.entando.kubernetes.model.EntandoBaseCustomResource;
+import org.entando.kubernetes.model.EntandoControllerFailureBuilder;
+import org.entando.kubernetes.model.EntandoCustomResource;
+import org.entando.kubernetes.model.EntandoDeploymentPhase;
+import org.entando.kubernetes.model.EntandoResourceOperationsRegistry;
+import org.entando.kubernetes.model.KeycloakAwareSpec;
+import org.entando.kubernetes.model.ResourceReference;
+import org.entando.kubernetes.model.externaldatabase.EntandoDatabaseService;
+import org.entando.kubernetes.model.infrastructure.EntandoClusterInfrastructure;
+import org.entando.kubernetes.model.keycloakserver.EntandoKeycloakServer;
+
+public class DefaultEntandoResourceClient implements EntandoResourceClient, PatchableClient {
+
+    private final KubernetesClient client;
+    private final EntandoResourceOperationsRegistry entandoResourceRegistry;
+
+<span class="fc" id="L66">    public DefaultEntandoResourceClient(KubernetesClient client) {</span>
+<span class="fc" id="L67">        this.client = client;</span>
+<span class="fc" id="L68">        entandoResourceRegistry = new EntandoResourceOperationsRegistry(client);</span>
+<span class="fc" id="L69">    }</span>
+
+    @Override
+    public String getNamespace() {
+<span class="nc" id="L73">        return client.getNamespace();</span>
+    }
+
+    @Override
+    public &lt;T extends KeycloakAwareSpec&gt; KeycloakConnectionConfig findKeycloak(EntandoBaseCustomResource&lt;T&gt; resource) {
+<span class="fc" id="L78">        Optional&lt;ResourceReference&gt; keycloakToUse = determineKeycloakToUse(resource);</span>
+<span class="fc" id="L79">        String secretName = keycloakToUse.map(KeycloakName::forTheAdminSecret)</span>
+<span class="fc" id="L80">                .orElse(KeycloakName.DEFAULT_KEYCLOAK_ADMIN_SECRET);</span>
+<span class="fc" id="L81">        String configMapName = keycloakToUse.map(KeycloakName::forTheConnectionConfigMap)</span>
+<span class="fc" id="L82">                .orElse(KeycloakName.DEFAULT_KEYCLOAK_CONNECTION_CONFIG);</span>
+<span class="fc" id="L83">        String configMapNamespace = keycloakToUse</span>
+<span class="fc" id="L84">                .map(resourceReference -&gt; resourceReference.getNamespace().orElseThrow(IllegalStateException::new))</span>
+<span class="fc" id="L85">                .orElse(client.getNamespace());</span>
+        //This secret is duplicated in the deployment namespace, but the controller can only read the one in its own namespace
+<span class="fc" id="L87">        Secret secret = this.client.secrets().withName(secretName).fromServer().get();</span>
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">        if (secret == null) {</span>
+<span class="nc" id="L89">            throw new IllegalStateException(</span>
+<span class="nc" id="L90">                    format(&quot;Could not find the Keycloak secret %s in namespace %s&quot;, secretName, client.getNamespace()));</span>
+        }
+        //The configmap comes from the deployment namespace, unless it is a pre-configured keycloak
+<span class="fc" id="L93">        ConfigMap configMap = this.client.configMaps().inNamespace(configMapNamespace).withName(configMapName).fromServer().get();</span>
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">        if (configMap == null) {</span>
+<span class="nc" id="L95">            throw new IllegalStateException(</span>
+<span class="nc" id="L96">                    format(&quot;Could not find the Keycloak configMp %s in namespace %s&quot;, configMapName, configMapNamespace));</span>
+        }
+<span class="fc" id="L98">        return new KeycloakConnectionSecret(secret, configMap);</span>
+
+    }
+
+    @Override
+    public Optional&lt;EntandoKeycloakServer&gt; findKeycloakInNamespace(EntandoBaseCustomResource&lt;?&gt; peerInNamespace) {
+<span class="fc" id="L104">        List&lt;EntandoKeycloakServer&gt; items = entandoResourceRegistry.getOperations(EntandoKeycloakServer.class)</span>
+<span class="fc" id="L105">                .inNamespace(peerInNamespace.getMetadata().getNamespace()).list().getItems();</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">        if (items.size() == 1) {</span>
+<span class="fc" id="L107">            return Optional.of(items.get(0));</span>
+        }
+<span class="fc" id="L109">        return Optional.empty();</span>
+    }
+
+    @Override
+    public DoneableConfigMap loadDefaultConfigMap() {
+<span class="fc" id="L114">        Resource&lt;ConfigMap, DoneableConfigMap&gt; resource = client.configMaps().inNamespace(client.getNamespace())</span>
+<span class="fc" id="L115">                .withName(KubeUtils.ENTANDO_OPERATOR_DEFAULT_CONFIGMAP_NAME);</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">        if (resource.get() == null) {</span>
+<span class="fc" id="L117">            return client.configMaps().inNamespace(client.getNamespace()).createNew()</span>
+<span class="fc" id="L118">                    .withNewMetadata()</span>
+<span class="fc" id="L119">                    .withName(KubeUtils.ENTANDO_OPERATOR_DEFAULT_CONFIGMAP_NAME)</span>
+<span class="fc" id="L120">                    .withNamespace(client.getNamespace())</span>
+<span class="fc" id="L121">                    .endMetadata()</span>
+<span class="fc" id="L122">                    .addToData(new HashMap&lt;&gt;());</span>
+
+        }
+<span class="fc" id="L125">        return resource.edit().editMetadata()</span>
+                //to ensure there is a state change so that the patch request does not get rejected
+<span class="fc" id="L127">                .addToAnnotations(KubeUtils.UPDATED_ANNOTATION_NAME, new Timestamp(System.currentTimeMillis()).toString())</span>
+<span class="fc" id="L128">                .endMetadata();</span>
+    }
+
+    @Override
+    public &lt;T extends ClusterInfrastructureAwareSpec&gt; Optional&lt;EntandoClusterInfrastructure&gt; findClusterInfrastructureInNamespace(
+            EntandoBaseCustomResource&lt;T&gt; resource) {
+<span class="fc" id="L134">        List&lt;EntandoClusterInfrastructure&gt; items = entandoResourceRegistry</span>
+<span class="fc" id="L135">                .getOperations(EntandoClusterInfrastructure.class)</span>
+<span class="fc" id="L136">                .inNamespace(resource.getMetadata().getNamespace()).list().getItems();</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">        if (items.size() == 1) {</span>
+<span class="fc" id="L138">            return Optional.of(items.get(0));</span>
+        }
+<span class="fc" id="L140">        return Optional.empty();</span>
+    }
+
+    @Override
+    public &lt;T extends ClusterInfrastructureAwareSpec&gt; Optional&lt;InfrastructureConfig&gt; findInfrastructureConfig(
+            EntandoBaseCustomResource&lt;T&gt; resource) {
+<span class="fc" id="L146">        Optional&lt;ResourceReference&gt; clusterInfrastructureToUse = determineClusterInfrastructureToUse(resource);</span>
+<span class="fc" id="L147">        return clusterInfrastructureToUse.map(resourceReference -&gt; new InfrastructureConfig(</span>
+<span class="fc" id="L148">                this.client.configMaps()</span>
+<span class="fc" id="L149">                        .inNamespace(resourceReference.getNamespace().orElseThrow(IllegalStateException::new))</span>
+<span class="fc" id="L150">                        .withName(InfrastructureConfig.connectionConfigMapNameFor(resourceReference))</span>
+<span class="fc" id="L151">                        .get()));</span>
+    }
+
+    @Override
+    public ExposedService loadExposedService(EntandoCustomResource resource) {
+<span class="nc" id="L156">        return new ExposedService(</span>
+<span class="nc" id="L157">                loadService(resource, standardServiceName(resource)),</span>
+<span class="nc" id="L158">                loadIngress(resource, standardIngressName(resource)));</span>
+    }
+
+    public String standardServiceName(EntandoCustomResource resource) {
+<span class="nc" id="L162">        return resource.getMetadata().getName() + &quot;-server-service&quot;;</span>
+    }
+
+    public String standardIngressName(EntandoCustomResource resource) {
+<span class="nc" id="L166">        return resource.getMetadata().getName() + &quot;-&quot; + KubeUtils.DEFAULT_INGRESS_SUFFIX;</span>
+    }
+
+    @Override
+    public Optional&lt;ExternalDatabaseDeployment&gt; findExternalDatabase(EntandoCustomResource resource, DbmsVendor vendor) {
+<span class="fc" id="L171">        List&lt;EntandoDatabaseService&gt; externalDatabaseList = getOperations(EntandoDatabaseService.class)</span>
+<span class="fc" id="L172">                .inNamespace(resource.getMetadata().getNamespace()).list().getItems();</span>
+<span class="pc bpc" id="L173" title="1 of 2 branches missed.">        return externalDatabaseList.stream().filter(entandoDatabaseService -&gt; entandoDatabaseService.getSpec().getDbms() == vendor)</span>
+<span class="fc" id="L174">                .findFirst().map(externalDatabase -&gt;</span>
+<span class="fc" id="L175">                        new ExternalDatabaseDeployment(</span>
+<span class="fc" id="L176">                                loadService(externalDatabase, ExternalDatabaseDeployment.serviceName(externalDatabase)),</span>
+                                externalDatabase));
+    }
+
+    @Override
+    public &lt;T extends EntandoCustomResource&gt; void updateStatus(T customResource, AbstractServerStatus status) {
+<span class="fc" id="L182">        performStatusUpdate(customResource, t -&gt; t.getStatus().putServerStatus(status));</span>
+<span class="fc" id="L183">    }</span>
+
+    @Override
+    public &lt;T extends EntandoCustomResource&gt; void updatePhase(T customResource, EntandoDeploymentPhase phase) {
+<span class="fc" id="L187">        performStatusUpdate(customResource, t -&gt; t.getStatus().setEntandoDeploymentPhase(phase));</span>
+<span class="fc" id="L188">    }</span>
+
+    protected Supplier&lt;IllegalStateException&gt; notFound(String kind, String namespace, String name) {
+<span class="fc" id="L191">        return () -&gt; new IllegalStateException(format(&quot;Could not find the %s '%s' in the namespace %s&quot;, kind, name, namespace));</span>
+    }
+
+    @Override
+    public &lt;T extends EntandoCustomResource&gt; T load(Class&lt;T&gt; clzz, String resourceNamespace, String resourceName) {
+<span class="fc" id="L196">        return ofNullable(getOperations(clzz).inNamespace(resourceNamespace)</span>
+<span class="fc" id="L197">                .withName(resourceName).get()).orElseThrow(() -&gt; notFound(clzz.getSimpleName(), resourceNamespace, resourceName).get());</span>
+    }
+
+    @Override
+    @SuppressWarnings(&quot;unchecked&quot;)
+    public &lt;T extends EntandoCustomResource&gt; T createOrPatchEntandoResource(T r) {
+<span class="fc" id="L203">        Class&lt;T&gt; type = (Class&lt;T&gt;) r.getClass();</span>
+<span class="fc" id="L204">        return createOrPatch(r, r, this.getOperations(type));</span>
+
+    }
+
+    private &lt;T extends EntandoCustomResource, D extends DoneableEntandoCustomResource&lt;D, T&gt;&gt; CustomResourceOperationsImpl&lt;T,
+            CustomResourceList&lt;T&gt;, D&gt; getOperations(Class&lt;T&gt; c) {
+<span class="fc" id="L210">        return entandoResourceRegistry.getOperations(c);</span>
+    }
+
+    @Override
+    public void deploymentFailed(EntandoCustomResource customResource, Exception reason) {
+<span class="nc" id="L215">        Optional&lt;AbstractServerStatus&gt; currentServerStatus = getOperations(customResource.getClass())</span>
+<span class="nc" id="L216">                .inNamespace(customResource.getMetadata().getNamespace())</span>
+<span class="nc" id="L217">                .withName(customResource.getMetadata().getName()).get().getStatus().findCurrentServerStatus();</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">        if (currentServerStatus.isPresent()) {</span>
+<span class="nc" id="L219">            AbstractServerStatus newStatus = currentServerStatus.get();</span>
+<span class="nc" id="L220">            newStatus.finishWith(new EntandoControllerFailureBuilder().withException(reason).build());</span>
+<span class="nc" id="L221">            getOperations(customResource.getClass())</span>
+<span class="nc" id="L222">                    .inNamespace(customResource.getMetadata().getNamespace())</span>
+<span class="nc" id="L223">                    .withName(customResource.getMetadata().getName())</span>
+<span class="nc" id="L224">                    .edit().withStatus(newStatus).withPhase(EntandoDeploymentPhase.FAILED).done();</span>
+<span class="nc" id="L225">        } else {</span>
+<span class="nc" id="L226">            getOperations(customResource.getClass())</span>
+<span class="nc" id="L227">                    .inNamespace(customResource.getMetadata().getNamespace())</span>
+<span class="nc" id="L228">                    .withName(customResource.getMetadata().getName())</span>
+<span class="nc" id="L229">                    .edit().withPhase(EntandoDeploymentPhase.FAILED).done();</span>
+
+        }
+<span class="nc" id="L232">    }</span>
+
+    private Service loadService(EntandoCustomResource peerInNamespace, String name) {
+<span class="fc" id="L235">        return client.services().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
+    }
+
+    private Ingress loadIngress(EntandoCustomResource peerInNamespace, String name) {
+<span class="nc" id="L239">        return client.extensions().ingresses().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
+    }
+
+    protected Deployment loadDeployment(EntandoCustomResource peerInNamespace, String name) {
+<span class="nc" id="L243">        return client.apps().deployments().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name)</span>
+<span class="nc" id="L244">                .get();</span>
+    }
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    private &lt;T extends EntandoCustomResource&gt; void performStatusUpdate(T customResource, Consumer&lt;T&gt; consumer) {
+<span class="fc" id="L249">        T latest = getOperations((Class&lt;T&gt;) customResource.getClass())</span>
+<span class="fc" id="L250">                .inNamespace(customResource.getMetadata().getNamespace())</span>
+<span class="fc" id="L251">                .withName(customResource.getMetadata().getName()).get();</span>
+<span class="fc" id="L252">        consumer.accept(latest);</span>
+<span class="fc" id="L253">        getOperations((Class&lt;T&gt;) customResource.getClass())</span>
+<span class="fc" id="L254">                .inNamespace(customResource.getMetadata().getNamespace())</span>
+<span class="fc" id="L255">                .withName(customResource.getMetadata().getName())</span>
+<span class="fc" id="L256">                .updateStatus(latest);</span>
+<span class="fc" id="L257">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
