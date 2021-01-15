@@ -49,7 +49,7 @@ public class DatabaseDockerImageInfo implements DockerImageInfo {
 
     @Override
     public Optional&lt;String&gt; getVersion() {
-<span class="fc" id="L52">        return Optional.empty();</span>
+<span class="fc" id="L52">        return Optional.of(&quot;latest&quot;);//because these are vendor provided images and the versions of both the DB and OS is in the image name</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
