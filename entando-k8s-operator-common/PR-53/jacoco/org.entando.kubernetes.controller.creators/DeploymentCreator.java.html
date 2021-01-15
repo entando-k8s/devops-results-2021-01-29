@@ -116,9 +116,9 @@ public class DeploymentCreator&lt;S extends EntandoDeploymentSpec&gt; extends Ab
     }
 
     private PodSecurityContext buildSecurityContext(Deployable&lt;?, S&gt; deployable) {
-<span class="fc bfc" id="L119" title="All 2 branches covered.">        if (EntandoOperatorConfig.requiresFilesystemGroupOverride()) {</span>
-<span class="fc" id="L120">            return deployable.getFileSystemUserAndGroupId()</span>
-<span class="fc" id="L121">                    .map(useAndGroupId -&gt; new PodSecurityContextBuilder().withFsGroup(useAndGroupId).build()).orElse(null);</span>
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">        if (EntandoOperatorConfig.requiresFilesystemGroupOverride()) {</span>
+<span class="nc" id="L120">            return deployable.getFileSystemUserAndGroupId()</span>
+<span class="nc" id="L121">                    .map(useAndGroupId -&gt; new PodSecurityContextBuilder().withFsGroup(useAndGroupId).build()).orElse(null);</span>
         }
 <span class="fc" id="L123">        return null;</span>
     }

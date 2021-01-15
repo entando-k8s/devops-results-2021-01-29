@@ -17,14 +17,13 @@
 package org.entando.kubernetes.client;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jboss.resteasy.plugins.providers.jackson.ResteasyJackson2Provider;
 
 public class EntandoJackson2Provider extends ResteasyJackson2Provider {
 
-<span class="fc" id="L25">    public EntandoJackson2Provider() {</span>
-<span class="fc" id="L26">        disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);</span>
-<span class="fc" id="L27">    }</span>
+<span class="fc" id="L24">    public EntandoJackson2Provider() {</span>
+<span class="fc" id="L25">        disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);</span>
+<span class="fc" id="L26">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
