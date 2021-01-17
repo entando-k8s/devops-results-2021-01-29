@@ -24,7 +24,7 @@
     <div id="breadcrumbs">
       <div class="xleft">
         <span id="publishDate">Last Published: 2021-01-17</span>
-          &#xA0;| <span id="projectVersion">Version: 0.0.0-SNAPSHOT-PR-65-15</span>
+          &#xA0;| <span id="projectVersion">Version: 0.0.0-SNAPSHOT-PR-65-16</span>
       </div>
       <div class="xright">      </div>
       <div class="clear">
@@ -73,11 +73,11 @@ function toggleDisplay(elementId) {
 <th>Time</th></tr>
 <tr class="b">
 <td>2</td>
+<td>1</td>
 <td>0</td>
 <td>1</td>
-<td>1</td>
 <td>0%</td>
-<td>74.005</td></tr></table><br />
+<td>187.615</td></tr></table><br />
 <p>Note: failures are anticipated and checked for with assertions while errors are unanticipated.</p><br /></section><section>
 <h2><a name="Package_List"></a>Package List</h2><a name="Package_List"></a>
 <p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p><br />
@@ -93,11 +93,11 @@ function toggleDisplay(elementId) {
 <tr class="b">
 <td><a href="#org.entando.kubernetes.controller.coordinator.interprocesstests">org.entando.kubernetes.controller.coordinator.interprocesstests</a></td>
 <td>2</td>
+<td>1</td>
 <td>0</td>
 <td>1</td>
-<td>1</td>
 <td>0%</td>
-<td>74.005</td></tr></table><br />
+<td>187.615</td></tr></table><br />
 <p>Note: package statistics are not computed recursively, they only sum up all of its testsuites numbers.</p><section>
 <h3><a name="org.entando.kubernetes.controller.coordinator.interprocesstests"></a>org.entando.kubernetes.controller.coordinator.interprocesstests</h3><a name="org.entando.kubernetes.controller.coordinator.interprocesstests"></a>
 <table border="1" class="bodyTable">
@@ -111,14 +111,14 @@ function toggleDisplay(elementId) {
 <th>Success Rate</th>
 <th>Time</th></tr>
 <tr class="b">
-<td><a href="#org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest"><figure><img src="images/icon_warning_sml.gif" alt="" /></figure></a></td>
+<td><a href="#org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest"><figure><img src="images/icon_error_sml.gif" alt="" /></figure></a></td>
 <td><a href="#org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest">ControllerCoordinatorIntegratedTest</a></td>
 <td>2</td>
+<td>1</td>
 <td>0</td>
 <td>1</td>
-<td>1</td>
 <td>0%</td>
-<td>74.005</td></tr></table></section><br /></section><section>
+<td>187.615</td></tr></table></section><br /></section><section>
 <h2><a name="Test_Cases"></a>Test Cases</h2><a name="Test_Cases"></a>
 <p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p><section>
 <h3><a name="ControllerCoordinatorIntegratedTest"></a>ControllerCoordinatorIntegratedTest</h3><a name="org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest"></a>
@@ -127,7 +127,7 @@ function toggleDisplay(elementId) {
 <td><a href="#org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest.testExecuteKeycloakControllerPodEntandoOperatorComplianceMode1"><figure><img src="images/icon_error_sml.gif" alt="" /></figure></a></td>
 <td><a name="TC_org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest.testExecuteKeycloakControllerPodEntandoOperatorComplianceMode1"></a><a href="#org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest.testExecuteKeycloakControllerPodEntandoOperatorComplianceMode1">testExecuteKeycloakControllerPod(EntandoOperatorComplianceMode)[1]</a>
 <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest.testExecuteKeycloakControllerPodEntandoOperatorComplianceMode1');"><span style="display:inline;" id="org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest.testExecuteKeycloakControllerPodEntandoOperatorComplianceMode1-off"> + </span><span style="display:none;" id="org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest.testExecuteKeycloakControllerPodEntandoOperatorComplianceMode1-on"> - </span>[ Detail ]</a></div></td>
-<td>67.758</td></tr>
+<td>181.444</td></tr>
 <tr class="b">
 <td></td>
 <td></td>
@@ -135,14 +135,11 @@ function toggleDisplay(elementId) {
 <tr class="a">
 <td></td>
 <td>
-<div id="org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest.testExecuteKeycloakControllerPodEntandoOperatorComplianceMode1-failure" style="display:none;">
+<div id="org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest.testExecuteKeycloakControllerPodEntandoOperatorComplianceMode1-error" style="display:none;">
 <div>
-<pre>java.lang.AssertionError: 
-
-Expected: a value equal to or greater than &lt;1&gt;
-     but: was null
-	at org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest.verifyKeycloakDatabaseDeployment(ControllerCoordinatorIntegratedTest.java:208)
-	at org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest.testExecuteKeycloakControllerPod(ControllerCoordinatorIntegratedTest.java:174)
+<pre>org.awaitility.core.ConditionTimeoutException: Condition with lambda expression in org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest that uses java.lang.String, java.lang.Stringorg.entando.kubernetes.model.keycloakserver.EntandoKeycloakServer, org.entando.kubernetes.model.keycloakserver.EntandoKeycloakServerorg.entando.kubernetes.controller.integrationtest.support.K8SIntegrationTestHelper was not fulfilled within 15 seconds.
+	at org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest.verifyKeycloakDeployment(ControllerCoordinatorIntegratedTest.java:329)
+	at org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest.testExecuteKeycloakControllerPod(ControllerCoordinatorIntegratedTest.java:186)
 </pre></div></div></td>
 <td></td></tr>
 <tr class="b">
@@ -162,11 +159,11 @@ Expected: a value equal to or greater than &lt;1&gt;
 <td><a name="org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest.testExecuteKeycloakControllerPodEntandoOperatorComplianceMode1"></a>testExecuteKeycloakControllerPod(EntandoOperatorComplianceMode)[1]</td></tr>
 <tr class="b">
 <td></td>
-<td>java.lang.AssertionError</td></tr>
+<td>org.awaitility.core.ConditionTimeoutException</td></tr>
 <tr class="a">
 <td></td>
 <td>
-<div id="testExecuteKeycloakControllerPod(EntandoOperatorComplianceMode)[1]-failure">org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest:174</div></td></tr>
+<div id="testExecuteKeycloakControllerPod(EntandoOperatorComplianceMode)[1]-error">org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest:186</div></td></tr>
 <tr class="b">
 <td><figure><img src="images/icon_warning_sml.gif" alt="" /></figure></td>
 <td><a name="org.entando.kubernetes.controller.coordinator.interprocesstests.ControllerCoordinatorIntegratedTest.testExecuteCompositeAppControllerPod"></a>testExecuteCompositeAppControllerPod</td></tr>
