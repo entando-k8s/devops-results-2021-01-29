@@ -61,12 +61,12 @@ public class EntandoControllerCoordinator {
         //TODO extract TLS and CA certs and write them to the standard secret names
 
 <span class="fc" id="L63">        addObservers(EntandoKeycloakServer.class, this::startImage);</span>
-<span class="fc" id="L64">        addObservers(EntandoClusterInfrastructure.class, this::startImage);</span>
-<span class="fc" id="L65">        addObservers(EntandoApp.class, this::startImage);</span>
-<span class="fc" id="L66">        addObservers(EntandoPlugin.class, this::startImage);</span>
-<span class="fc" id="L67">        addObservers(EntandoAppPluginLink.class, this::startImage);</span>
-<span class="fc" id="L68">        addObservers(EntandoCompositeApp.class, this::startImage);</span>
-<span class="fc" id="L69">        addObservers(EntandoDatabaseService.class, this::startImage);</span>
+//        addObservers(EntandoClusterInfrastructure.class, this::startImage);
+//        addObservers(EntandoApp.class, this::startImage);
+//        addObservers(EntandoPlugin.class, this::startImage);
+//        addObservers(EntandoAppPluginLink.class, this::startImage);
+//        addObservers(EntandoCompositeApp.class, this::startImage);
+//        addObservers(EntandoDatabaseService.class, this::startImage);
 <span class="fc" id="L70">        KubeUtils.ready(EntandoControllerCoordinator.class.getSimpleName());</span>
 <span class="fc" id="L71">    }</span>
 
