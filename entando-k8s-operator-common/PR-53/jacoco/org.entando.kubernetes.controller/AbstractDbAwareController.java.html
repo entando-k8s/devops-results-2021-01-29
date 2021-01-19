@@ -119,60 +119,60 @@ public abstract class AbstractDbAwareController&lt;T extends EntandoBaseCustomRe
 
     protected void processCommand() {
         try {
-<span class="fc" id="L122">            Action action = Action.valueOf(</span>
-<span class="fc" id="L123">                    EntandoOperatorConfigBase.lookupProperty(KubeUtils.ENTANDO_RESOURCE_ACTION).orElseThrow(IllegalArgumentException::new));</span>
-<span class="fc" id="L124">            TlsHelper.getInstance().init();</span>
-<span class="pc bpc" id="L125" title="1 of 2 branches missed.">            if (actionToProcess(action)) {</span>
-<span class="fc" id="L126">                String resourceName = EntandoOperatorConfigBase.lookupProperty(KubeUtils.ENTANDO_RESOURCE_NAME)</span>
-<span class="fc" id="L127">                        .orElseThrow(IllegalArgumentException::new);</span>
-<span class="fc" id="L128">                String resourceNamespace = EntandoOperatorConfigBase.lookupProperty(KubeUtils.ENTANDO_RESOURCE_NAMESPACE)</span>
-<span class="fc" id="L129">                        .orElseThrow(IllegalArgumentException::new);</span>
-<span class="fc" id="L130">                T newResource = k8sClient.entandoResources().load(resourceType, resourceNamespace, resourceName);</span>
-<span class="fc" id="L131">                processAction(action, newResource);</span>
+<span class="fc" id="L122">            TlsHelper.getInstance().init();</span>
+<span class="pc bpc" id="L123" title="1 of 2 branches missed.">            if (actionRequiresSync(resolveAction())) {</span>
+<span class="fc" id="L124">                performSync(resolveResource());</span>
             }
         } finally {
-<span class="fc" id="L134">            new Thread(autoExit).start();</span>
+<span class="fc" id="L127">            new Thread(autoExit).start();</span>
         }
 
-<span class="fc" id="L137">    }</span>
+<span class="fc" id="L130">    }</span>
 
-    private boolean actionToProcess(Action action) {
-<span class="pc bpc" id="L140" title="3 of 4 branches missed.">        return action == Action.ADDED || action == Action.MODIFIED;</span>
+    private Action resolveAction() {
+<span class="fc" id="L133">        return Action.valueOf(</span>
+<span class="fc" id="L134">                EntandoOperatorConfigBase.lookupProperty(KubeUtils.ENTANDO_RESOURCE_ACTION).orElseThrow(IllegalArgumentException::new));</span>
     }
 
-    protected void processAction(Action action, T resource) {
+    private T resolveResource() {
+<span class="fc" id="L138">        String resourceName = EntandoOperatorConfigBase.lookupProperty(KubeUtils.ENTANDO_RESOURCE_NAME)</span>
+<span class="fc" id="L139">                .orElseThrow(IllegalArgumentException::new);</span>
+<span class="fc" id="L140">        String resourceNamespace = EntandoOperatorConfigBase.lookupProperty(KubeUtils.ENTANDO_RESOURCE_NAMESPACE)</span>
+<span class="fc" id="L141">                .orElseThrow(IllegalArgumentException::new);</span>
+<span class="fc" id="L142">        return k8sClient.entandoResources().load(resourceType, resourceNamespace, resourceName);</span>
+    }
+
+    protected boolean actionRequiresSync(Action action) {
+<span class="pc bpc" id="L146" title="3 of 4 branches missed.">        return action == Action.ADDED || action == Action.MODIFIED;</span>
+    }
+
+    protected void performSync(T resource) {
         try {
-<span class="pc bpc" id="L145" title="3 of 4 branches missed.">            if (action == Action.ADDED || action == Action.MODIFIED) {</span>
-<span class="fc" id="L146">                EntandoDeploymentPhase initialPhase = resource.getStatus().getEntandoDeploymentPhase();</span>
-<span class="fc" id="L147">                k8sClient.entandoResources().updatePhase(resource, EntandoDeploymentPhase.STARTED);</span>
-<span class="pc bpc" id="L148" title="3 of 4 branches missed.">                if (action == Action.ADDED || initialPhase == EntandoDeploymentPhase.REQUESTED) {</span>
-<span class="fc" id="L149">                    synchronizeDeploymentState(resource);</span>
-                }
-<span class="fc" id="L151">                k8sClient.entandoResources().updatePhase(resource, EntandoDeploymentPhase.SUCCESSFUL);</span>
-            }
-<span class="fc" id="L153">        } catch (Exception e) {</span>
-<span class="fc" id="L154">            autoExit.withCode(-1);</span>
-<span class="fc" id="L155">            logger.log(Level.SEVERE, e, () -&gt; format(&quot;Unexpected exception occurred while adding %s %s/%s&quot;,</span>
-<span class="fc" id="L156">                    resource.getKind(),</span>
-<span class="fc" id="L157">                    resource.getMetadata().getNamespace(),</span>
-<span class="fc" id="L158">                    resource.getMetadata().getName()));</span>
-<span class="fc" id="L159">            k8sClient.entandoResources().deploymentFailed(resource, e);</span>
-<span class="fc" id="L160">        }</span>
-<span class="fc" id="L161">    }</span>
+<span class="fc" id="L151">            k8sClient.entandoResources().updatePhase(resource, EntandoDeploymentPhase.STARTED);</span>
+<span class="fc" id="L152">            synchronizeDeploymentState(resource);</span>
+<span class="fc" id="L153">            k8sClient.entandoResources().updatePhase(resource, EntandoDeploymentPhase.SUCCESSFUL);</span>
+<span class="fc" id="L154">        } catch (Exception e) {</span>
+<span class="fc" id="L155">            autoExit.withCode(-1);</span>
+<span class="fc" id="L156">            logger.log(Level.SEVERE, e, () -&gt; format(&quot;Unexpected exception occurred while adding %s %s/%s&quot;,</span>
+<span class="fc" id="L157">                    resource.getKind(),</span>
+<span class="fc" id="L158">                    resource.getMetadata().getNamespace(),</span>
+<span class="fc" id="L159">                    resource.getMetadata().getName()));</span>
+<span class="fc" id="L160">            k8sClient.entandoResources().deploymentFailed(resource, e);</span>
+<span class="fc" id="L161">        }</span>
+<span class="fc" id="L162">    }</span>
 
     @SuppressWarnings(&quot;unchecked&quot;)
     protected &lt;S extends EntandoDeploymentSpec&gt; DatabaseServiceResult prepareDatabaseService(T entandoCustomResource,
-            DbmsVendor dbmsVendor,
-            String nameQualifier) {
+            DbmsVendor dbmsVendor) {
 <span class="fc" id="L167">        Optional&lt;ExternalDatabaseDeployment&gt; externalDatabase = k8sClient.entandoResources()</span>
 <span class="fc" id="L168">                .findExternalDatabase(entandoCustomResource, dbmsVendor);</span>
 <span class="fc bfc" id="L169" title="All 2 branches covered.">        if (externalDatabase.isPresent()) {</span>
 <span class="fc" id="L170">            return externalDatabase.get();</span>
 <span class="pc bpc" id="L171" title="1 of 4 branches missed.">        } else if (!(dbmsVendor == DbmsVendor.NONE || dbmsVendor == DbmsVendor.EMBEDDED)) {</span>
-<span class="fc" id="L172">            final DatabaseDeployable&lt;S&gt; databaseDeployable = new DatabaseDeployable&lt;&gt;(</span>
+<span class="fc" id="L172">            DatabaseDeployable&lt;S&gt; databaseDeployable = new DatabaseDeployable&lt;&gt;(</span>
 <span class="fc" id="L173">                    DbmsDockerVendorStrategy.forVendor(dbmsVendor, EntandoOperatorConfig.getComplianceMode()),</span>
-                    (EntandoBaseCustomResource&lt;S&gt;) entandoCustomResource, nameQualifier, null);
-<span class="fc" id="L175">            final DeployCommand&lt;DatabaseDeploymentResult, S&gt; dbCommand = new DeployCommand&lt;&gt;(databaseDeployable);</span>
+                    (EntandoBaseCustomResource&lt;S&gt;) entandoCustomResource, null);
+<span class="fc" id="L175">            DeployCommand&lt;DatabaseDeploymentResult, S&gt; dbCommand = new DeployCommand&lt;&gt;(databaseDeployable);</span>
 <span class="fc" id="L176">            DatabaseDeploymentResult result = dbCommand.execute(k8sClient, empty());</span>
 <span class="pc bpc" id="L177" title="1 of 2 branches missed.">            if (result.hasFailed()) {</span>
 <span class="nc" id="L178">                throw new EntandoControllerException(&quot;Database deployment failed&quot;);</span>

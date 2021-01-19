@@ -184,7 +184,7 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 
     @Override
     public &lt;T extends EntandoCustomResource&gt; void updatePhase(T customResource, EntandoDeploymentPhase phase) {
-<span class="fc" id="L187">        performStatusUpdate(customResource, t -&gt; t.getStatus().setEntandoDeploymentPhase(phase));</span>
+<span class="fc" id="L187">        performStatusUpdate(customResource, t -&gt; t.getStatus().updateDeploymentPhase(phase, t.getMetadata().getGeneration()));</span>
 <span class="fc" id="L188">    }</span>
 
     protected Supplier&lt;IllegalStateException&gt; notFound(String kind, String namespace, String name) {
@@ -212,49 +212,34 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 
     @Override
     public void deploymentFailed(EntandoCustomResource customResource, Exception reason) {
-<span class="fc" id="L215">        Optional&lt;AbstractServerStatus&gt; currentServerStatus = getOperations(customResource.getClass())</span>
-<span class="fc" id="L216">                .inNamespace(customResource.getMetadata().getNamespace())</span>
-<span class="fc" id="L217">                .withName(customResource.getMetadata().getName()).get().getStatus().findCurrentServerStatus();</span>
-<span class="pc bpc" id="L218" title="1 of 2 branches missed.">        if (currentServerStatus.isPresent()) {</span>
-<span class="fc" id="L219">            AbstractServerStatus newStatus = currentServerStatus.get();</span>
-<span class="fc" id="L220">            newStatus.finishWith(new EntandoControllerFailureBuilder().withException(reason).build());</span>
-<span class="fc" id="L221">            getOperations(customResource.getClass())</span>
-<span class="fc" id="L222">                    .inNamespace(customResource.getMetadata().getNamespace())</span>
-<span class="fc" id="L223">                    .withName(customResource.getMetadata().getName())</span>
-<span class="fc" id="L224">                    .edit().withStatus(newStatus).withPhase(EntandoDeploymentPhase.FAILED).done();</span>
-<span class="fc" id="L225">        } else {</span>
-<span class="nc" id="L226">            getOperations(customResource.getClass())</span>
-<span class="nc" id="L227">                    .inNamespace(customResource.getMetadata().getNamespace())</span>
-<span class="nc" id="L228">                    .withName(customResource.getMetadata().getName())</span>
-<span class="nc" id="L229">                    .edit().withPhase(EntandoDeploymentPhase.FAILED).done();</span>
-
-        }
-<span class="fc" id="L232">    }</span>
+<span class="fc" id="L215">        performStatusUpdate(customResource, t -&gt; {</span>
+<span class="fc" id="L216">            t.getStatus().findCurrentServerStatus()</span>
+<span class="fc" id="L217">                    .ifPresent(newStatus -&gt; newStatus.finishWith(new EntandoControllerFailureBuilder().withException(reason).build()));</span>
+<span class="fc" id="L218">            t.getStatus().updateDeploymentPhase(EntandoDeploymentPhase.FAILED, t.getMetadata().getGeneration());</span>
+<span class="fc" id="L219">        });</span>
+<span class="fc" id="L220">    }</span>
 
     private Service loadService(EntandoCustomResource peerInNamespace, String name) {
-<span class="fc" id="L235">        return client.services().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
+<span class="fc" id="L223">        return client.services().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
     }
 
     private Ingress loadIngress(EntandoCustomResource peerInNamespace, String name) {
-<span class="nc" id="L239">        return client.extensions().ingresses().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
+<span class="nc" id="L227">        return client.extensions().ingresses().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
     }
 
     protected Deployment loadDeployment(EntandoCustomResource peerInNamespace, String name) {
-<span class="nc" id="L243">        return client.apps().deployments().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name)</span>
-<span class="nc" id="L244">                .get();</span>
+<span class="nc" id="L231">        return client.apps().deployments().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
     }
 
     @SuppressWarnings(&quot;unchecked&quot;)
     private &lt;T extends EntandoCustomResource&gt; void performStatusUpdate(T customResource, Consumer&lt;T&gt; consumer) {
-<span class="fc" id="L249">        T latest = getOperations((Class&lt;T&gt;) customResource.getClass())</span>
-<span class="fc" id="L250">                .inNamespace(customResource.getMetadata().getNamespace())</span>
-<span class="fc" id="L251">                .withName(customResource.getMetadata().getName()).get();</span>
-<span class="fc" id="L252">        consumer.accept(latest);</span>
-<span class="fc" id="L253">        getOperations((Class&lt;T&gt;) customResource.getClass())</span>
-<span class="fc" id="L254">                .inNamespace(customResource.getMetadata().getNamespace())</span>
-<span class="fc" id="L255">                .withName(customResource.getMetadata().getName())</span>
-<span class="fc" id="L256">                .updateStatus(latest);</span>
-<span class="fc" id="L257">    }</span>
+<span class="fc" id="L236">        Resource&lt;T, ?&gt; resource = getOperations((Class&lt;T&gt;) customResource.getClass())</span>
+<span class="fc" id="L237">                .inNamespace(customResource.getMetadata().getNamespace())</span>
+<span class="fc" id="L238">                .withName(customResource.getMetadata().getName());</span>
+<span class="fc" id="L239">        T latest = resource.fromServer().get();</span>
+<span class="fc" id="L240">        consumer.accept(latest);</span>
+<span class="fc" id="L241">        resource.updateStatus(latest);</span>
+<span class="fc" id="L242">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

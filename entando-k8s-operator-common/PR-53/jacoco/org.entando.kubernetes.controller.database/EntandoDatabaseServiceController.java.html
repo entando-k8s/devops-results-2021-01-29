@@ -40,12 +40,14 @@ public class EntandoDatabaseServiceController extends AbstractDbAwareController&
 <span class="fc" id="L40">    }</span>
 
     public void processEvent(Action action, EntandoDatabaseService db) {
-<span class="fc" id="L43">        super.processAction(action, db);</span>
-<span class="fc" id="L44">    }</span>
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        if (actionRequiresSync(action)) {</span>
+<span class="fc" id="L44">            super.performSync(db);</span>
+        }
+<span class="fc" id="L46">    }</span>
 
     @Override
     protected void synchronizeDeploymentState(EntandoDatabaseService entandoDatabaseService) {
-<span class="fc" id="L48">        new CreateExternalServiceCommand(entandoDatabaseService).execute(super.k8sClient);</span>
-<span class="fc" id="L49">    }</span>
+<span class="fc" id="L50">        new CreateExternalServiceCommand(entandoDatabaseService).execute(super.k8sClient);</span>
+<span class="fc" id="L51">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
