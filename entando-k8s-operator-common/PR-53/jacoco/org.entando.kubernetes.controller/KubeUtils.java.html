@@ -144,7 +144,7 @@ public final class KubeUtils {
     public static String randomNumeric(int size) {
         String suffix;
         do {
-<span class="fc" id="L147">            suffix = String.valueOf(secureRandom.nextLong());</span>
+<span class="fc" id="L147">            suffix = String.valueOf(Math.abs(secureRandom.nextLong()));</span>
 <span class="pc bpc" id="L148" title="1 of 2 branches missed.">        } while (suffix.length() &lt; size);</span>
 <span class="fc" id="L149">        return suffix.substring(0, size);</span>
     }

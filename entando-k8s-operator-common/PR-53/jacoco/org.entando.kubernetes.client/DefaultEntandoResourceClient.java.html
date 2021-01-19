@@ -212,12 +212,12 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 
     @Override
     public void deploymentFailed(EntandoCustomResource customResource, Exception reason) {
-<span class="fc" id="L215">        performStatusUpdate(customResource, t -&gt; {</span>
-<span class="fc" id="L216">            t.getStatus().findCurrentServerStatus()</span>
-<span class="fc" id="L217">                    .ifPresent(newStatus -&gt; newStatus.finishWith(new EntandoControllerFailureBuilder().withException(reason).build()));</span>
-<span class="fc" id="L218">            t.getStatus().updateDeploymentPhase(EntandoDeploymentPhase.FAILED, t.getMetadata().getGeneration());</span>
-<span class="fc" id="L219">        });</span>
-<span class="fc" id="L220">    }</span>
+<span class="nc" id="L215">        performStatusUpdate(customResource, t -&gt; {</span>
+<span class="nc" id="L216">            t.getStatus().findCurrentServerStatus()</span>
+<span class="nc" id="L217">                    .ifPresent(newStatus -&gt; newStatus.finishWith(new EntandoControllerFailureBuilder().withException(reason).build()));</span>
+<span class="nc" id="L218">            t.getStatus().updateDeploymentPhase(EntandoDeploymentPhase.FAILED, t.getMetadata().getGeneration());</span>
+<span class="nc" id="L219">        });</span>
+<span class="nc" id="L220">    }</span>
 
     private Service loadService(EntandoCustomResource peerInNamespace, String name) {
 <span class="fc" id="L223">        return client.services().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
