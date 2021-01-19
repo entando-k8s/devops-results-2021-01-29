@@ -144,13 +144,15 @@ public final class KubeUtils {
     public static String randomNumeric(int size) {
         String suffix;
         do {
-<span class="fc" id="L147">            suffix = String.valueOf(Math.abs(secureRandom.nextLong()));</span>
-<span class="pc bpc" id="L148" title="1 of 2 branches missed.">        } while (suffix.length() &lt; size);</span>
-<span class="fc" id="L149">        return suffix.substring(0, size);</span>
+            //+1 to avoid Long.MIN_VALUE that stays negative after Math.abs
+<span class="fc" id="L148">            suffix = String.valueOf(Math.abs(secureRandom.nextLong() + 1));</span>
+<span class="pc bpc" id="L149" title="1 of 2 branches missed.">        } while (suffix.length() &lt; size);</span>
+<span class="fc" id="L150">        return suffix.substring(0, size);</span>
     }
 
     public static String randomAlphanumeric(int length) {
-<span class="fc" id="L153">        return UUID.randomUUID().toString().replace(&quot;-&quot;, &quot;&quot;).substring(0, length);</span>
+<span class="fc" id="L154">        return UUID.randomUUID().toString().replace(&quot;-&quot;, &quot;&quot;).substring(0, length);</span>
     }
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

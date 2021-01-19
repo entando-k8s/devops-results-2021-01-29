@@ -27,8 +27,7 @@ import org.entando.kubernetes.controller.EntandoOperatorConfig;
     @Produces
     public KubernetesClient produce() {
 <span class="nc" id="L29">        ConfigBuilder configBuilder = new ConfigBuilder().withTrustCerts(true).withRequestTimeout(30000).withConnectionTimeout(30000);</span>
-<span class="nc" id="L30">        EntandoOperatorConfig.getOperatorNamespaceToObserve().ifPresent(configBuilder::withNamespace);</span>
-<span class="nc" id="L31">        return new DefaultKubernetesClient(configBuilder.build());</span>
+<span class="nc" id="L30">        return new DefaultKubernetesClient(configBuilder.build());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
