@@ -136,7 +136,7 @@ public class EntandoKeycloakServerController extends AbstractDbAwareController&l
 <span class="fc" id="L136">                    .withName(KeycloakName.forTheAdminSecret(newEntandoKeycloakServer))</span>
 <span class="fc" id="L137">                    .endMetadata()</span>
 <span class="fc" id="L138">                    .addToStringData(KubeUtils.USERNAME_KEY, &quot;entando_keycloak_admin&quot;)</span>
-<span class="fc" id="L139">                    .addToStringData(KubeUtils.PASSSWORD_KEY, RandomStringUtils.randomAlphanumeric(10))</span>
+<span class="fc" id="L139">                    .addToStringData(KubeUtils.PASSSWORD_KEY, KubeUtils.randomAlphanumeric(12))</span>
 <span class="fc" id="L140">                    .build();</span>
 <span class="fc" id="L141">            k8sClient.secrets().overwriteControllerSecret(existingKeycloakAdminSecret);</span>
 
@@ -146,18 +146,15 @@ public class EntandoKeycloakServerController extends AbstractDbAwareController&l
 
     private DatabaseServiceResult prepareKeycloakDatabaseService(EntandoKeycloakServer newEntandoKeycloakServer) {
         // Create database for Keycloak
-<span class="fc" id="L149">        return prepareDatabaseService(</span>
-                newEntandoKeycloakServer,
-<span class="fc" id="L151">                EntandoKeycloakHelper.determineDbmsVendor(newEntandoKeycloakServer),</span>
-                &quot;db&quot;);
+<span class="fc" id="L149">        return prepareDatabaseService(newEntandoKeycloakServer, EntandoKeycloakHelper.determineDbmsVendor(newEntandoKeycloakServer));</span>
     }
 
     private void ensureKeycloakRealm(KeycloakConnectionConfig keycloakConnectionConfig) {
-<span class="fc" id="L156">        logger.severe(() -&gt; format(&quot;Attempting to log into Keycloak at %s&quot;, keycloakConnectionConfig.determineBaseUrl()));</span>
-<span class="fc" id="L157">        keycloakClient.login(keycloakConnectionConfig.determineBaseUrl(), keycloakConnectionConfig.getUsername(),</span>
-<span class="fc" id="L158">                keycloakConnectionConfig.getPassword());</span>
-<span class="fc" id="L159">        keycloakClient.ensureRealm(KubeUtils.ENTANDO_DEFAULT_KEYCLOAK_REALM);</span>
-<span class="fc" id="L160">    }</span>
+<span class="fc" id="L153">        logger.severe(() -&gt; format(&quot;Attempting to log into Keycloak at %s&quot;, keycloakConnectionConfig.determineBaseUrl()));</span>
+<span class="fc" id="L154">        keycloakClient.login(keycloakConnectionConfig.determineBaseUrl(), keycloakConnectionConfig.getUsername(),</span>
+<span class="fc" id="L155">                keycloakConnectionConfig.getPassword());</span>
+<span class="fc" id="L156">        keycloakClient.ensureRealm(KubeUtils.ENTANDO_DEFAULT_KEYCLOAK_REALM);</span>
+<span class="fc" id="L157">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
