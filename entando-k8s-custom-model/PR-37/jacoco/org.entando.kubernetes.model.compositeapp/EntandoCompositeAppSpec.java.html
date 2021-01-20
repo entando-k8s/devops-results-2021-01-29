@@ -38,17 +38,17 @@ import org.entando.kubernetes.model.EntandoBaseCustomResource;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EntandoCompositeAppSpec implements Serializable {
 
-    private List&lt;EntandoBaseCustomResource&gt; components;
+    private List&lt;EntandoBaseCustomResource&lt;? extends Serializable&gt;&gt; components;
 
     public EntandoCompositeAppSpec() {
 <span class="fc" id="L44">        super();</span>
 <span class="fc" id="L45">    }</span>
 
-<span class="fc" id="L47">    public EntandoCompositeAppSpec(List&lt;EntandoBaseCustomResource&gt; components) {</span>
+<span class="fc" id="L47">    public EntandoCompositeAppSpec(List&lt;EntandoBaseCustomResource&lt;? extends Serializable&gt;&gt; components) {</span>
 <span class="fc" id="L48">        this.components = components;</span>
 <span class="fc" id="L49">    }</span>
 
-    public List&lt;EntandoBaseCustomResource&gt; getComponents() {
+    public List&lt;EntandoBaseCustomResource&lt;? extends Serializable&gt;&gt; getComponents() {
 <span class="pc bpc" id="L52" title="1 of 2 branches missed.">        return this.components == null ? Collections.emptyList() : this.components;</span>
     }
 }

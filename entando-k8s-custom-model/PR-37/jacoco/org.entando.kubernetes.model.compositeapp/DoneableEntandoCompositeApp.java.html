@@ -22,7 +22,7 @@ import org.entando.kubernetes.model.DoneableEntandoCustomResource;
 import org.entando.kubernetes.model.EntandoCustomResourceStatus;
 
 public class DoneableEntandoCompositeApp extends EntandoCompositeAppFluent&lt;DoneableEntandoCompositeApp&gt; implements
-        DoneableEntandoCustomResource&lt;DoneableEntandoCompositeApp, EntandoCompositeApp&gt; {
+        DoneableEntandoCustomResource&lt;EntandoCompositeApp, DoneableEntandoCompositeApp&gt; {
 
     private final EntandoCustomResourceStatus status;
     private final Function&lt;EntandoCompositeApp, EntandoCompositeApp&gt; function;

@@ -19,9 +19,9 @@ package org.entando.kubernetes.model.app;
 import io.fabric8.kubernetes.api.builder.Nested;
 import io.fabric8.kubernetes.api.model.ObjectMeta;
 import io.fabric8.kubernetes.api.model.ObjectMetaBuilder;
-import org.entando.kubernetes.model.EntandoBaseFluent;
+import org.entando.kubernetes.model.EntandoBaseFluentImpl;
 
-public class EntandoAppFluent&lt;A extends EntandoAppFluent&lt;A&gt;&gt; extends EntandoBaseFluent&lt;A&gt; {
+public class EntandoAppFluent&lt;A extends EntandoAppFluent&lt;A&gt;&gt; extends EntandoBaseFluentImpl&lt;A&gt; {
 
     protected EntandoAppSpecBuilder spec;
 

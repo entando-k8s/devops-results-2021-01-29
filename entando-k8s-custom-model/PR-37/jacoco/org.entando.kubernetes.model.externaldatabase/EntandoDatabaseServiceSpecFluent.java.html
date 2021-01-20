@@ -18,7 +18,6 @@ package org.entando.kubernetes.model.externaldatabase;
 
 import static org.entando.kubernetes.model.Coalescence.coalesce;
 
-import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.entando.kubernetes.model.DbmsVendor;
@@ -36,23 +35,23 @@ public abstract class EntandoDatabaseServiceSpecFluent&lt;N extends EntandoDatab
     private Boolean createDeployment;
 
     protected EntandoDatabaseServiceSpecFluent(EntandoDatabaseServiceSpec spec) {
-<span class="fc" id="L39">        super(spec);</span>
-<span class="fc" id="L40">        this.databaseName = spec.getDatabaseName().orElse(null);</span>
-<span class="fc" id="L41">        this.dbms = spec.getDbms();</span>
-<span class="fc" id="L42">        this.host = spec.getHost().orElse(null);</span>
-<span class="fc" id="L43">        this.port = spec.getPort().orElse(null);</span>
-<span class="fc" id="L44">        this.secretName = spec.getSecretName().orElse(null);</span>
-<span class="fc" id="L45">        this.tablespace = spec.getTablespace().orElse(null);</span>
-<span class="fc" id="L46">        this.createDeployment = spec.getCreateDeployment().orElse(null);</span>
-<span class="fc" id="L47">        this.jdbcParameters = coalesce(spec.getJdbcParameters(), this.jdbcParameters);</span>
-<span class="fc" id="L48">    }</span>
+<span class="fc" id="L38">        super(spec);</span>
+<span class="fc" id="L39">        this.databaseName = spec.getDatabaseName().orElse(null);</span>
+<span class="fc" id="L40">        this.dbms = spec.getDbms();</span>
+<span class="fc" id="L41">        this.host = spec.getHost().orElse(null);</span>
+<span class="fc" id="L42">        this.port = spec.getPort().orElse(null);</span>
+<span class="fc" id="L43">        this.secretName = spec.getSecretName().orElse(null);</span>
+<span class="fc" id="L44">        this.tablespace = spec.getTablespace().orElse(null);</span>
+<span class="fc" id="L45">        this.createDeployment = spec.getCreateDeployment().orElse(null);</span>
+<span class="fc" id="L46">        this.jdbcParameters = coalesce(spec.getJdbcParameters(), this.jdbcParameters);</span>
+<span class="fc" id="L47">    }</span>
 
-<span class="fc" id="L50">    protected EntandoDatabaseServiceSpecFluent() {</span>
+<span class="fc" id="L49">    protected EntandoDatabaseServiceSpecFluent() {</span>
 
-<span class="fc" id="L52">    }</span>
+<span class="fc" id="L51">    }</span>
 
     public EntandoDatabaseServiceSpec build() {
-<span class="fc" id="L55">        return new EntandoDatabaseServiceSpec(</span>
+<span class="fc" id="L54">        return new EntandoDatabaseServiceSpec(</span>
                 dbms,
                 host,
                 port,
@@ -68,51 +67,51 @@ public abstract class EntandoDatabaseServiceSpecFluent&lt;N extends EntandoDatab
     }
 
     public N withDatabaseName(String databaseName) {
-<span class="fc" id="L71">        this.databaseName = databaseName;</span>
-<span class="fc" id="L72">        return thisAsN();</span>
+<span class="fc" id="L70">        this.databaseName = databaseName;</span>
+<span class="fc" id="L71">        return thisAsN();</span>
     }
 
     public N withCreateDeployment(Boolean createDeployment) {
-<span class="fc" id="L76">        this.createDeployment = createDeployment;</span>
-<span class="fc" id="L77">        return thisAsN();</span>
+<span class="fc" id="L75">        this.createDeployment = createDeployment;</span>
+<span class="fc" id="L76">        return thisAsN();</span>
     }
 
     public N withDbms(DbmsVendor dbms) {
-<span class="fc" id="L81">        this.dbms = dbms;</span>
-<span class="fc" id="L82">        return thisAsN();</span>
+<span class="fc" id="L80">        this.dbms = dbms;</span>
+<span class="fc" id="L81">        return thisAsN();</span>
     }
 
     public N withHost(String host) {
-<span class="fc" id="L86">        this.host = host;</span>
-<span class="fc" id="L87">        return thisAsN();</span>
+<span class="fc" id="L85">        this.host = host;</span>
+<span class="fc" id="L86">        return thisAsN();</span>
     }
 
     public N withPort(Integer port) {
-<span class="fc" id="L91">        this.port = port;</span>
-<span class="fc" id="L92">        return thisAsN();</span>
+<span class="fc" id="L90">        this.port = port;</span>
+<span class="fc" id="L91">        return thisAsN();</span>
     }
 
     public N withSecretName(String secretName) {
-<span class="fc" id="L96">        this.secretName = secretName;</span>
-<span class="fc" id="L97">        return thisAsN();</span>
+<span class="fc" id="L95">        this.secretName = secretName;</span>
+<span class="fc" id="L96">        return thisAsN();</span>
     }
 
     public N withJdbcParameters(Map&lt;String, String&gt; jdbcParameters) {
-<span class="fc" id="L101">        this.jdbcParameters = new ConcurrentHashMap&lt;&gt;(jdbcParameters);</span>
-<span class="fc" id="L102">        return thisAsN();</span>
+<span class="fc" id="L100">        this.jdbcParameters = new ConcurrentHashMap&lt;&gt;(jdbcParameters);</span>
+<span class="fc" id="L101">        return thisAsN();</span>
     }
 
     public N addToJdbcParameters(String name, String value) {
-<span class="pc bpc" id="L106" title="1 of 2 branches missed.">        if (jdbcParameters == null) {</span>
-<span class="fc" id="L107">            jdbcParameters = new ConcurrentHashMap&lt;&gt;();</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">        if (jdbcParameters == null) {</span>
+<span class="fc" id="L106">            jdbcParameters = new ConcurrentHashMap&lt;&gt;();</span>
         }
-<span class="fc" id="L109">        this.jdbcParameters.put(name, value);</span>
-<span class="fc" id="L110">        return thisAsN();</span>
+<span class="fc" id="L108">        this.jdbcParameters.put(name, value);</span>
+<span class="fc" id="L109">        return thisAsN();</span>
     }
 
     public N withTablespace(String tablespace) {
-<span class="fc" id="L114">        this.tablespace = tablespace;</span>
-<span class="fc" id="L115">        return thisAsN();</span>
+<span class="fc" id="L113">        this.tablespace = tablespace;</span>
+<span class="fc" id="L114">        return thisAsN();</span>
     }
 
 }

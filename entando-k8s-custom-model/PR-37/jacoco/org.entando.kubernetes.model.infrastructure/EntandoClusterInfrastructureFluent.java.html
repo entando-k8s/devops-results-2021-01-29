@@ -20,9 +20,9 @@ import io.fabric8.kubernetes.api.builder.Fluent;
 import io.fabric8.kubernetes.api.builder.Nested;
 import io.fabric8.kubernetes.api.model.ObjectMeta;
 import io.fabric8.kubernetes.api.model.ObjectMetaBuilder;
-import org.entando.kubernetes.model.EntandoBaseFluent;
+import org.entando.kubernetes.model.EntandoBaseFluentImpl;
 
-public class EntandoClusterInfrastructureFluent&lt;A extends EntandoClusterInfrastructureFluent&lt;A&gt;&gt; extends EntandoBaseFluent&lt;A&gt; implements
+public class EntandoClusterInfrastructureFluent&lt;A extends EntandoClusterInfrastructureFluent&lt;A&gt;&gt; extends EntandoBaseFluentImpl&lt;A&gt; implements
         Fluent&lt;A&gt; {
 
     protected EntandoClusterInfrastructureSpecBuilder spec;
