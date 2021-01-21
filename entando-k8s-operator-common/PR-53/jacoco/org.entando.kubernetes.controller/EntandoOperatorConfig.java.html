@@ -22,7 +22,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -54,7 +54,7 @@ public final class EntandoOperatorConfig extends EntandoOperatorConfigBase {
 
     public static OperatorDeploymentType getOperatorDeploymentType() {
 <span class="fc" id="L56">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_K8S_OPERATOR_DEPLOYMENT_TYPE)</span>
-<span class="pc" id="L57">                .map(s -&gt; OperatorDeploymentType.valueOf(s.toLowerCase(Locale.ROOT).replace(&quot;-&quot;, &quot;_&quot;)))</span>
+<span class="fc" id="L57">                .map(OperatorDeploymentType::resolve)</span>
 <span class="fc" id="L58">                .orElse(OperatorDeploymentType.HELM);</span>
     }
 
@@ -79,8 +79,8 @@ public final class EntandoOperatorConfig extends EntandoOperatorConfigBase {
     }
 
     public static SecurityMode getOperatorSecurityMode() {
-<span class="fc" id="L82">        return SecurityMode</span>
-<span class="fc" id="L83">                .caseInsensitiveValueOf(getProperty(EntandoOperatorConfigProperty.ENTANDO_K8S_OPERATOR_SECURITY_MODE, &quot;lenient&quot;));</span>
+<span class="fc" id="L82">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_K8S_OPERATOR_SECURITY_MODE)</span>
+<span class="fc" id="L83">                .map(SecurityMode::resolve).orElse(SecurityMode.LENIENT);</span>
     }
 
     /*
@@ -97,13 +97,13 @@ public final class EntandoOperatorConfig extends EntandoOperatorConfigBase {
     public static List&lt;Path&gt; getCertificateAuthorityCertPaths() {
 <span class="fc" id="L98">        String[] paths = getProperty(EntandoOperatorConfigProperty.ENTANDO_CA_CERT_PATHS,</span>
 <span class="fc" id="L99">                &quot;/var/run/secrets/kubernetes.io/serviceaccount/ca.crt&quot;).split(SEPERATOR_PATTERN);</span>
-<span class="fc" id="L100">        List&lt;Path&gt; result = Arrays.asList(paths).stream()</span>
+<span class="fc" id="L100">        List&lt;Path&gt; result = Arrays.stream(paths)</span>
 <span class="fc" id="L101">                .map(Paths::get)</span>
 <span class="fc" id="L102">                .filter(path -&gt; path.toFile().exists())</span>
 <span class="fc" id="L103">                .collect(Collectors.toList());</span>
 <span class="fc" id="L104">        File caCertRoot = Paths.get(getProperty(EntandoOperatorConfigProperty.ENTANDO_CA_CERT_ROOT_FOLDER, &quot;/etc/entando/ca&quot;)).toFile();</span>
 <span class="pc bpc" id="L105" title="3 of 4 branches missed.">        if (caCertRoot.exists() &amp;&amp; caCertRoot.isDirectory()) {</span>
-<span class="nc" id="L106">            result.addAll(Arrays.stream(caCertRoot.listFiles())</span>
+<span class="nc" id="L106">            result.addAll(Arrays.stream(Objects.requireNonNull(caCertRoot.listFiles()))</span>
 <span class="nc" id="L107">                    .filter(File::isFile)</span>
 <span class="nc" id="L108">                    .map(file -&gt; Paths.get(file.getAbsolutePath()))</span>
 <span class="nc" id="L109">                    .collect(Collectors.toList()));</span>
@@ -163,8 +163,7 @@ public final class EntandoOperatorConfig extends EntandoOperatorConfigBase {
 
     public static EntandoOperatorComplianceMode getComplianceMode() {
 <span class="fc" id="L165">        return lookupProperty(EntandoOperatorConfigProperty.ENTANDO_K8S_OPERATOR_COMPLIANCE_MODE)</span>
-<span class="fc" id="L166">                .map(s -&gt; EntandoOperatorComplianceMode.valueOf(s.toUpperCase(</span>
-<span class="fc" id="L167">                        Locale.getDefault()))).orElse(EntandoOperatorComplianceMode.COMMUNITY);</span>
+<span class="fc" id="L166">                .map(EntandoOperatorComplianceMode::resolve).orElse(EntandoOperatorComplianceMode.COMMUNITY);</span>
     }
 
 }
