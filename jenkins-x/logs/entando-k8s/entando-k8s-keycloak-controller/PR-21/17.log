@@ -1,0 +1,41 @@
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-pxkgk-17[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-bv7d2[0m
+{"level":"warn","ts":1611254433.5656219,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1611254433.576382,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-pxkgk-17[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-9kwdj[0m
+{"level":"warn","ts":1611254437.3686614,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1611254437.3878112,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully e**cuted command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-pxkgk-17[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-pxkgk-17[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-k8s-entando-k8s-keycloa-rt5g2[0m
+{"level":"warn","ts":1611254467.758142,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1611254469.1593292,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/entando-k8s/entando-k8s-keycloak-controller.git @ master in path /workspace/source"}
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-pxkgk-17[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+failed to open log file "/var/log/pods/1f972957-5c18-11eb-ad12-2a726b6f9ff7/step-git-merge/0.log": open /var/log/pods/1f972957-5c18-11eb-ad12-2a726b6f9ff7/step-git-merge/0.log: no such file or directory
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-pxkgk-17[0m stage [32mfrom-build-pack[0m and container [32mstep-build-set-version[0m
+Unable to retrieve container logs for docker://b9bf96b324b42607600fbbb0e9ebcf58cdd645579a78c7299cc8009ef9661556
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-pxkgk-17[0m stage [32mfrom-build-pack[0m and container [32mstep-build-fix-git-for-sonar[0m
+Unable to retrieve container logs for docker://803c10c32b1fba490a2900f2dc20e6723320b3cd664357684cbff45a5db25855
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-pxkgk-17[0m stage [32mfrom-build-pack[0m and container [32mstep-build-mvn-verify-pr[0m
+Unable to retrieve container logs for docker://17be06a0c50b1874122cc9b11d16c225021648e07e252926b42ca3b4bc6ae041
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-pxkgk-17[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+Unable to retrieve container logs for docker://69684abb1d743e5b9a9b5309c0850515a8c9a4bef683e3620b0f50e79ac3195d
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-pxkgk-17[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+Unable to retrieve container logs for docker://563e8b751a8e7d41407153fce0870f9e0610eafdaece2d20dc6c31e72f3d1356
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-pxkgk-17[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-make-preview[0m
+Unable to retrieve container logs for docker://4dbb0a9722f33e7644bd6f67e02bcc28de19e4a6ab25bf142f9eea84eaea1c48
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-pxkgk-17[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-preview[0m
+Unable to retrieve container logs for docker://bc91d9d44cff575997d4f3a183c4ef7d2f2b8b8f0d64d25b266098f77d05161c
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-pxkgk-17[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-run-post-deployment-tests[0m
+Unable to retrieve container logs for docker://675cadb271c9b51c7da966dec883922fce10c1820225ab7e00804fce526c8774
