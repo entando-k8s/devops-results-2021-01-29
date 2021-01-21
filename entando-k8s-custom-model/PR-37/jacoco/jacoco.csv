@@ -102,7 +102,7 @@ Entando Kubernetes Custom Model,org.entando.kubernetes.model,KeycloakToUse,3,19,
 Entando Kubernetes Custom Model,org.entando.kubernetes.model,EntandoIngressingDeploymentSpecBuilder,0,54,0,0,0,14,0,5,0,5
 Entando Kubernetes Custom Model,org.entando.kubernetes.model,AbstractServerStatus,11,99,1,1,4,35,4,20,3,20
 Entando Kubernetes Custom Model,org.entando.kubernetes.model,MetadataNestedImpl,2,44,1,1,0,12,1,6,0,6
-Entando Kubernetes Custom Model,org.entando.kubernetes.model,EntandoCustomResourceStatus,6,71,2,2,2,17,3,10,1,10
+Entando Kubernetes Custom Model,org.entando.kubernetes.model,EntandoCustomResourceStatus,3,74,2,2,1,18,2,11,0,11
 Entando Kubernetes Custom Model,org.entando.kubernetes.model,JeeServer,5,69,1,1,2,11,2,4,1,4
 Entando Kubernetes Custom Model,org.entando.kubernetes.model,Coalescence,4,18,2,2,1,3,2,1,0,1
 Entando Kubernetes Custom Model,org.entando.kubernetes.model,EntandoBaseFluentImpl,0,32,0,0,0,8,0,5,0,5
