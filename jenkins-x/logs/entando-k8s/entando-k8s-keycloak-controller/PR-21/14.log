@@ -1,0 +1,42 @@
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-r2vgw-14[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-snd6k[0m
+{"level":"warn","ts":1611213633.8954487,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1611213633.901245,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-r2vgw-14[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-sdrf5[0m
+failed to open log file "/var/log/pods/1e1ba48f-5bb9-11eb-ad12-2a726b6f9ff7/step-working-dir-initializer-sdrf5/0.log": open /var/log/pods/1e1ba48f-5bb9-11eb-ad12-2a726b6f9ff7/step-working-dir-initializer-sdrf5/0.log: no such file or directory
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-r2vgw-14[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+Unable to retrieve container logs for docker://d95da233fcdbc749847c18da040bb323e7c49c57933cf604e5420082f7e3e955
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-r2vgw-14[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-k8s-entando-k8s-keycloa-g5spv[0m
+Unable to retrieve container logs for docker://9cd81a5257b8d730f5efec1920949f397e5e4fc3e43a316d07482c1b1bfaaf03
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-r2vgw-14[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Unable to retrieve container logs for docker://93dc6715925df12d0daacb8763b4f3139230c690f708676ec476413f06364075
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-r2vgw-14[0m stage [32mfrom-build-pack[0m and container [32mstep-build-set-version[0m
+Unable to retrieve container logs for docker://9d54ac2ed22ba24e7baf5d982a7dfc4321bbac1b2397d3653b228ee38a6cbe68
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-r2vgw-14[0m stage [32mfrom-build-pack[0m and container [32mstep-build-fix-git-for-sonar[0m
+Unable to retrieve container logs for docker://045b48cf6f2e27585e17f6e219fa454b681e5601d3cbb6342a8c322bbc33ca50
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-r2vgw-14[0m stage [32mfrom-build-pack[0m and container [32mstep-build-mvn-verify-pr[0m
+Unable to retrieve container logs for docker://d026b3267290bb0962c024fdf92f3336d10d7cc68a8bb74482a1d2b292ff2d7e
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-r2vgw-14[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+Unable to retrieve container logs for docker://e7821ffd01e5b344954c4de9b2e0a94fdd471492a5a13b623767ac290eb95b60
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-r2vgw-14[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+Unable to retrieve container logs for docker://5ede2e48583620148238bddb6d48781347a27b1c227c8a1d8d5be32a2f966b44
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-r2vgw-14[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-make-preview[0m
+Unable to retrieve container logs for docker://d740c1966d543249ba71feb73a3d6b2752cd52ad1ac0c650d6ac3c87865c4530
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-r2vgw-14[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-preview[0m
+Unable to retrieve container logs for docker://801cd33e37e40f14cd5a4f8f15bc56674afeb70a388aaf3e37d8ec8bb0e75a74
+
+Showing logs for build [32mentando-k8s-entando-k8s-keycloa-r2vgw-14[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-run-post-deployment-tests[0m
+Unable to retrieve container logs for docker://8db0dc01dbd1ad2e10f982e76254d866e7c6dc101c7bf26b6c3b450e406aa90c
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-promote-run-post-deployment-tests'. The execution of the pipeline has stopped.[0m
