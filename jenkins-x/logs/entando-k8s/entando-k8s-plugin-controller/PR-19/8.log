@@ -1,0 +1,1174 @@
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-szfrv-8[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-fzpc8[0m
+{"level":"warn","ts":1611293207.2271369,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1611293207.2316089,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-szfrv-8[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-s8l7w[0m
+{"level":"warn","ts":1611293210.5487537,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1611293210.5551035,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully e**cuted command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-szfrv-8[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-szfrv-8[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-k8s-entando-k8s-plugin-z594m[0m
+{"level":"warn","ts":1611293241.7185235,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1611293243.0130835,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/entando-k8s/entando-k8s-plugin-controller.git @ master in path /workspace/source"}
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-szfrv-8[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:90d2151064805c1948cbbd7e5d74e92694dd13e2,19:613df15c78a558830eacf8bb3d6ea3c527e41a57
+DEBUG: ran git fetch --unshallow origin 613df15c78a558830eacf8bb3d6ea3c527e41a57: 90d2151064805c1948cbbd7e5d74e92694dd13e2: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard 90d2151064805c1948cbbd7e5d74e92694dd13e2 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge 613df15c78a558830eacf8bb3d6ea3c527e41a57 in 
+Merged SHA 613df15c78a558830eacf8bb3d6ea3c527e41a57 with commit message 'ENG-1740 forced STRICT mode in RedHat compliance mode' into base branch master
+Merged SHA 9110ee83a66bced1d8dacc7fed3ea0216215bffc with commit message 'ENG-1740 bumped to latest operator-common' into base branch master
+Merged SHA 93835f04dfc1cf4143efbb8175b5b53ce713ced2 with commit message 'ENG-1740 fi**d parameterized test' into base branch master
+Merged SHA d2672d03abe33ccb07f8f5c907042cfc1044ff66 with commit message 'ENG-1740 fi**d parameterized test' into base branch master
+Merged SHA 9ceb7ceee81f3d8b74a58ac80515e63f13132adf with commit message 'ENG-1740 bumped custom-model to a version compatible with Openshift 4.6' into base branch master
+Merged SHA 45dc3969c4b50a12ed52fd1ba4e7e97a59685212 with commit message 'ENG-1740 merged master' into base branch master
+Merged SHA 82cdb128d324bd9a7fa107780b5be2ed620d0801 with commit message 'ENG-1740 commit after initial migration to Red Hat compliance' into base branch master
+Merged SHA 07086d4bc270c09850e48543d0f93ec1932fd668 with commit message 'ENG-1740 Initial Red Hat Certification migration' into base branch master
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-szfrv-8[0m stage [32mfrom-build-pack[0m and container [32mstep-build-set-version[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms1000m -Xmx12000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------< org.entando:entando-k8s-plugin-controller >--------------
+[INFO] Building Entando K8S Controller for Entando Plugin Deployments 6.2.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- versions-maven-plugin:2.8.1:set (default-cli) @ entando-k8s-plugin-controller ---
+[INFO] Local aggregation ****: /workspace/source
+[INFO] Processing change of org.entando:entando-k8s-plugin-controller:6.2.0-SNAPSHOT -> 0.0.0-SNAPSHOT-PR-19-8
+[INFO] Processing org.entando:entando-k8s-plugin-controller
+[INFO]     Updating project org.entando:entando-k8s-plugin-controller
+[INFO]         from version 6.2.0-SNAPSHOT to 0.0.0-SNAPSHOT-PR-19-8
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.672 s
+[INFO] Finished at: 2021-01-22T05:27:37Z
+[INFO] ------------------------------------------------------------------------
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-szfrv-8[0m stage [32mfrom-build-pack[0m and container [32mstep-build-fix-git-for-sonar[0m
+Switched to a new branch 'PR-19'
+M	pom.xml
+Deleted branch master (was 613df15).
+From https://github.com/entando-k8s/entando-k8s-plugin-controller
+ * [new branch]      master     -> master
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-szfrv-8[0m stage [32mfrom-build-pack[0m and container [32mstep-build-mvn-verify-pr[0m
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 11  1874    0     0  100   221      0    336 --:--:-- --:--:-- --:--:--   336100  1874  100  1653  100   221   2515    336 --:--:-- --:--:-- --:--:--  2512
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-plugin-controller/statuses/613df15c78a558830eacf8bb3d6ea3c527e41a57",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 11934712786,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMTkzNDcxMjc4Ng==",
+  "state": "pending",
+  "description": "Pre-deployment tests pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-plugin-controller/PR-19/surefire-report.html",
+  "context": "Pre-deployment tests",
+  "created_at": "2021-01-22T05:27:39Z",
+  "updated_at": "2021-01-22T05:27:39Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1878  100  1655  100   223   2685    361 --:--:-- --:--:-- --:--:--  2686
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-plugin-controller/statuses/613df15c78a558830eacf8bb3d6ea3c527e41a57",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 11934712844,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMTkzNDcxMjg0NA==",
+  "state": "pending",
+  "description": "Post-deployment tests pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-plugin-controller/PR-19/failsafe-report.html",
+  "context": "Post-deployment tests",
+  "created_at": "2021-01-22T05:27:40Z",
+  "updated_at": "2021-01-22T05:27:40Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-plugin-controller/statuses/613df15c78a558830eacf8bb3d6ea3c527e41a57",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 11934712899,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMTkzNDcxMjg5OQ==",
+  "state": "pending",
+  "description": "Checkstyle pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-plugin-controller/PR-19/checkstyle.html",
+  "context": "Checkstyle",
+  "created_at": "2021-01-22T05:27:40Z",
+  "updated_at": "2021-01-22T05:27:40Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1824  100  1628  100   196   2626    316 --:--:-- --:--:-- --:--:--  2625
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-plugin-controller/statuses/613df15c78a558830eacf8bb3d6ea3c527e41a57",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 11934712953,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMTkzNDcxMjk1Mw==",
+  "state": "pending",
+  "description": "OWASP CVE pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-plugin-controller/PR-19/dependency-check-report.html",
+  "context": "OWASP CVE",
+  "created_at": "2021-01-22T05:27:41Z",
+  "updated_at": "2021-01-22T05:27:41Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 11  1846    0     0  100   207      0    288 --:--:-- --:--:-- --:--:--   288100  1846  100  1639  100   207   2281    288 --:--:-- --:--:-- --:--:--  2279
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms1000m -Xmx12000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------< org.entando:entando-k8s-plugin-controller >--------------
+[INFO] Building Entando K8S Controller for Entando Plugin Deployments 0.0.0-SNAPSHOT-PR-19-8
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:check (validate) @ entando-k8s-plugin-controller ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:checkstyle (validate) @ entando-k8s-plugin-controller ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ entando-k8s-plugin-controller ---
+[INFO] argLine set to -javaagent:/home/jenkins/.mvnrepository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/workspace/source/target/jacoco.e**c
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ entando-k8s-plugin-controller ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ entando-k8s-plugin-controller ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /workspace/source/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ entando-k8s-plugin-controller ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ entando-k8s-plugin-controller ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /workspace/source/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M1:test (default-test) @ entando-k8s-plugin-controller ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.932 s - in org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginTest
+[INFO] Running org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginWithoutDbTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.881 s - in org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginWithoutDbTest
+[INFO] Running org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginWithoutSidecarTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.438 s - in org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginWithoutSidecarTest
+[INFO] Running org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginOnExternalDbTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.23 s - in org.entando.kubernetes.controller.plugin.inprocesstests.DeployPluginOnExternalDbTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ entando-k8s-plugin-controller ---
+[INFO] Building jar: /workspace/source/target/entando-k8s-plugin-controller-0.0.0-SNAPSHOT-PR-19-8.jar
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:test-jar (build-test-jar) @ entando-k8s-plugin-controller ---
+[INFO] Building jar: /workspace/source/target/entando-k8s-plugin-controller-0.0.0-SNAPSHOT-PR-19-8-tests.jar
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.2.0:jar (attach-javadocs) @ entando-k8s-plugin-controller ---
+[INFO] No previous run data found, generating javadoc.
+[INFO] 
+Loading source files for package org.entando.kubernetes.controller.plugin...
+Constructing Javadoc information...
+Standard Doclet version 11.0.6
+Building tree for all the packages and classes...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/plugin/EntandoPluginController.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/plugin/EntandoPluginDeployableContainer.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/plugin/EntandoPluginDeploymentResult.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/plugin/EntandoPluginServerDeployable.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/plugin/EntandoPluginSidecarDeployableContainer.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/plugin/package-summary.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/plugin/package-tree.html...
+Generating /workspace/source/target/apidocs/constant-values.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/plugin/class-use/EntandoPluginController.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/plugin/class-use/EntandoPluginDeploymentResult.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/plugin/class-use/EntandoPluginSidecarDeployableContainer.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/plugin/class-use/EntandoPluginDeployableContainer.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/plugin/class-use/EntandoPluginServerDeployable.html...
+Generating /workspace/source/target/apidocs/org/entando/kubernetes/controller/plugin/package-use.html...
+Building index for all the packages and classes...
+Generating /workspace/source/target/apidocs/overview-tree.html...
+Generating /workspace/source/target/apidocs/index-all.html...
+Building index for all classes...
+Generating /workspace/source/target/apidocs/allclasses-index.html...
+Generating /workspace/source/target/apidocs/allpackages-index.html...
+Generating /workspace/source/target/apidocs/deprecated-list.html...
+Building index for all classes...
+Generating /workspace/source/target/apidocs/allclasses.html...
+Generating /workspace/source/target/apidocs/allclasses.html...
+Generating /workspace/source/target/apidocs/index.html...
+Generating /workspace/source/target/apidocs/help-doc.html...
+[INFO] Building jar: /workspace/source/target/entando-k8s-plugin-controller-0.0.0-SNAPSHOT-PR-19-8-javadoc.jar
+[INFO] 
+[INFO] --- license-maven-plugin:2.0.0:aggregate-download-licenses (download-licenses) @ entando-k8s-plugin-controller ---
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:ojdbc8:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:ons:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:******pki:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:osdt_cert:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:osdt_core:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:simplefan:19.3.0.0
+[WARNING] No URL for license at index 0 in dependency com.******.ojdbc:ucp:19.3.0.0
+[WARNING] No license information available for: com.sun.org.apache:jaxp-ri:1.4
+[WARNING] No license information available for: javax.xml.parsers:jaxp-api:1.4
+[WARNING] Unable to retrieve license from URL 'https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html' for dependency 'javax.servlet:javax.servlet-api:3.0.1': Certificate for <glassfish.dev.java.net> doesn't match any of the subject alternative names: [*.java.net, java.net]
+[WARNING] Unable to retrieve license from URL 'LICENSE.txt' for dependency 'org.awaitility:awaitility:4.0.1': null
+Jan 22, 2021 5:28:27 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: _octo=GH1.1.1226961820.1611293307; Path=/; Domain=github.com; Expires=Sat, 22 Jan 2022 05:28:27 GMT; Secure; SameSite=Lax". Invalid 'expires' attribute: Sat, 22 Jan 2022 05:28:27 GMT
+Jan 22, 2021 5:28:27 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: logged_in=no; Path=/; Domain=github.com; Expires=Sat, 22 Jan 2022 05:28:27 GMT; HttpOnly; Secure; SameSite=Lax". Invalid 'expires' attribute: Sat, 22 Jan 2022 05:28:27 GMT
+Jan 22, 2021 5:28:27 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: _octo=GH1.1.1286415422.1611293307; Path=/; Domain=github.com; Expires=Sat, 22 Jan 2022 05:28:27 GMT; Secure; SameSite=Lax". Invalid 'expires' attribute: Sat, 22 Jan 2022 05:28:27 GMT
+Jan 22, 2021 5:28:27 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: logged_in=no; Path=/; Domain=github.com; Expires=Sat, 22 Jan 2022 05:28:27 GMT; HttpOnly; Secure; SameSite=Lax". Invalid 'expires' attribute: Sat, 22 Jan 2022 05:28:27 GMT
+[WARNING] There were 11 download errors - check the warnings above
+[INFO] 
+[INFO] --- quarkus-maven-plugin:1.2.0.Final:build (default) @ entando-k8s-plugin-controller ---
+[WARNING] [io.quarkus.creator.curator.Curator] These dependencies are not recommended:
+	- javax.servlet:javax.servlet-api should be replaced by jakarta.servlet:jakarta.servlet-api
+You might end up with two different versions of the same classes or with an artifact you shouldn't have in your classpath.
+[INFO] [org.jboss.threads] JBoss Threads version 3.0.0.Final
+[INFO] [io.quarkus.deployment.pkg.steps.JarResultBuildStep] Building thin jar: /workspace/source/target/entando-k8s-plugin-controller-0.0.0-SNAPSHOT-PR-19-8-runner.jar
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 1561ms
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:failsafe-report-only (integration-tests) @ entando-k8s-plugin-controller ---
+[INFO] 
+[INFO] --- dependency-check-maven:6.0.3:aggregate (default) @ entando-k8s-plugin-controller ---
+[INFO] Checking for updates
+[INFO] Skipping NVD check since last check was within 4 hours.
+[INFO] Check for updates complete (70 ms)
+[INFO] 
+
+Dependency-Check is an open source tool performing a best effort analysis of 3rd party dependencies; false positives and false negatives may exist in the analysis performed by the tool. Use of the tool and the reporting provided constitutes acceptance for use in an AS IS condition, and there are NO warranties, implied or otherwise, with regard to the analysis or its use. Any use of the tool and the reporting provided is at the user’s risk. In no event shall the copyright holder or OWASP be held liable for any damages whatsoever arising out of or in connection with the use of this tool, the analysis performed, or the resulting report.
+
+
+[INFO] Analysis Started
+[INFO] Finished Archive Analyzer (0 seconds)
+[INFO] Finished File Name Analyzer (0 seconds)
+[INFO] Finished Jar Analyzer (0 seconds)
+[INFO] Finished Dependency Merging Analyzer (0 seconds)
+[INFO] Finished Version Filter Analyzer (0 seconds)
+[INFO] Finished Hint Analyzer (0 seconds)
+[INFO] Created CPE Index (2 seconds)
+[INFO] Finished CPE Analyzer (4 seconds)
+[INFO] Finished False Positive Analyzer (0 seconds)
+[INFO] Finished NVD CVE Analyzer (0 seconds)
+[INFO] Finished Sonatype OSS Index Analyzer (1 seconds)
+[INFO] Finished Vulnerability Suppression Analyzer (0 seconds)
+[INFO] Finished Dependency Bundling Analyzer (0 seconds)
+[INFO] Analysis Complete (8 seconds)
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:report (report) @ entando-k8s-plugin-controller ---
+[INFO] Loading e**cution data file /workspace/source/target/jacoco.e**c
+[INFO] Analyzed bundle 'Entando K8S Controller for Entando Plugin Deployments' with 5 classes
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:report-only (unit-tests) @ entando-k8s-plugin-controller ---
+[WARNING] Unable to locate Test Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ entando-k8s-plugin-controller ---
+[INFO] Installing /workspace/source/target/entando-k8s-plugin-controller-0.0.0-SNAPSHOT-PR-19-8.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/0.0.0-SNAPSHOT-PR-19-8/entando-k8s-plugin-controller-0.0.0-SNAPSHOT-PR-19-8.jar
+[INFO] Installing /workspace/source/pom.xml to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/0.0.0-SNAPSHOT-PR-19-8/entando-k8s-plugin-controller-0.0.0-SNAPSHOT-PR-19-8.pom
+[INFO] Installing /workspace/source/target/entando-k8s-plugin-controller-0.0.0-SNAPSHOT-PR-19-8-tests.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/0.0.0-SNAPSHOT-PR-19-8/entando-k8s-plugin-controller-0.0.0-SNAPSHOT-PR-19-8-tests.jar
+[INFO] Installing /workspace/source/target/entando-k8s-plugin-controller-0.0.0-SNAPSHOT-PR-19-8-javadoc.jar to /home/jenkins/.mvnrepository/org/entando/entando-k8s-plugin-controller/0.0.0-SNAPSHOT-PR-19-8/entando-k8s-plugin-controller-0.0.0-SNAPSHOT-PR-19-8-javadoc.jar
+[INFO] 
+[INFO] --- maven-deploy-plugin:2.8.2:deploy (default-deploy) @ entando-k8s-plugin-controller ---
+[INFO] Using alternate deployment repository local-nexus::default::http://nexus/repository/maven-releases/
+[INFO] 
+[INFO] -------------< org.entando:entando-k8s-plugin-controller >--------------
+[INFO] Building Entando K8S Controller for Entando Plugin Deployments 0.0.0-SNAPSHOT-PR-19-8
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- sonar-maven-plugin:3.8.0.2131:sonar (default-cli) @ entando-k8s-plugin-controller ---
+[INFO] User cache: /****/.sonar/cache
+[INFO] SonarQube version: 8.5.0
+[INFO] Default locale: "en_US", source code encoding: "UTF-8"
+[INFO] Load global settings
+[INFO] Load global settings (done) | time=210ms
+[INFO] Server id: 1BD809FA-AWHW8ct9-T_TB3XqouNu
+[INFO] User cache: /****/.sonar/cache
+[INFO] Load/download plugins
+[INFO] Load plugins index
+[INFO] Load plugins index (done) | time=74ms
+[INFO] Load/download plugins (done) | time=23540ms
+[INFO] Loaded core extensions: developer-scanner
+[INFO] JavaScript/TypeScript frontend is enabled
+[INFO] Load project settings for component key: 'entando-k8s_entando-k8s-plugin-controller'
+[INFO] Load project settings for component key: 'entando-k8s_entando-k8s-plugin-controller' (done) | time=36ms
+[INFO] Process project properties
+[INFO] E**cute project builders
+[INFO] E**cute project builders (done) | time=2ms
+[INFO] Project key: entando-k8s_entando-k8s-plugin-controller
+[INFO] Base dir: /workspace/source
+[INFO] Working dir: /workspace/source/target/sonar
+[INFO] Load project branches
+[INFO] Load project branches (done) | time=23ms
+[INFO] Check ALM binding of project 'entando-k8s_entando-k8s-plugin-controller'
+[INFO] Detected project binding: BOUND
+[INFO] Check ALM binding of project 'entando-k8s_entando-k8s-plugin-controller' (done) | time=22ms
+[INFO] Load project pull requests
+[INFO] Load project pull requests (done) | time=36ms
+[INFO] Load branch configuration
+[INFO] Load branch configuration (done) | time=544ms
+[INFO] Load quality profiles
+[INFO] Load quality profiles (done) | time=71ms
+[INFO] Load active rules
+[INFO] Load active rules (done) | time=1215ms
+[INFO] Organization key: entando-k8s
+[INFO] Pull request 19 for merge into master from ENG-1740_redhat_certification
+[INFO] SCM collecting changed files in the branch
+[WARNING] Exception caught during e**cution of command '[/usr/local/git/bin/git, config, --******, --edit]' in '/usr/local/git/bin', return code '128', error message 'fatal: Invalid path '/usr/local/git/etc': No such file or directory
+'
+[INFO] SCM collecting changed files in the branch (done) | time=363ms
+[INFO] Indexing files...
+[INFO] Project configuration:
+[INFO] 14 files inde**d
+[INFO] 0 files ignored because of scm ignore settings
+[INFO] Quality profile for java: Sonar way
+[INFO] Quality profile for xml: Sonar way
+[INFO] ------------- Run sensors on module Entando K8S Controller for Entando Plugin Deployments
+[INFO] JavaScript/TypeScript frontend is enabled
+[INFO] Load metrics repository
+[INFO] Load metrics repository (done) | time=32ms
+[INFO] Sensor JavaSquidSensor [java]
+[INFO] Configured Java source version (sonar.java.source): 8
+[INFO] JavaClasspath initialization
+[INFO] JavaClasspath initialization (done) | time=24ms
+[INFO] JavaTestClasspath initialization
+[INFO] JavaTestClasspath initialization (done) | time=2ms
+[INFO] Java Main Files AST scan
+[INFO] 5 source files to be analyzed
+[INFO] 5/5 source files have been analyzed
+[INFO] Java Main Files AST scan (done) | time=3228ms
+[INFO] Java Test Files AST scan
+[INFO] 8 source files to be analyzed
+[INFO] Java Test Files AST scan (done) | time=1167ms
+[INFO] Java Generated Files AST scan
+[INFO] 0 source files to be analyzed
+[INFO] Java Generated Files AST scan (done) | time=1ms
+[INFO] Sensor JavaSquidSensor [java] (done) | time=4918ms
+[INFO] Sensor SonarCSS Rules [cssfamily]
+[INFO] 8/8 source files have been analyzed
+[INFO] No CSS, PHP, HTML or VueJS files are found in the project. CSS analysis is skipped.
+[INFO] Sensor SonarCSS Rules [cssfamily] (done) | time=2ms
+[INFO] 0/0 source files have been analyzed
+[INFO] Sensor C# Properties [csharp]
+[INFO] Sensor C# Properties [csharp] (done) | time=2ms
+[INFO] Sensor Import of Checkstyle issues [java]
+[INFO] Importing /workspace/source/target/checkstyle-result.xml
+[INFO] Sensor Import of Checkstyle issues [java] (done) | time=79ms
+[INFO] Sensor SurefireSensor [java]
+[INFO] parsing [/workspace/source/target/surefire-reports]
+[INFO] Sensor SurefireSensor [java] (done) | time=61ms
+[INFO] Sensor JavaXmlSensor [java]
+[INFO] 1 source files to be analyzed
+[INFO] Sensor JavaXmlSensor [java] (done) | time=214ms
+[INFO] 1/1 source files have been analyzed
+[INFO] Sensor HTML [web]
+[INFO] Sensor HTML [web] (done) | time=4ms
+[INFO] Sensor XML Sensor [xml]
+[INFO] 1 source files to be analyzed
+[INFO] Sensor XML Sensor [xml] (done) | time=168ms
+[INFO] 1/1 source files have been analyzed
+[INFO] Sensor VB.NET Properties [vbnet]
+[INFO] Sensor VB.NET Properties [vbnet] (done) | time=2ms
+[INFO] Sensor JaCoCo XML Report Importer [jacoco]
+[INFO] Importing 1 report(s). Turn your logs in debug mode in order to see the exhaustive list.
+[INFO] Sensor JaCoCo XML Report Importer [jacoco] (done) | time=26ms
+[INFO] Sensor ThymeLeaf template sensor [securityjavafrontend]
+[INFO] Sensor ThymeLeaf template sensor [securityjavafrontend] (done) | time=3ms
+[INFO] Sensor JavaSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/java
+[INFO] Read 72 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/java
+[INFO] 05:29:26.095334 Building Runtime Type propagation graph
+[INFO] 05:29:26.106349 Running Tarjan on 151 nodes
+[INFO] 05:29:26.108831 Tarjan found 151 components
+[INFO] 05:29:26.112563 Variable type analysis: done
+[INFO] 05:29:26.113347 Building Runtime Type propagation graph
+[INFO] 05:29:26.117346 Running Tarjan on 151 nodes
+[INFO] 05:29:26.118215 Tarjan found 151 components
+[INFO] 05:29:26.118974 Variable type analysis: done
+[INFO] Analyzing 49 ucfgs to detect vulnerabilities.
+[INFO] All rules entrypoints : 0 Retained UCFGs : 0
+[INFO] rule: S5131, entrypoints: 0
+[INFO] rule: S5131 done
+[INFO] rule: S3649, entrypoints: 0
+[INFO] rule: S3649 done
+[INFO] rule: S2076, entrypoints: 0
+[INFO] rule: S2076 done
+[INFO] rule: S2091, entrypoints: 0
+[INFO] rule: S2091 done
+[INFO] rule: S2078, entrypoints: 0
+[INFO] rule: S2078 done
+[INFO] rule: S2631, entrypoints: 0
+[INFO] rule: S2631 done
+[INFO] rule: S5135, entrypoints: 0
+[INFO] rule: S5135 done
+[INFO] rule: S2083, entrypoints: 0
+[INFO] rule: S2083 done
+[INFO] rule: S5167, entrypoints: 0
+[INFO] rule: S5167 done
+[INFO] rule: S5144, entrypoints: 0
+[INFO] rule: S5144 done
+[INFO] rule: S5145, entrypoints: 0
+[INFO] rule: S5145 done
+[INFO] rule: S5146, entrypoints: 0
+[INFO] rule: S5146 done
+[INFO] rule: S5334, entrypoints: 0
+[INFO] rule: S5334 done
+[INFO] Sensor JavaSecuritySensor [security] (done) | time=424ms
+[INFO] Sensor CSharpSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/ucfg_cs2
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/ucfg_cs2
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor CSharpSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor PhpSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/php
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/php
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor PhpSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor PythonSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/python
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/python
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor PythonSecuritySensor [security] (done) | time=1ms
+[INFO] Sensor JsSecuritySensor [security]
+[INFO] Reading type hierarchy from: /workspace/source/target/sonar/ucfg2/js
+[INFO] Read 0 type definitions
+[INFO] Reading UCFGs from: /workspace/source/target/sonar/ucfg2/js
+[INFO] No UCFGs have been included for analysis.
+[INFO] Sensor JsSecuritySensor [security] (done) | time=1ms
+[INFO] ------------- Run sensors on project
+[INFO] Sensor Zero Coverage Sensor
+[INFO] Sensor Zero Coverage Sensor (done) | time=0ms
+[INFO] Sensor Java CPD Block Inde**r
+[INFO] Sensor Java CPD Block Inde**r (done) | time=49ms
+[INFO] SCM Publisher SCM provider for this project is: git
+[INFO] SCM Publisher 13 source files to be analyzed
+[INFO] SCM Publisher 12/13 source files have been analyzed (done) | time=173ms
+[WARNING] Missing blame information for the following files:
+[WARNING]   * pom.xml
+[WARNING] This may lead to missing/broken features in SonarCloud
+[INFO] CPD E**cutor 1 file had no CPD blocks
+[INFO] CPD E**cutor Calculating CPD for 4 files
+[INFO] CPD E**cutor CPD calculation finished (done) | time=19ms
+[INFO] SCM writing changed lines
+[INFO] SCM writing changed lines (done) | time=104ms
+[INFO] Analysis report generated in 216ms, dir size=337 KB
+[INFO] Analysis report compressed in 48ms, zip size=102 KB
+[INFO] Analysis report uploaded in 96ms
+[INFO] ANALYSIS SUCCESSFUL, you can find the results at: https://sonarcloud.io/dashboard?id=entando-k8s_entando-k8s-plugin-controller&pullRequest=19
+[INFO] Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+[INFO] More about the report processing at https://sonarcloud.io/api/ce/task?id=AXcokZqbSjzTL_nTUYnC
+[INFO] Analysis total time: 12.275 s
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:43 min
+[INFO] Finished at: 2021-01-22T05:29:27Z
+[INFO] ------------------------------------------------------------------------
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms1000m -Xmx12000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------< org.entando:entando-k8s-plugin-controller >--------------
+[INFO] Building Entando K8S Controller for Entando Plugin Deployments 0.0.0-SNAPSHOT-PR-19-8
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-site-plugin:3.9.0:site (default-site) @ entando-k8s-plugin-controller ---
+[INFO] configuring report plugin org.apache.maven.plugins:maven-project-info-reports-plugin:3.0.0
+[INFO] 9 reports configured for maven-project-info-reports-plugin:3.0.0: dependency-info, distribution-management, index, ci-management, issue-management, licenses, plugins, scm, summary
+[INFO] Rendering site with default locale English (en)
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Relativizing decoration links with respect to localized project URL: https://central.entando.com
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] Generating "Dependency Information" report --- maven-project-info-reports-plugin:3.0.0:dependency-info
+[INFO] Generating "About" report         --- maven-project-info-reports-plugin:3.0.0:index
+[INFO] Generating "Issue Management" report --- maven-project-info-reports-plugin:3.0.0:issue-management
+[INFO] Generating "Licenses" report      --- maven-project-info-reports-plugin:3.0.0:licenses
+[INFO] Generating "Plugins" report       --- maven-project-info-reports-plugin:3.0.0:plugins
+[INFO] Generating "Source Code Management" report --- maven-project-info-reports-plugin:3.0.0:scm
+[INFO] Generating "Summary" report       --- maven-project-info-reports-plugin:3.0.0:summary
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.129 s
+[INFO] Finished at: 2021-01-22T05:29:37Z
+[INFO] ------------------------------------------------------------------------
+shallow cloning https://github.com/entando-k8s/devops-results.git branch gh-pages
+ran git init in /tmp/jenkins-x-collect733641045
+ran git add remote origin https://github.com/entando-k8s/devops-results.git in /tmp/jenkins-x-collect733641045
+ran git fetch origin --depth=1 gh-pages in dir /tmp/jenkins-x-collect733641045
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/checkstyle.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/checkstyle.rss
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/css/maven-base.css
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/css/maven-theme.css
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/css/print.css
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/css/site.css
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/dependency-check-junit.xml
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/dependency-check-report.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/dependency-check-report.xml
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/dependency-info.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/collapsed.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/expanded.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/external.png
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/icon_error_sml.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/icon_info_sml.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/icon_success_sml.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/icon_warning_sml.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/logos/build-by-maven-black.png
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/logos/build-by-maven-white.png
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/logos/maven-feather.png
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/newwindow.png
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/rss.png
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/index.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/issue-management.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/index.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/branchfc.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/branchnc.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/branchpc.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/bundle.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/class.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/down.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/greenbar.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/group.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/method.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/package.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/prettify.css
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/prettify.js
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/redbar.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/report.css
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/report.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/session.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/sort.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/sort.js
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/source.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/up.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-sessions.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco.csv
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco.xml
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginController.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginController.java.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginDeployableContainer.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginDeployableContainer.java.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginDeploymentResult.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginDeploymentResult.java.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginServerDeployable.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginServerDeployable.java.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginSidecarDeployableContainer.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginSidecarDeployableContainer.java.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/index.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/index.source.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/licenses.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/plugins.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/project-info.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/scm.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/summary.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/surefire-report.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/checkstyle.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/checkstyle.rss
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/css/maven-base.css
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/css/maven-theme.css
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/css/print.css
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/css/site.css
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/dependency-check-junit.xml
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/dependency-check-report.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/dependency-check-report.xml
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/dependency-info.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/collapsed.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/expanded.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/external.png
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/icon_error_sml.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/icon_info_sml.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/icon_success_sml.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/icon_warning_sml.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/logos/build-by-maven-black.png
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/logos/build-by-maven-white.png
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/logos/maven-feather.png
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/newwindow.png
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/images/rss.png
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/index.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/issue-management.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/index.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/branchfc.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/branchnc.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/branchpc.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/bundle.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/class.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/down.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/greenbar.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/group.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/method.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/package.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/prettify.css
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/prettify.js
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/redbar.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/report.css
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/report.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/session.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/sort.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/sort.js
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/source.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-resources/up.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco-sessions.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco.csv
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/jacoco.xml
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginController.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginController.java.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginDeployableContainer.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginDeployableContainer.java.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginDeploymentResult.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginDeploymentResult.java.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginServerDeployable.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginServerDeployable.java.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginSidecarDeployableContainer.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/EntandoPluginSidecarDeployableContainer.java.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/index.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/jacoco/org.entando.kubernetes.controller.plugin/index.source.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/licenses.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/plugins.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/project-info.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/scm.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/summary.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/surefire-report.html
+error: etcdserver: request is too large
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1874  100  1653  100   221   2104    281 --:--:-- --:--:-- --:--:--  2103
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-plugin-controller/statuses/613df15c78a558830eacf8bb3d6ea3c527e41a57",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 11934724226,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMTkzNDcyNDIyNg==",
+  "state": "success",
+  "description": "Pre-deployment tests success!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-plugin-controller/PR-19/surefire-report.html",
+  "context": "Pre-deployment tests",
+  "created_at": "2021-01-22T05:29:50Z",
+  "updated_at": "2021-01-22T05:29:50Z",
+  "creator": {
+    "login": "entando-**",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 10  1824    0     0  100   196      0    324 --:--:-- --:--:-- --:--:--   324100  1824  100  1628  100   196   2697    324 --:--:-- --:--:-- --:--:--  2695
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-plugin-controller/statuses/613df15c78a558830eacf8bb3d6ea3c527e41a57",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 11934724294,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMTkzNDcyNDI5NA==",
+  "state": "success",
+  "description": "Checkstyle success!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-plugin-controller/PR-19/checkstyle.html",
+  "context": "Checkstyle",
+  "created_at": "2021-01-22T05:29:51Z",
+  "updated_at": "2021-01-22T05:29:51Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/entando-**/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1846  100  1639  100   207   2180    275 --:--:-- --:--:-- --:--:--  2182
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-plugin-controller/statuses/613df15c78a558830eacf8bb3d6ea3c527e41a57",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 11934724337,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMTkzNDcyNDMzNw==",
+  "state": "success",
+  "description": "OWASP CVE success!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-plugin-controller/PR-19/dependency-check-report.html",
+  "context": "OWASP CVE",
+  "created_at": "2021-01-22T05:29:52Z",
+  "updated_at": "2021-01-22T05:29:52Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+Congratulations! No build failures found for entando-k8s-plugin-controller-PR-19.
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-szfrv-8[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+Generating tags...
+ - entando/entando-k8s-plugin-controller -> docker.io/entando/entando-k8s-plugin-controller:0.0.0-SNAPSHOT-PR-19-8
+Checking cache...
+ - entando/entando-k8s-plugin-controller: Not found. Building
+Building [entando/entando-k8s-plugin-controller]...
+Sending build context to Docker daemon    550kBSending build context to Docker daemon  4.925MBSending build context to Docker daemon  9.889MBSending build context to Docker daemon  14.27MBSending build context to Docker daemon   19.8MBSending build context to Docker daemon     27MBSending build context to Docker daemon  32.57MBSending build context to Docker daemon  39.13MBSending build context to Docker daemon  47.94MBSending build context to Docker daemon  51.26MB
+Step 1/9 : FROM fabric8/java-ubi-openjdk11-jdk
+ ---> 2c1e34a951ba
+Step 2/9 : ARG VERSION
+ ---> Using cache
+ ---> 8ff2b7f091ff
+Step 3/9 : LABEL name "Entando K8S Plugin Controller" vendor "Entando" version "v${VERSION}" release "6" summary "This container processes the EntandoPlugin custom resource and deploys the specified microservice Docker image." description "This is a run-to-completion container. It processes new EntandoPlugin Custom                    Resources and deploys an instance of the specified microservice Docker image                    to your cluster. This microservice will be  configured to use a previously installed Keycloak Server.                    Subsequent e**cutions of this container against the same EntandoPlugin will patch the existing                    deployment resources"
+ ---> Running in 9a2c9ac1ea6f
+ ---> 666ba2bb4bab
+Step 4/9 : ENV JAVA_OPTIONS "-Djava.util.logging.manager=org.jboss.logmanager.LogManager"
+ ---> Running in cb488e0a8b35
+ ---> 43ade7d339aa
+Step 5/9 : ENV AB_ENABLED jmx_exporter
+ ---> Running in 3194c928efd7
+ ---> 95700d54aeb7
+Step 6/9 : COPY target/generated-resources/licenses /licenses
+ ---> 9c92a07fc0a7
+Step 7/9 : COPY target/lib/* /deployments/lib/
+ ---> 38a8b6fbc748
+Step 8/9 : COPY target/*-runner.jar /deployments/app.jar
+ ---> 3f0b602705a8
+Step 9/9 : ENTRYPOINT /deployments/run-java.sh
+ ---> Running in f057489a70c5
+ ---> a63fe27a3902
+Successfully built a63fe27a3902
+The push refers to a repository [docker.io/entando/entando-k8s-plugin-controller]
+10bffcc5beff: Preparing
+f62568b19105: Preparing
+97279bb26729: Preparing
+943a7fa5534b: Preparing
+a96f62b50f06: Preparing
+31dbb7ba3eaa: Preparing
+0352bd717f81: Preparing
+d0e90c560ab7: Preparing
+8e46467f757e: Preparing
+1b054d7b5a74: Preparing
+93757f8ff483: Preparing
+133b5003f6eb: Preparing
+1776c40df06e: Preparing
+31dbb7ba3eaa: Waiting
+0352bd717f81: Waiting
+d0e90c560ab7: Waiting
+1b054d7b5a74: Waiting
+8e46467f757e: Waiting
+1776c40df06e: Waiting
+133b5003f6eb: Waiting
+a96f62b50f06: Layer already exists
+943a7fa5534b: Layer already exists
+0352bd717f81: Layer already exists
+31dbb7ba3eaa: Layer already exists
+d0e90c560ab7: Layer already exists
+8e46467f757e: Layer already exists
+93757f8ff483: Layer already exists
+1b054d7b5a74: Layer already exists
+1776c40df06e: Layer already exists
+133b5003f6eb: Layer already exists
+10bffcc5beff: Pushed
+97279bb26729: Pushed
+f62568b19105: Pushed
+0.0.0-SNAPSHOT-PR-19-8: digest: sha256:2ce521a8f56fa317264e4581dfdf9d5d19fd3c3fccd047a9d96c7f1c87e59c96 size: 3038
+There is a new version (1.17.2) of Skaffold available. Download it at https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
+
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-szfrv-8[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-szfrv-8[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-make-preview[0m
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://charts.helm.sh/stable 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-19-8/" Chart.yaml
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-19-8/" ../*/Chart.yaml
+sed -i -e "s|repository:.*|repository: docker.io\/entando\/entando-k8s-keycloak-controller|" values.yaml
+sed -i -e "s/tag:.*/tag: 0.0.0-SNAPSHOT-PR-19-8/" values.yaml
+echo "  version: 0.0.0-SNAPSHOT-PR-19-8" >> requirements.yaml
+** step helm build
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-szfrv-8[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-preview[0m
+Creating a preview
+Found commit author match for: ampie with email address: ampie.private@gmail.com
+Namespace entando-k8s-plugin-controller-pcpr19 created 
+expose:
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+  config:
+    domain: *************
+    exposer: Ingress
+    http: "****"
+preview:
+  image:
+    repository: docker.io/entando/entando-k8s-plugin-controller
+    tag: 0.0.0-SNAPSHOT-PR-19-8
+
+WARNING: Could not find the service URL in namespace entando-k8s-plugin-controller-pcpr19 for names : Timed out after 1m0s, last error: %!s(<nil>)
+Updating PipelineActivities entando-k8s-entando-k8s-plugin-controller-pr-19-8 which has status Running
+WARNING: Failed to find the service entando-k8s-plugin-controller : failed to find service entando-k8s-plugin-controller in namespace entando-k8s-plugin-controller-pcpr19: services "entando-k8s-plugin-controller" not found
+
+Showing logs for build [32mentando-k8s-entando-k8s-plugin-szfrv-8[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-run-post-deployment-tests[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms1000m -Xmx12000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------< org.entando:entando-k8s-plugin-controller >--------------
+[INFO] Building Entando K8S Controller for Entando Plugin Deployments 0.0.0-SNAPSHOT-PR-19-8
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ entando-k8s-plugin-controller ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ entando-k8s-plugin-controller ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ entando-k8s-plugin-controller ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ entando-k8s-plugin-controller ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M1:test (default-test) @ entando-k8s-plugin-controller ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ entando-k8s-plugin-controller ---
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:test-jar (build-test-jar) @ entando-k8s-plugin-controller ---
+[INFO] 
+[INFO] --- maven-failsafe-plugin:3.0.0-M4:integration-test (run-tests) @ entando-k8s-plugin-controller ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.entando.kubernetes.controller.plugin.interprocesstests.AddEntandoPluginWithContainerizedDatabaseIT
+Jan 22, 2021 5:32:25 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting pods  entando-k8s-plugin-controller-pcpr19/pg-test
+Jan 22, 2021 5:32:27 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting configmaps  entando-k8s-plugin-controller-pcpr19/eci-entando-k8s-plugin-controller-pcpr19-eti-pcpr19-connection-config
+javax.ws.rs.NotFoundException: HTTP 404 Not Found
+!!!!!!!On EntandoPlugin add!!!!!!!!!
+ADDED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:32:37Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[], ephemeralContainerStatuses=[], hostIP=null, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=Burstable, reason=null, startTime=null, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:32:38Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:32:38Z, message=containers with unready status: [db-container], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [db-container], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:32:37Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=docker.io/centos/********ql-12-centos7:latest, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=db-container, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=ContainerCreating, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:32:38Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:32:38Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:32:38Z, message=containers with unready status: [db-container], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [db-container], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:32:37Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://d99c30dd81153f18b8811e657cfeae6d20cd1529cf66e51a862084c4b95e943a, image=docker.io/centos/********ql-12-centos7:latest, imageID=docker-pullable://docker.io/centos/********ql-12-centos7@sha256:60e10518eaf9888039ce3c4b2542543f68015683c43c9bd4247481541c62fbfc, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=db-container, ready=false, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:32:50Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.0.231, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:32:38Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:32:38Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:13Z, message=null, reason=null, status=True, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=null, reason=null, status=True, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:32:37Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://d99c30dd81153f18b8811e657cfeae6d20cd1529cf66e51a862084c4b95e943a, image=docker.io/centos/********ql-12-centos7:latest, imageID=docker-pullable://docker.io/centos/********ql-12-centos7@sha256:60e10518eaf9888039ce3c4b2542543f68015683c43c9bd4247481541c62fbfc, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=db-container, ready=****, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:32:50Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.0.231, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:32:38Z, additionalProperties={})
+Finished: test-plugin-a-pcpr19-db-deployment-58f67f7498-4pvq7
+ADDED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:15Z, message=containers with incomplete status: [test-plugin-a-pcpr19-plugindb-schema-creation-job], reason=ContainersNotInitialized, status=False, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:15Z, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:15Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=docker.io/entando/busybox:latest, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=dummy, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=PodInitializing, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[ContainerStatus(containerID=null, image=entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=test-plugin-a-pcpr19-plugindb-schema-creation-job, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=PodInitializing, additionalProperties={}), additionalProperties={}), additionalProperties={})], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:33:15Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:15Z, message=containers with incomplete status: [test-plugin-a-pcpr19-plugindb-schema-creation-job], reason=ContainersNotInitialized, status=False, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:15Z, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:15Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=docker.io/entando/busybox:latest, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=dummy, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=PodInitializing, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[ContainerStatus(containerID=docker://0061738d77d9217abb459ff76685184b3807bbbdbdeeca085c6dd9bc03159f0e, image=docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, imageID=docker-pullable://docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=test-plugin-a-pcpr19-plugindb-schema-creation-job, ready=false, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:33:19Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], message=null, nominatedNodeName=null, phase=Pending, podIP=10.128.0.232, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:33:15Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:23Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:15Z, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:15Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=docker.io/entando/busybox:latest, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=dummy, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=PodInitializing, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[ContainerStatus(containerID=docker://0061738d77d9217abb459ff76685184b3807bbbdbdeeca085c6dd9bc03159f0e, image=docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, imageID=docker-pullable://docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=test-plugin-a-pcpr19-plugindb-schema-creation-job, ready=****, restartCount=0, started=null, state=ContainerState(running=null, terminated=ContainerStateTerminated(containerID=docker://0061738d77d9217abb459ff76685184b3807bbbdbdeeca085c6dd9bc03159f0e, exitCode=0, finishedAt=2021-01-22T05:33:22Z, message=null, reason=Completed, signal=null, startedAt=2021-01-22T05:33:19Z, additionalProperties={}), waiting=null, additionalProperties={}), additionalProperties={})], message=null, nominatedNodeName=null, phase=Pending, podIP=10.128.0.232, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:33:15Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:23Z, message=null, reason=PodCompleted, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:15Z, message=null, reason=PodCompleted, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=null, reason=PodCompleted, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:15Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://336b47d6e224631b43bfe8670d0637170d1060328108df36b69aed9831403dd1, image=docker.io/entando/busybox:latest, imageID=docker-pullable://docker.io/entando/busybox@sha256:400ee2ed939df769d4681023810d2e4fb9479b8401d97003c710d0e20f7c49c6, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=dummy, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=ContainerStateTerminated(containerID=docker://336b47d6e224631b43bfe8670d0637170d1060328108df36b69aed9831403dd1, exitCode=0, finishedAt=2021-01-22T05:33:26Z, message=null, reason=Completed, signal=null, startedAt=2021-01-22T05:33:26Z, additionalProperties={}), waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[ContainerStatus(containerID=docker://0061738d77d9217abb459ff76685184b3807bbbdbdeeca085c6dd9bc03159f0e, image=docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, imageID=docker-pullable://docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=test-plugin-a-pcpr19-plugindb-schema-creation-job, ready=****, restartCount=0, started=null, state=ContainerState(running=null, terminated=ContainerStateTerminated(containerID=docker://0061738d77d9217abb459ff76685184b3807bbbdbdeeca085c6dd9bc03159f0e, exitCode=0, finishedAt=2021-01-22T05:33:22Z, message=null, reason=Completed, signal=null, startedAt=2021-01-22T05:33:19Z, additionalProperties={}), waiting=null, additionalProperties={}), additionalProperties={})], message=null, nominatedNodeName=null, phase=Succeeded, podIP=10.128.0.232, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:33:15Z, additionalProperties={})
+Finished: test-plugin-a-pcpr19-dbprep-c182
+ADDED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:28Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[], ephemeralContainerStatuses=[], hostIP=null, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=Burstable, reason=null, startTime=null, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:28Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:28Z, message=containers with unready status: [server-container], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [server-container], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:28Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=docker.io/entando/entando-avatar-plugin:6.0.5, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=server-container, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=ContainerCreating, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:33:28Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:28Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:28Z, message=containers with unready status: [server-container], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [server-container], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:28Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://cb107734b36d4f3037f27124d36b2e1a057ef4ba93e5a432e1aa0d6cabc6072f, image=docker.io/entando/entando-avatar-plugin:6.0.5, imageID=docker-pullable://docker.io/entando/entando-avatar-plugin@sha256:3ff5425ca1b27c609614879bf1c8a25df4e6c0c560caa683d272eccd6090cee6, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=server-container, ready=false, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:33:38Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.0.233, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:33:28Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:28Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:34:22Z, message=null, reason=null, status=True, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=null, reason=null, status=True, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:33:28Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://cb107734b36d4f3037f27124d36b2e1a057ef4ba93e5a432e1aa0d6cabc6072f, image=docker.io/entando/entando-avatar-plugin:6.0.5, imageID=docker-pullable://docker.io/entando/entando-avatar-plugin@sha256:3ff5425ca1b27c609614879bf1c8a25df4e6c0c560caa683d272eccd6090cee6, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=server-container, ready=****, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:33:38Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.0.233, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:33:28Z, additionalProperties={})
+Finished: test-plugin-a-pcpr19-server-deployment-dc8b5fbd8-glj2b
+Jan 22, 2021 5:34:25 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting deployments  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-db-deployment to zero
+Jan 22, 2021 5:34:25 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting deployments  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-db-deployment
+Jan 22, 2021 5:34:25 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting deployments  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-server-deployment to zero
+Jan 22, 2021 5:34:26 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting deployments  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-server-deployment
+Jan 22, 2021 5:34:26 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting pods  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-db-deployment-58f67f7498-4pvq7
+Jan 22, 2021 5:34:26 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting pods  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-dbprep-c182
+Jan 22, 2021 5:34:26 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting pods  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-deployer-4403
+Jan 22, 2021 5:34:26 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting pods  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-server-deployment-dc8b5fbd8-glj2b
+Jan 22, 2021 5:34:27 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting pods  entando-k8s-plugin-controller-pcpr19/pg-test
+Jan 22, 2021 5:34:28 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting configmaps  entando-k8s-plugin-controller-pcpr19/eci-entando-k8s-plugin-controller-pcpr19-eti-pcpr19-connection-config
+javax.ws.rs.NotFoundException: HTTP 404 Not Found
+!!!!!!!On EntandoPlugin add!!!!!!!!!
+ADDED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:34:39Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[], ephemeralContainerStatuses=[], hostIP=null, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=Burstable, reason=null, startTime=null, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:34:39Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:34:39Z, message=containers with unready status: [db-container], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [db-container], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:34:39Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=registry.redhat.io/rhel8/********ql-12@sha256:c6b6da4f762c2f68bfe558efe954739438ffa2e9aae1c617b50011fb0eed8347, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=db-container, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=ContainerCreating, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:34:39Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:34:39Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:34:39Z, message=containers with unready status: [db-container], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [db-container], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:34:39Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://622980de1a1af26cedb2936c762b8f2766f16fed743d4d1d9d061d3409c9eb24, image=registry.redhat.io/rhel8/********ql-12:latest, imageID=docker-pullable://registry.redhat.io/rhel8/********ql-12@sha256:c6b6da4f762c2f68bfe558efe954739438ffa2e9aae1c617b50011fb0eed8347, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=db-container, ready=false, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:34:51Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.0.239, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:34:39Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:34:39Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:06Z, message=null, reason=null, status=True, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=null, reason=null, status=True, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:34:39Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://622980de1a1af26cedb2936c762b8f2766f16fed743d4d1d9d061d3409c9eb24, image=registry.redhat.io/rhel8/********ql-12:latest, imageID=docker-pullable://registry.redhat.io/rhel8/********ql-12@sha256:c6b6da4f762c2f68bfe558efe954739438ffa2e9aae1c617b50011fb0eed8347, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=db-container, ready=****, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:34:51Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.0.239, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:34:39Z, additionalProperties={})
+Finished: test-plugin-a-pcpr19-db-deployment-6fc44c4f58-65xzd
+ADDED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:09Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[], ephemeralContainerStatuses=[], hostIP=null, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=BestEffort, reason=null, startTime=null, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:10Z, message=containers with incomplete status: [test-plugin-a-pcpr19-plugindb-schema-creation-job], reason=ContainersNotInitialized, status=False, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:10Z, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:09Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=docker.io/entando/busybox:latest, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=dummy, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=PodInitializing, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[ContainerStatus(containerID=null, image=entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=test-plugin-a-pcpr19-plugindb-schema-creation-job, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=PodInitializing, additionalProperties={}), additionalProperties={}), additionalProperties={})], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:35:10Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:10Z, message=containers with incomplete status: [test-plugin-a-pcpr19-plugindb-schema-creation-job], reason=ContainersNotInitialized, status=False, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:10Z, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:09Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=docker.io/entando/busybox:latest, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=dummy, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=PodInitializing, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[ContainerStatus(containerID=docker://b029120438b19930da792a6642279068b976a07f1e379820e26c726892dbd463, image=docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, imageID=docker-pullable://docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=test-plugin-a-pcpr19-plugindb-schema-creation-job, ready=false, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:35:25Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], message=null, nominatedNodeName=null, phase=Pending, podIP=10.128.0.240, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:35:10Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:29Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:10Z, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:09Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=docker.io/entando/busybox:latest, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=dummy, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=PodInitializing, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[ContainerStatus(containerID=docker://b029120438b19930da792a6642279068b976a07f1e379820e26c726892dbd463, image=docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, imageID=docker-pullable://docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=test-plugin-a-pcpr19-plugindb-schema-creation-job, ready=****, restartCount=0, started=null, state=ContainerState(running=null, terminated=ContainerStateTerminated(containerID=docker://b029120438b19930da792a6642279068b976a07f1e379820e26c726892dbd463, exitCode=0, finishedAt=2021-01-22T05:35:27Z, message=null, reason=Completed, signal=null, startedAt=2021-01-22T05:35:25Z, additionalProperties={}), waiting=null, additionalProperties={}), additionalProperties={})], message=null, nominatedNodeName=null, phase=Pending, podIP=10.128.0.240, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:35:10Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:29Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:32Z, message=null, reason=null, status=True, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=null, reason=null, status=True, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:09Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://b8d1f8299017215e3be8b38fc5b93107d9d10b046bc01e3923cebb3582fe9a03, image=docker.io/entando/busybox:latest, imageID=docker-pullable://docker.io/entando/busybox@sha256:400ee2ed939df769d4681023810d2e4fb9479b8401d97003c710d0e20f7c49c6, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=dummy, ready=****, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:35:31Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[ContainerStatus(containerID=docker://b029120438b19930da792a6642279068b976a07f1e379820e26c726892dbd463, image=docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, imageID=docker-pullable://docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=test-plugin-a-pcpr19-plugindb-schema-creation-job, ready=****, restartCount=0, started=null, state=ContainerState(running=null, terminated=ContainerStateTerminated(containerID=docker://b029120438b19930da792a6642279068b976a07f1e379820e26c726892dbd463, exitCode=0, finishedAt=2021-01-22T05:35:27Z, message=null, reason=Completed, signal=null, startedAt=2021-01-22T05:35:25Z, additionalProperties={}), waiting=null, additionalProperties={}), additionalProperties={})], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.0.240, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:35:10Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:29Z, message=null, reason=PodCompleted, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:33Z, message=null, reason=PodCompleted, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=null, reason=PodCompleted, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:09Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://b8d1f8299017215e3be8b38fc5b93107d9d10b046bc01e3923cebb3582fe9a03, image=docker.io/entando/busybox:latest, imageID=docker-pullable://docker.io/entando/busybox@sha256:400ee2ed939df769d4681023810d2e4fb9479b8401d97003c710d0e20f7c49c6, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=dummy, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=ContainerStateTerminated(containerID=docker://b8d1f8299017215e3be8b38fc5b93107d9d10b046bc01e3923cebb3582fe9a03, exitCode=0, finishedAt=2021-01-22T05:35:32Z, message=null, reason=Completed, signal=null, startedAt=2021-01-22T05:35:31Z, additionalProperties={}), waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[ContainerStatus(containerID=docker://b029120438b19930da792a6642279068b976a07f1e379820e26c726892dbd463, image=docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, imageID=docker-pullable://docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=test-plugin-a-pcpr19-plugindb-schema-creation-job, ready=****, restartCount=0, started=null, state=ContainerState(running=null, terminated=ContainerStateTerminated(containerID=docker://b029120438b19930da792a6642279068b976a07f1e379820e26c726892dbd463, exitCode=0, finishedAt=2021-01-22T05:35:27Z, message=null, reason=Completed, signal=null, startedAt=2021-01-22T05:35:25Z, additionalProperties={}), waiting=null, additionalProperties={}), additionalProperties={})], message=null, nominatedNodeName=null, phase=Succeeded, podIP=10.128.0.240, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:35:10Z, additionalProperties={})
+Finished: test-plugin-a-pcpr19-dbprep-97ff
+ADDED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:35Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[], ephemeralContainerStatuses=[], hostIP=null, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=Burstable, reason=null, startTime=null, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:35Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:35Z, message=containers with unready status: [server-container], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [server-container], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:35Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=docker.io/entando/entando-avatar-plugin:6.0.5, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=server-container, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=ContainerCreating, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:35:35Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:35Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:35Z, message=containers with unready status: [server-container], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [server-container], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:35Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://017e265b6c148a375c519feb8ec0c87e42f22ce5e826fe54820f718e64a22f63, image=docker.io/entando/entando-avatar-plugin:6.0.5, imageID=docker-pullable://docker.io/entando/entando-avatar-plugin@sha256:3ff5425ca1b27c609614879bf1c8a25df4e6c0c560caa683d272eccd6090cee6, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=server-container, ready=false, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:35:47Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.0.241, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:35:35Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:35Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:36:36Z, message=null, reason=null, status=True, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=null, reason=null, status=True, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:35:35Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://017e265b6c148a375c519feb8ec0c87e42f22ce5e826fe54820f718e64a22f63, image=docker.io/entando/entando-avatar-plugin:6.0.5, imageID=docker-pullable://docker.io/entando/entando-avatar-plugin@sha256:3ff5425ca1b27c609614879bf1c8a25df4e6c0c560caa683d272eccd6090cee6, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=server-container, ready=****, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:35:47Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.0.241, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:35:35Z, additionalProperties={})
+Finished: test-plugin-a-pcpr19-server-deployment-54dc49cd59-r662m
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 256.745 s - in org.entando.kubernetes.controller.plugin.interprocesstests.AddEntandoPluginWithContainerizedDatabaseIT
+[INFO] Running org.entando.kubernetes.controller.plugin.interprocesstests.AddEntandoPluginWithExternalPostgresqlDatabaseIT
+Jan 22, 2021 5:36:40 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting deployments  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-db-deployment to zero
+Jan 22, 2021 5:36:40 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting deployments  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-db-deployment
+Jan 22, 2021 5:36:40 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting deployments  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-server-deployment to zero
+Jan 22, 2021 5:36:41 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting deployments  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-server-deployment
+Jan 22, 2021 5:36:41 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting pods  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-db-deployment-6fc44c4f58-65xzd
+Jan 22, 2021 5:36:41 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting pods  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-dbprep-97ff
+Jan 22, 2021 5:36:41 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting pods  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-deployer-5447
+Jan 22, 2021 5:36:41 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting pods  entando-k8s-plugin-controller-pcpr19/test-plugin-a-pcpr19-server-deployment-54dc49cd59-r662m
+Jan 22, 2021 5:36:42 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting pods  entando-k8s-plugin-controller-pcpr19/pg-test
+Jan 22, 2021 5:36:43 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting pods  entando-k8s-plugin-controller-pcpr19/pg-test
+Jan 22, 2021 5:36:43 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting entandodatabaseservices  entando-k8s-plugin-controller-pcpr19/my-external-db-pcpr19
+Jan 22, 2021 5:36:43 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting secrets  entando-k8s-plugin-controller-pcpr19/test-secret
+ADDED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:36:43Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[], ephemeralContainerStatuses=[], hostIP=null, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=BestEffort, reason=null, startTime=null, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:36:43Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:36:43Z, message=containers with unready status: [pg-container], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [pg-container], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:36:43Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=centos/********ql-96-centos7:latest, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=pg-container, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=ContainerCreating, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:36:43Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:36:43Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:36:43Z, message=containers with unready status: [pg-container], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [pg-container], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:36:43Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://8ce35f3f9fce3740455da9fa9b971b6bc7de40e5ff76a068fe99e3b386d4f513, image=docker.io/centos/********ql-96-centos7:latest, imageID=docker-pullable://docker.io/centos/********ql-96-centos7@sha256:b681d78125361519180a6ac05242c296f8906c11eab7e207b5ca9a89b6344392, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=pg-container, ready=false, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:36:58Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.0.244, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:36:43Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:36:43Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:12Z, message=null, reason=null, status=True, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=null, reason=null, status=True, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:36:43Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://8ce35f3f9fce3740455da9fa9b971b6bc7de40e5ff76a068fe99e3b386d4f513, image=docker.io/centos/********ql-96-centos7:latest, imageID=docker-pullable://docker.io/centos/********ql-96-centos7@sha256:b681d78125361519180a6ac05242c296f8906c11eab7e207b5ca9a89b6344392, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=pg-container, ready=****, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:36:58Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.0.244, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:36:43Z, additionalProperties={})
+Finished: pg-test
+Jan 22, 2021 5:37:13 AM org.entando.kubernetes.controller.integrationtest.support.DeletionWaiter lambda$deleteSingleItem$2
+WARNING: Deleting configmaps  entando-k8s-plugin-controller-pcpr19/eci-entando-k8s-plugin-controller-pcpr19-eti-pcpr19-connection-config
+javax.ws.rs.NotFoundException: HTTP 404 Not Found
+!!!!!!!On EntandoPlugin add!!!!!!!!!
+ADDED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:26Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[], ephemeralContainerStatuses=[], hostIP=null, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=BestEffort, reason=null, startTime=null, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:26Z, message=containers with incomplete status: [test-plugin-a-pcpr19-plugindb-schema-creation-job], reason=ContainersNotInitialized, status=False, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:26Z, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:26Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=docker.io/entando/busybox:latest, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=dummy, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=PodInitializing, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[ContainerStatus(containerID=null, image=entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=test-plugin-a-pcpr19-plugindb-schema-creation-job, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=PodInitializing, additionalProperties={}), additionalProperties={}), additionalProperties={})], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:37:26Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:26Z, message=containers with incomplete status: [test-plugin-a-pcpr19-plugindb-schema-creation-job], reason=ContainersNotInitialized, status=False, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:26Z, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:26Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=docker.io/entando/busybox:latest, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=dummy, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=PodInitializing, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[ContainerStatus(containerID=docker://6ce240ed1ef6cc1aa7fa8f9dbaeb11216d0e3bf59f623d6df363fa563c1f4846, image=docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, imageID=docker-pullable://docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=test-plugin-a-pcpr19-plugindb-schema-creation-job, ready=false, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:37:31Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], message=null, nominatedNodeName=null, phase=Pending, podIP=10.128.0.248, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:37:26Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:34Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:26Z, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [dummy], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:26Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=docker.io/entando/busybox:latest, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=dummy, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=PodInitializing, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[ContainerStatus(containerID=docker://6ce240ed1ef6cc1aa7fa8f9dbaeb11216d0e3bf59f623d6df363fa563c1f4846, image=docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, imageID=docker-pullable://docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=test-plugin-a-pcpr19-plugindb-schema-creation-job, ready=****, restartCount=0, started=null, state=ContainerState(running=null, terminated=ContainerStateTerminated(containerID=docker://6ce240ed1ef6cc1aa7fa8f9dbaeb11216d0e3bf59f623d6df363fa563c1f4846, exitCode=0, finishedAt=2021-01-22T05:37:34Z, message=null, reason=Completed, signal=null, startedAt=2021-01-22T05:37:31Z, additionalProperties={}), waiting=null, additionalProperties={}), additionalProperties={})], message=null, nominatedNodeName=null, phase=Pending, podIP=10.128.0.248, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:37:26Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:34Z, message=null, reason=PodCompleted, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:26Z, message=null, reason=PodCompleted, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=null, reason=PodCompleted, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:26Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://6cc87b3c656e085282ba8b0fd3d4347f582c8e3f4f346d63b25f493dd57e0749, image=docker.io/entando/busybox:latest, imageID=docker-pullable://docker.io/entando/busybox@sha256:400ee2ed939df769d4681023810d2e4fb9479b8401d97003c710d0e20f7c49c6, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=dummy, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=ContainerStateTerminated(containerID=docker://6cc87b3c656e085282ba8b0fd3d4347f582c8e3f4f346d63b25f493dd57e0749, exitCode=0, finishedAt=2021-01-22T05:37:36Z, message=null, reason=Completed, signal=null, startedAt=2021-01-22T05:37:36Z, additionalProperties={}), waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[ContainerStatus(containerID=docker://6ce240ed1ef6cc1aa7fa8f9dbaeb11216d0e3bf59f623d6df363fa563c1f4846, image=docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, imageID=docker-pullable://docker.io/entando/entando-k8s-dbjob@sha256:660d3af5b44fb3d443b36f58515b880210517fa4e3061925a41c46ea552d61d2, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=test-plugin-a-pcpr19-plugindb-schema-creation-job, ready=****, restartCount=0, started=null, state=ContainerState(running=null, terminated=ContainerStateTerminated(containerID=docker://6ce240ed1ef6cc1aa7fa8f9dbaeb11216d0e3bf59f623d6df363fa563c1f4846, exitCode=0, finishedAt=2021-01-22T05:37:34Z, message=null, reason=Completed, signal=null, startedAt=2021-01-22T05:37:31Z, additionalProperties={}), waiting=null, additionalProperties={}), additionalProperties={})], message=null, nominatedNodeName=null, phase=Succeeded, podIP=10.128.0.248, podIPs=[], qosClass=BestEffort, reason=null, startTime=2021-01-22T05:37:26Z, additionalProperties={})
+Finished: test-plugin-a-pcpr19-dbprep-3502
+ADDED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:43Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[], ephemeralContainerStatuses=[], hostIP=null, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=Burstable, reason=null, startTime=null, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:43Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:43Z, message=containers with unready status: [server-container sidecar-container], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [server-container sidecar-container], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:43Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=null, image=docker.io/entando/entando-avatar-plugin:6.0.5, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=server-container, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=ContainerCreating, additionalProperties={}), additionalProperties={}), additionalProperties={}), ContainerStatus(containerID=null, image=docker.io/entando/entando-plugin-sidecar:6.0.2, imageID=, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=sidecar-container, ready=false, restartCount=0, started=null, state=ContainerState(running=null, terminated=null, waiting=ContainerStateWaiting(message=null, reason=ContainerCreating, additionalProperties={}), additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Pending, podIP=null, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:37:43Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:43Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:43Z, message=containers with unready status: [server-container sidecar-container], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [server-container sidecar-container], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:43Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://6c78d9d83150c81a3f3ffeb920d1927899a4be426a55df583c6b32f482577a76, image=docker.io/entando/entando-avatar-plugin:6.0.5, imageID=docker-pullable://docker.io/entando/entando-avatar-plugin@sha256:3ff5425ca1b27c609614879bf1c8a25df4e6c0c560caa683d272eccd6090cee6, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=server-container, ready=false, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:38:02Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={}), ContainerStatus(containerID=docker://36fbde269c278b26b4ebb300a59a25796d49ad9d4fbece567bbc5ed3230fb60a, image=docker.io/entando/entando-plugin-sidecar:6.0.2, imageID=docker-pullable://docker.io/entando/entando-plugin-sidecar@sha256:900a5725d7490c1835ad4f2bb851d6aae45887f52f1d2c47be0807f4f9b25543, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=sidecar-container, ready=false, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:38:05Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.0.249, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:37:43Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:43Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:43Z, message=containers with unready status: [server-container], reason=ContainersNotReady, status=False, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=containers with unready status: [server-container], reason=ContainersNotReady, status=False, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:43Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://6c78d9d83150c81a3f3ffeb920d1927899a4be426a55df583c6b32f482577a76, image=docker.io/entando/entando-avatar-plugin:6.0.5, imageID=docker-pullable://docker.io/entando/entando-avatar-plugin@sha256:3ff5425ca1b27c609614879bf1c8a25df4e6c0c560caa683d272eccd6090cee6, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=server-container, ready=false, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:38:02Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={}), ContainerStatus(containerID=docker://36fbde269c278b26b4ebb300a59a25796d49ad9d4fbece567bbc5ed3230fb60a, image=docker.io/entando/entando-plugin-sidecar:6.0.2, imageID=docker-pullable://docker.io/entando/entando-plugin-sidecar@sha256:900a5725d7490c1835ad4f2bb851d6aae45887f52f1d2c47be0807f4f9b25543, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=sidecar-container, ready=****, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:38:05Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.0.249, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:37:43Z, additionalProperties={})
+MODIFIED:PodStatus(conditions=[PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:43Z, message=null, reason=null, status=True, type=Initialized, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:38:50Z, message=null, reason=null, status=True, type=Ready, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=null, message=null, reason=null, status=True, type=ContainersReady, additionalProperties={}), PodCondition(lastProbeTime=null, lastTransitionTime=2021-01-22T05:37:43Z, message=null, reason=null, status=True, type=PodScheduled, additionalProperties={})], containerStatuses=[ContainerStatus(containerID=docker://6c78d9d83150c81a3f3ffeb920d1927899a4be426a55df583c6b32f482577a76, image=docker.io/entando/entando-avatar-plugin:6.0.5, imageID=docker-pullable://docker.io/entando/entando-avatar-plugin@sha256:3ff5425ca1b27c609614879bf1c8a25df4e6c0c560caa683d272eccd6090cee6, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=server-container, ready=****, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:38:02Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={}), ContainerStatus(containerID=docker://36fbde269c278b26b4ebb300a59a25796d49ad9d4fbece567bbc5ed3230fb60a, image=docker.io/entando/entando-plugin-sidecar:6.0.2, imageID=docker-pullable://docker.io/entando/entando-plugin-sidecar@sha256:900a5725d7490c1835ad4f2bb851d6aae45887f52f1d2c47be0807f4f9b25543, lastState=ContainerState(running=null, terminated=null, waiting=null, additionalProperties={}), name=sidecar-container, ready=****, restartCount=0, started=null, state=ContainerState(running=ContainerStateRunning(startedAt=2021-01-22T05:38:05Z, additionalProperties={}), terminated=null, waiting=null, additionalProperties={}), additionalProperties={})], ephemeralContainerStatuses=[], hostIP=54.36.53.206, initContainerStatuses=[], message=null, nominatedNodeName=null, phase=Running, podIP=10.128.0.249, podIPs=[], qosClass=Burstable, reason=null, startTime=2021-01-22T05:37:43Z, additionalProperties={})
+Finished: test-plugin-a-pcpr19-server-deployment-847669cb5b-j6f82
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 132.279 s - in org.entando.kubernetes.controller.plugin.interprocesstests.AddEntandoPluginWithExternalPostgresqlDatabaseIT
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:failsafe-report-only (integration-tests) @ entando-k8s-plugin-controller ---
+[WARNING] Unable to locate Test Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-surefire-report-plugin:3.0.0-M4:report-only (unit-tests) @ entando-k8s-plugin-controller ---
+[WARNING] Unable to locate Test Source XRef to link to - DISABLED
+[INFO] 
+[INFO] --- maven-failsafe-plugin:3.0.0-M4:verify (run-tests) @ entando-k8s-plugin-controller ---
+[INFO] 
+[INFO] --- maven-site-plugin:3.9.0:site (default-site) @ entando-k8s-plugin-controller ---
+[INFO] configuring report plugin org.apache.maven.plugins:maven-project-info-reports-plugin:3.0.0
+[INFO] 9 reports configured for maven-project-info-reports-plugin:3.0.0: dependency-info, distribution-management, index, ci-management, issue-management, licenses, plugins, scm, summary
+[INFO] Rendering site with default locale English (en)
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Relativizing decoration links with respect to localized project URL: https://central.entando.com
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] Generating "Dependency Information" report --- maven-project-info-reports-plugin:3.0.0:dependency-info
+[INFO] Generating "About" report         --- maven-project-info-reports-plugin:3.0.0:index
+[INFO] Generating "Issue Management" report --- maven-project-info-reports-plugin:3.0.0:issue-management
+[INFO] Generating "Licenses" report      --- maven-project-info-reports-plugin:3.0.0:licenses
+[INFO] Generating "Plugins" report       --- maven-project-info-reports-plugin:3.0.0:plugins
+[INFO] Generating "Source Code Management" report --- maven-project-info-reports-plugin:3.0.0:scm
+[INFO] Generating "Summary" report       --- maven-project-info-reports-plugin:3.0.0:summary
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  06:38 min
+[INFO] Finished at: 2021-01-22T05:38:55Z
+[INFO] ------------------------------------------------------------------------
+shallow cloning https://github.com/entando-k8s/devops-results.git branch gh-pages
+ran git init in /tmp/jenkins-x-collect781044012
+ran git add remote origin https://github.com/entando-k8s/devops-results.git in /tmp/jenkins-x-collect781044012
+ran git fetch origin --depth=1 gh-pages in dir /tmp/jenkins-x-collect781044012
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/failsafe-report.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-plugin-controller/PR-19/failsafe-report.html
+error: etcdserver: request is too large
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1878  100  1655  100   223   2625    353 --:--:-- --:--:-- --:--:--  2626
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-plugin-controller/statuses/613df15c78a558830eacf8bb3d6ea3c527e41a57",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 11934770768,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMTkzNDc3MDc2OA==",
+  "state": "success",
+  "description": "Post-deployment tests success!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-plugin-controller/PR-19/failsafe-report.html",
+  "context": "Post-deployment tests",
+  "created_at": "2021-01-22T05:39:13Z",
+  "updated_at": "2021-01-22T05:39:13Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
