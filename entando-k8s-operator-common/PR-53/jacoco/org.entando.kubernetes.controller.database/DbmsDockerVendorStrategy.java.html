@@ -57,69 +57,61 @@ import org.entando.kubernetes.model.DbmsVendor;
 <span class="nc" id="L57">        return Optional.ofNullable(fsUserGroupId);</span>
     }
 
-    public JdbcConnectionStringBuilder getConnectionStringBuilder() {
-<span class="fc" id="L61">        return this.vendorConfig.getConnectionStringBuilder();</span>
-    }
-
     public DbmsVendorConfig getVendorConfig() {
-<span class="fc" id="L65">        return vendorConfig;</span>
+<span class="fc" id="L61">        return vendorConfig;</span>
     }
 
     public String getHealthCheck() {
-<span class="fc" id="L69">        return this.vendorConfig.getHealthCheck();</span>
+<span class="fc" id="L65">        return this.getVendorConfig().getHealthCheck();</span>
     }
 
     public String getImageRepository() {
-<span class="fc" id="L73">        return this.imageRepository;</span>
+<span class="fc" id="L69">        return this.imageRepository;</span>
     }
 
     public String getOrganization() {
-<span class="fc" id="L77">        return organization;</span>
+<span class="fc" id="L73">        return organization;</span>
     }
 
     public String getRegistry() {
-<span class="fc" id="L81">        return registry;</span>
+<span class="fc" id="L77">        return registry;</span>
     }
 
     public int getPort() {
-<span class="fc" id="L85">        return this.vendorConfig.getDefaultPort();</span>
+<span class="fc" id="L81">        return this.getVendorConfig().getDefaultPort();</span>
     }
 
     public String getVolumeMountPath() {
-<span class="fc" id="L89">        return this.volumeMountPath;</span>
+<span class="fc" id="L85">        return this.volumeMountPath;</span>
     }
 
     public String getName() {
-<span class="fc" id="L93">        return this.name().toLowerCase(Locale.getDefault());</span>
+<span class="nc" id="L89">        return this.name().toLowerCase(Locale.getDefault());</span>
     }
 
     public Integer getDefaultMemoryLimitMebibytes() {
-<span class="fc" id="L97">        return defaultMemoryLimit;</span>
+<span class="fc" id="L93">        return defaultMemoryLimit;</span>
     }
 
     public String getDefaultAdminUsername() {
-<span class="fc" id="L101">        return this.vendorConfig.getDefaultAdminUsername();</span>
-    }
-
-    public String getHibernateDialect() {
-<span class="fc" id="L105">        return this.vendorConfig.getHibernateDialect();</span>
+<span class="fc" id="L97">        return this.getVendorConfig().getDefaultAdminUsername();</span>
     }
 
     public static DbmsDockerVendorStrategy forVendor(DbmsVendor vendor, EntandoOperatorComplianceMode complianceMode) {
-<span class="fc bfc" id="L109" title="All 2 branches covered.">        if (complianceMode == EntandoOperatorComplianceMode.COMMUNITY) {</span>
-<span class="fc bfc" id="L110" title="All 2 branches covered.">            if (vendor == DbmsVendor.POSTGRESQL) {</span>
-<span class="fc" id="L111">                return CENTOS_POSTGRESQL;</span>
-<span class="fc bfc" id="L112" title="All 2 branches covered.">            } else if (vendor == DbmsVendor.MYSQL) {</span>
-<span class="fc" id="L113">                return CENTOS_MYSQL;</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">        if (complianceMode == EntandoOperatorComplianceMode.COMMUNITY) {</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">            if (vendor == DbmsVendor.POSTGRESQL) {</span>
+<span class="fc" id="L103">                return CENTOS_POSTGRESQL;</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">            } else if (vendor == DbmsVendor.MYSQL) {</span>
+<span class="fc" id="L105">                return CENTOS_MYSQL;</span>
             }
-<span class="pc bpc" id="L115" title="1 of 2 branches missed.">        } else if (complianceMode == EntandoOperatorComplianceMode.REDHAT) {</span>
-<span class="fc bfc" id="L116" title="All 2 branches covered.">            if (vendor == DbmsVendor.POSTGRESQL) {</span>
-<span class="fc" id="L117">                return RHEL_POSTGRESQL;</span>
-<span class="pc bpc" id="L118" title="1 of 2 branches missed.">            } else if (vendor == DbmsVendor.MYSQL) {</span>
-<span class="fc" id="L119">                return RHEL_MYSQL;</span>
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">        } else if (complianceMode == EntandoOperatorComplianceMode.REDHAT) {</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">            if (vendor == DbmsVendor.POSTGRESQL) {</span>
+<span class="fc" id="L109">                return RHEL_POSTGRESQL;</span>
+<span class="pc bpc" id="L110" title="1 of 2 branches missed.">            } else if (vendor == DbmsVendor.MYSQL) {</span>
+<span class="fc" id="L111">                return RHEL_MYSQL;</span>
             }
         }
-<span class="fc" id="L122">        return valueOf(vendor.name());</span>
+<span class="fc" id="L114">        return valueOf(vendor.name());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

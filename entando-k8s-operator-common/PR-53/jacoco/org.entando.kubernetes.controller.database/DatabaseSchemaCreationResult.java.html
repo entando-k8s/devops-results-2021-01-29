@@ -38,7 +38,7 @@ public class DatabaseSchemaCreationResult extends AbstractServiceResult {
     }
 
     public String getJdbcUrl() {
-<span class="fc" id="L41">        return getVendor().getConnectionStringBuilder().toHost(getInternalServiceHostname()).onPort(getPort())</span>
+<span class="fc" id="L41">        return getVendor().getVendorConfig().getConnectionStringBuilder().toHost(getInternalServiceHostname()).onPort(getPort())</span>
 <span class="fc" id="L42">                .usingDatabase(</span>
 <span class="fc" id="L43">                        getDatabase()).usingSchema(schemaName).usingParameters(this.databaseServiceResult.getJdbcParameters())</span>
 <span class="fc" id="L44">                .buildJdbcConnectionString();</span>
