@@ -19,30 +19,30 @@ package org.entando.kubernetes.controller.spi;
 import io.fabric8.kubernetes.api.model.EnvVar;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.entando.kubernetes.controller.KeycloakConnectionConfig;
 import org.entando.kubernetes.controller.KubeUtils;
 import org.entando.kubernetes.controller.common.KeycloakName;
-import org.entando.kubernetes.controller.database.DatabaseSchemaCreationResult;
+import org.entando.kubernetes.controller.database.DatabaseSchemaConnectionInfo;
 
 public interface SpringBootDeployableContainer extends DbAware, KeycloakAware, IngressingContainer, TlsAware {
 
-    DatabaseSchemaCreationResult getDatabaseSchema();
+    Optional&lt;DatabaseSchemaConnectionInfo&gt; getDatabaseSchema();
 
     @Override
     default int getCpuLimitMillicores() {
-<span class="fc" id="L33">        return 1000;</span>
+<span class="fc" id="L34">        return 1000;</span>
     }
 
     @Override
     default int getMemoryLimitMebibytes() {
-<span class="fc" id="L38">        return 1024;</span>
+<span class="fc" id="L39">        return 1024;</span>
     }
 
     @Override
     default List&lt;EnvVar&gt; getDatabaseConnectionVariables() {
-<span class="fc" id="L43">        List&lt;EnvVar&gt; vars = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L44">        DatabaseSchemaCreationResult databaseSchema = getDatabaseSchema();</span>
-<span class="pc bpc" id="L45" title="1 of 2 branches missed.">        if (databaseSchema != null) {</span>
+<span class="fc" id="L44">        List&lt;EnvVar&gt; vars = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L45">        getDatabaseSchema().ifPresent(databaseSchema -&gt; {</span>
 <span class="fc" id="L46">            vars.add(new EnvVar(SpringProperty.SPRING_DATASOURCE_USERNAME.name(), null, databaseSchema.getUsernameRef()));</span>
 <span class="fc" id="L47">            vars.add(new EnvVar(SpringProperty.SPRING_DATASOURCE_PASSWORD.name(), null, databaseSchema.getPasswordRef()));</span>
 <span class="fc" id="L48">            vars.add(new EnvVar(SpringProperty.SPRING_DATASOURCE_URL.name(), databaseSchema.getJdbcUrl(), null));</span>
@@ -51,7 +51,7 @@ public interface SpringBootDeployableContainer extends DbAware, KeycloakAware, I
             /*
             TODO: Set SPRING_JPA_PROPERTIES_HIBERNATE_ID_NEW_GENERATOR_MAPPINGS to 'false' if we ever run into issues with ID Generation
             */
-        }
+<span class="fc" id="L54">        });</span>
 <span class="fc" id="L55">        return vars;</span>
     }
 
