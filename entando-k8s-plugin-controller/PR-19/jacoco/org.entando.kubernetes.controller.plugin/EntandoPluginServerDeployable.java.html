@@ -47,7 +47,7 @@ public class EntandoPluginServerDeployable implements IngressingDeployable&lt;En
 <span class="fc" id="L47">        this.entandoPlugin = entandoPlugin;</span>
         //TODO make decision on which other containers to include based on the EntandoPlugin.spec
 <span class="fc" id="L49">        this.containers = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L50">        this.containers.add(new EntandoPluginDeployableContainer(entandoPlugin, keycloakConnectionConfig));</span>
+<span class="fc" id="L50">        this.containers.add(new EntandoPluginDeployableContainer(entandoPlugin, keycloakConnectionConfig, databaseServiceResult));</span>
 <span class="fc bfc" id="L51" title="All 2 branches covered.">        if (EntandoOperatorConfig.getComplianceMode() != EntandoOperatorComplianceMode.REDHAT</span>
 <span class="fc bfc" id="L52" title="All 2 branches covered.">                &amp;&amp; entandoPlugin.getSpec().getSecurityLevel().orElse(PluginSecurityLevel.STRICT) == PluginSecurityLevel.LENIENT) {</span>
 <span class="fc" id="L53">            this.containers.add(new EntandoPluginSidecarDeployableContainer(entandoPlugin, keycloakConnectionConfig));</span>
@@ -94,9 +94,5 @@ public class EntandoPluginServerDeployable implements IngressingDeployable&lt;En
 <span class="fc" id="L94">        return new EntandoPluginDeploymentResult(pod, service, ingress);</span>
     }
 
-    @Override
-    public DatabaseServiceResult getDatabaseServiceResult() {
-<span class="fc" id="L99">        return databaseServiceResult;</span>
-    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
