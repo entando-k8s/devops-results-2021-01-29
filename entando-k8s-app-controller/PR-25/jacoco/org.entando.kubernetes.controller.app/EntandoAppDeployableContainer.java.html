@@ -23,7 +23,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.entando.kubernetes.controller.IngressingDeployCommand;
+import org.entando.kubernetes.controller.DeployCommand;
 import org.entando.kubernetes.controller.KeycloakClientConfig;
 import org.entando.kubernetes.controller.KeycloakConnectionConfig;
 import org.entando.kubernetes.controller.KubeUtils;
@@ -61,7 +61,7 @@ public class EntandoAppDeployableContainer implements IngressingContainer, Persi
     private final EntandoApp entandoApp;
     private final KeycloakConnectionConfig keycloakConnectionConfig;
     private final List&lt;DatabaseSchemaConnectionInfo&gt; databaseSchemaConnectionInfo;
-    private DbmsVendor dbmsVendor;
+    private final DbmsVendor dbmsVendor;
 
     public EntandoAppDeployableContainer(EntandoApp entandoApp, KeycloakConnectionConfig keycloakConnectionConfig,
 <span class="fc" id="L67">            DatabaseServiceResult databaseServiceResult) {</span>
@@ -69,7 +69,7 @@ public class EntandoAppDeployableContainer implements IngressingContainer, Persi
 <span class="fc" id="L69">        this.entandoApp = entandoApp;</span>
 <span class="fc" id="L70">        this.keycloakConnectionConfig = keycloakConnectionConfig;</span>
 <span class="fc" id="L71">        this.databaseSchemaConnectionInfo = Optional.ofNullable(databaseServiceResult)</span>
-<span class="fc" id="L72">                .map((dsr) -&gt; DbAware.buildDatabaseSchemaConnectionInfo(entandoApp, dsr, Arrays.asList(PORTDB, SERVDB)))</span>
+<span class="fc" id="L72">                .map(dsr -&gt; DbAware.buildDatabaseSchemaConnectionInfo(entandoApp, dsr, Arrays.asList(PORTDB, SERVDB)))</span>
 <span class="fc" id="L73">                .orElse(Collections.emptyList());</span>
 
 <span class="fc" id="L75">    }</span>
@@ -105,7 +105,7 @@ public class EntandoAppDeployableContainer implements IngressingContainer, Persi
 <span class="fc" id="L105">        List&lt;EnvVar&gt; vars = new ArrayList&lt;&gt;();</span>
 <span class="fc" id="L106">        vars.add(new EnvVar(&quot;JGROUPS_CLUSTER_PASSWORD&quot;, RandomStringUtils.randomAlphanumeric(10), null));</span>
 <span class="fc" id="L107">        vars.add(new EnvVar(&quot;JGROUPS_JOIN_TIMEOUT&quot;, &quot;3000&quot;, null));</span>
-<span class="fc" id="L108">        String labelExpression = IngressingDeployCommand.DEPLOYMENT_LABEL_NAME + &quot;=&quot; + entandoApp.getMetadata().getName() + &quot;-&quot;</span>
+<span class="fc" id="L108">        String labelExpression = DeployCommand.DEPLOYMENT_LABEL_NAME + &quot;=&quot; + entandoApp.getMetadata().getName() + &quot;-&quot;</span>
                 + KubeUtils.DEFAULT_SERVER_QUALIFIER;
 <span class="fc bfc" id="L110" title="All 2 branches covered.">        if (entandoApp.getSpec().getStandardServerImage().orElse(JeeServer.WILDFLY) == JeeServer.EAP) {</span>
 <span class="fc" id="L111">            vars.add(new EnvVar(&quot;JGROUPS_PING_PROTOCOL&quot;, &quot;openshift.KUBE_PING&quot;, null));</span>
@@ -175,13 +175,13 @@ public class EntandoAppDeployableContainer implements IngressingContainer, Persi
 <span class="fc bfc" id="L175" title="All 2 branches covered.">        if (dbmsVendor == DbmsVendor.EMBEDDED) {</span>
 <span class="fc" id="L176">            vars.add(new EnvVar(varNamePrefix + &quot;DRIVER&quot;, &quot;derby&quot;, null));</span>
         } else {
-<span class="fc" id="L178">            DatabaseSchemaConnectionInfo databaseSchemaConnectionInfo = this.databaseSchemaConnectionInfo.get(schemaIndex);</span>
-<span class="fc" id="L179">            String jdbcUrl = databaseSchemaConnectionInfo.getJdbcUrl();</span>
+<span class="fc" id="L178">            DatabaseSchemaConnectionInfo connectionInfo = this.databaseSchemaConnectionInfo.get(schemaIndex);</span>
+<span class="fc" id="L179">            String jdbcUrl = connectionInfo.getJdbcUrl();</span>
 <span class="fc" id="L180">            vars.add(new EnvVar(varNamePrefix + &quot;URL&quot;, jdbcUrl, null));</span>
 <span class="fc" id="L181">            vars.add(new EnvVar(varNamePrefix + &quot;USERNAME&quot;, null,</span>
-<span class="fc" id="L182">                    KubeUtils.secretKeyRef(databaseSchemaConnectionInfo.getSchemaSecretName(), KubeUtils.USERNAME_KEY)));</span>
+<span class="fc" id="L182">                    KubeUtils.secretKeyRef(connectionInfo.getSchemaSecretName(), KubeUtils.USERNAME_KEY)));</span>
 <span class="fc" id="L183">            vars.add(new EnvVar(varNamePrefix + &quot;PASSWORD&quot;, null,</span>
-<span class="fc" id="L184">                    KubeUtils.secretKeyRef(databaseSchemaConnectionInfo.getSchemaSecretName(), KubeUtils.PASSSWORD_KEY)));</span>
+<span class="fc" id="L184">                    KubeUtils.secretKeyRef(connectionInfo.getSchemaSecretName(), KubeUtils.PASSSWORD_KEY)));</span>
 
 <span class="fc" id="L186">            JbossDatasourceValidation jbossDatasourceValidation = JbossDatasourceValidation.getValidConnectionCheckerClass(this.dbmsVendor);</span>
 <span class="fc" id="L187">            vars.add(new EnvVar(varNamePrefix + &quot;CONNECTION_CHECKER&quot;, jbossDatasourceValidation.getValidConnectionCheckerClassName(),</span>
