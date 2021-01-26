@@ -16,8 +16,8 @@
 
 package org.entando.kubernetes.controller.keycloakserver;
 
-import org.entando.kubernetes.controller.EntandoOperatorComplianceMode;
-import org.entando.kubernetes.controller.EntandoOperatorConfig;
+import org.entando.kubernetes.controller.spi.common.EntandoOperatorComplianceMode;
+import org.entando.kubernetes.controller.spi.common.EntandoOperatorSpiConfig;
 import org.entando.kubernetes.model.DbmsVendor;
 import org.entando.kubernetes.model.keycloakserver.EntandoKeycloakServer;
 import org.entando.kubernetes.model.keycloakserver.StandardKeycloakImage;
@@ -30,7 +30,7 @@ public class EntandoKeycloakHelper {
 
     public static StandardKeycloakImage determineStandardImage(EntandoKeycloakServer entandoKeycloakServer) {
         StandardKeycloakImage standardKeycloakImage;
-<span class="fc bfc" id="L33" title="All 2 branches covered.">        if (EntandoOperatorConfig.getComplianceMode() == EntandoOperatorComplianceMode.REDHAT) {</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        if (EntandoOperatorSpiConfig.getComplianceMode() == EntandoOperatorComplianceMode.REDHAT) {</span>
 <span class="fc" id="L34">            standardKeycloakImage = StandardKeycloakImage.REDHAT_SSO;</span>
         } else {
 <span class="fc" id="L36">            standardKeycloakImage = entandoKeycloakServer.getSpec().getStandardImage().orElse(StandardKeycloakImage.KEYCLOAK);</span>
@@ -41,7 +41,7 @@ public class EntandoKeycloakHelper {
 
     public static DbmsVendor determineDbmsVendor(EntandoKeycloakServer entandoKeycloakServer) {
         DbmsVendor dbmsVendor;
-<span class="fc bfc" id="L44" title="All 2 branches covered.">        if (EntandoOperatorConfig.getComplianceMode() == EntandoOperatorComplianceMode.REDHAT) {</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if (EntandoOperatorSpiConfig.getComplianceMode() == EntandoOperatorComplianceMode.REDHAT) {</span>
 <span class="fc" id="L45">            dbmsVendor = entandoKeycloakServer.getSpec().getDbms().orElse(DbmsVendor.POSTGRESQL);</span>
         } else {
 <span class="fc" id="L47">            dbmsVendor = entandoKeycloakServer.getSpec().getDbms().orElse(DbmsVendor.EMBEDDED);</span>

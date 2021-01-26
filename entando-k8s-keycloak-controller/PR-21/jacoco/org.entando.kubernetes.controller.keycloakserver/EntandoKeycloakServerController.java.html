@@ -27,15 +27,15 @@ import io.quarkus.runtime.StartupEvent;
 import java.util.Optional;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
-import org.entando.kubernetes.controller.AbstractDbAwareController;
-import org.entando.kubernetes.controller.IngressingDeployCommand;
-import org.entando.kubernetes.controller.KeycloakConnectionConfig;
-import org.entando.kubernetes.controller.KubeUtils;
-import org.entando.kubernetes.controller.SimpleKeycloakClient;
-import org.entando.kubernetes.controller.common.KeycloakConnectionSecret;
-import org.entando.kubernetes.controller.common.KeycloakName;
-import org.entando.kubernetes.controller.database.DatabaseServiceResult;
-import org.entando.kubernetes.controller.k8sclient.SimpleK8SClient;
+import org.entando.kubernetes.controller.spi.common.NameUtils;
+import org.entando.kubernetes.controller.spi.common.SecretUtils;
+import org.entando.kubernetes.controller.spi.container.KeycloakConnectionConfig;
+import org.entando.kubernetes.controller.spi.container.KeycloakName;
+import org.entando.kubernetes.controller.spi.result.DatabaseServiceResult;
+import org.entando.kubernetes.controller.support.client.SimpleK8SClient;
+import org.entando.kubernetes.controller.support.client.SimpleKeycloakClient;
+import org.entando.kubernetes.controller.support.command.IngressingDeployCommand;
+import org.entando.kubernetes.controller.support.controller.AbstractDbAwareController;
 import org.entando.kubernetes.model.keycloakserver.EntandoKeycloakServer;
 import org.entando.kubernetes.model.keycloakserver.EntandoKeycloakServerSpec;
 
@@ -76,7 +76,7 @@ public class EntandoKeycloakServerController extends AbstractDbAwareController&l
 <span class="fc" id="L76">                    .done();</span>
 
         }
-<span class="fc" id="L79">        ensureKeycloakRealm(new KeycloakConnectionSecret(existingKeycloakAdminSecret, keycloakConnectionConfigMap));</span>
+<span class="fc" id="L79">        ensureKeycloakRealm(new KeycloakConnectionConfig(existingKeycloakAdminSecret, keycloakConnectionConfigMap));</span>
 <span class="fc" id="L80">        k8sClient.entandoResources().updateStatus(newEntandoKeycloakServer, serviceDeploymentResult.getStatus());</span>
 <span class="fc" id="L81">    }</span>
 
@@ -90,8 +90,8 @@ public class EntandoKeycloakServerController extends AbstractDbAwareController&l
 <span class="fc" id="L90">                    .withNamespace(newEntandoKeycloakServer.getMetadata().getNamespace())</span>
 <span class="fc" id="L91">                    .withName(KeycloakName.forTheConnectionConfigMap(newEntandoKeycloakServer))</span>
 <span class="fc" id="L92">                    .endMetadata()</span>
-<span class="fc" id="L93">                    .addToData(KubeUtils.URL_KEY, serviceDeploymentResult.getExternalBaseUrl())</span>
-<span class="fc" id="L94">                    .addToData(KubeUtils.INTERNAL_URL_KEY, serviceDeploymentResult.getInternalBaseUrl()).build();</span>
+<span class="fc" id="L93">                    .addToData(NameUtils.URL_KEY, serviceDeploymentResult.getExternalBaseUrl())</span>
+<span class="fc" id="L94">                    .addToData(NameUtils.INTERNAL_URL_KEY, serviceDeploymentResult.getInternalBaseUrl()).build();</span>
 <span class="fc" id="L95">            k8sClient.secrets().createConfigMapIfAbsent(newEntandoKeycloakServer, newConfigMap);</span>
 <span class="fc" id="L96">            return newConfigMap;</span>
         } else {
@@ -134,8 +134,8 @@ public class EntandoKeycloakServerController extends AbstractDbAwareController&l
 <span class="fc" id="L134">                    .withNewMetadata()</span>
 <span class="fc" id="L135">                    .withName(KeycloakName.forTheAdminSecret(newEntandoKeycloakServer))</span>
 <span class="fc" id="L136">                    .endMetadata()</span>
-<span class="fc" id="L137">                    .addToStringData(KubeUtils.USERNAME_KEY, &quot;entando_keycloak_admin&quot;)</span>
-<span class="fc" id="L138">                    .addToStringData(KubeUtils.PASSSWORD_KEY, KubeUtils.randomAlphanumeric(12))</span>
+<span class="fc" id="L137">                    .addToStringData(SecretUtils.USERNAME_KEY, &quot;entando_keycloak_admin&quot;)</span>
+<span class="fc" id="L138">                    .addToStringData(SecretUtils.PASSSWORD_KEY, SecretUtils.randomAlphanumeric(12))</span>
 <span class="fc" id="L139">                    .build();</span>
 <span class="fc" id="L140">            k8sClient.secrets().overwriteControllerSecret(existingKeycloakAdminSecret);</span>
 
@@ -152,7 +152,7 @@ public class EntandoKeycloakServerController extends AbstractDbAwareController&l
 <span class="fc" id="L152">        logger.severe(() -&gt; format(&quot;Attempting to log into Keycloak at %s&quot;, keycloakConnectionConfig.determineBaseUrl()));</span>
 <span class="fc" id="L153">        keycloakClient.login(keycloakConnectionConfig.determineBaseUrl(), keycloakConnectionConfig.getUsername(),</span>
 <span class="fc" id="L154">                keycloakConnectionConfig.getPassword());</span>
-<span class="fc" id="L155">        keycloakClient.ensureRealm(KubeUtils.ENTANDO_DEFAULT_KEYCLOAK_REALM);</span>
+<span class="fc" id="L155">        keycloakClient.ensureRealm(KeycloakName.ENTANDO_DEFAULT_KEYCLOAK_REALM);</span>
 <span class="fc" id="L156">    }</span>
 
 }
