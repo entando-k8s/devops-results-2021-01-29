@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DbAware.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Entando K8S Operator Common Library</a> &gt; <a href="index.source.html" class="el_package">org.entando.kubernetes.controller.spi.container</a> &gt; <span class="el_source">DbAware.java</span></div><h1>DbAware.java</h1><pre class="source lang-java linenums">/*
+ *
+ * Copyright 2015-Present Entando Inc. (http://www.entando.com) All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ *  This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ *
+ */
+
+package org.entando.kubernetes.controller.spi.container;
+
+import io.fabric8.kubernetes.api.model.EnvVar;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import org.entando.kubernetes.controller.spi.common.NameUtils;
+import org.entando.kubernetes.controller.spi.common.SecretUtils;
+import org.entando.kubernetes.controller.spi.result.DatabaseServiceResult;
+import org.entando.kubernetes.model.EntandoBaseCustomResource;
+import org.entando.kubernetes.model.EntandoDeploymentSpec;
+
+public interface DbAware extends DeployableContainer {
+
+    default Optional&lt;DatabasePopulator&gt; getDatabasePopulator() {
+<span class="fc" id="L32">        return Optional.empty();</span>
+    }
+
+    List&lt;EnvVar&gt; getDatabaseConnectionVariables();
+
+    List&lt;DatabaseSchemaConnectionInfo&gt; getSchemaConnectionInfo();
+
+    static List&lt;DatabaseSchemaConnectionInfo&gt; buildDatabaseSchemaConnectionInfo(
+            EntandoBaseCustomResource&lt;? extends EntandoDeploymentSpec&gt; entandoBaseCustomResource,
+            DatabaseServiceResult databaseServiceResult,
+            List&lt;String&gt; schemaQualifiers) {
+        /**
+         * String used to distinguish resources in special cases like name shortening.
+         */
+<span class="fc" id="L46">        String identifierSuffix = SecretUtils.randomAlphanumeric(3);</span>
+<span class="fc" id="L47">        return schemaQualifiers.stream().map(schemaQualifier -&gt; {</span>
+<span class="fc" id="L48">            String schemaName = NameUtils.snakeCaseOf(entandoBaseCustomResource.getMetadata().getName()) + &quot;_&quot; + schemaQualifier;</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">            if (schemaName.length() &gt; databaseServiceResult.getVendor().getVendorConfig().getMaxNameLength()) {</span>
+<span class="fc" id="L50">                schemaName = schemaName.substring(0, databaseServiceResult.getVendor().getVendorConfig().getMaxNameLength() - 3)</span>
+                        + identifierSuffix;
+            }
+<span class="fc" id="L53">            return new DatabaseSchemaConnectionInfo(databaseServiceResult,</span>
+                    schemaName,
+<span class="fc" id="L55">                    SecretUtils.generateSecret(entandoBaseCustomResource,</span>
+<span class="fc" id="L56">                            entandoBaseCustomResource.getMetadata().getName() + &quot;-&quot; + schemaQualifier + &quot;-secret&quot;,</span>
+                            schemaName)
+            );
+<span class="fc" id="L59">        }).collect(Collectors.toList());</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
