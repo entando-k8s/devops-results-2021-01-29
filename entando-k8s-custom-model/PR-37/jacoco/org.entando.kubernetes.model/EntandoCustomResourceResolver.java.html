@@ -109,14 +109,14 @@ public class EntandoCustomResourceResolver&lt;R extends EntandoCustomResource, L
     private CustomResourceDefinition loadCrd(KubernetesClient client) {
         try {
 <span class="fc" id="L111">            CustomResourceDefinition crd = client.customResourceDefinitions().withName(crdName).get();</span>
-<span class="pc bpc" id="L112" title="1 of 2 branches missed.">            if (crd == null) {</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">            if (crd == null) {</span>
 <span class="fc" id="L113">                crd = client.customResourceDefinitions().load(loadYamlFile()).get();</span>
                 // see issue https://github.com/fabric8io/kubernetes-client/issues/1486
 <span class="fc" id="L115">                client.customResourceDefinitions().create(crd);</span>
             }
 <span class="fc" id="L117">            return crd;</span>
-<span class="nc" id="L118">        } catch (KubernetesClientException e) {</span>
-<span class="nc bnc" id="L119" title="All 2 branches missed.">            if (e.getCode() == HttpURLConnection.HTTP_FORBIDDEN) {</span>
+<span class="fc" id="L118">        } catch (KubernetesClientException e) {</span>
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">            if (e.getCode() == HttpURLConnection.HTTP_FORBIDDEN) {</span>
 <span class="nc" id="L120">                LOGGER.warning(</span>
 <span class="nc" id="L121">                        format(&quot;User does not have permissions to create CRD's. Assuming CRD's have already been deployed. Loading %s CRD&quot;</span>
                                         + &quot; from classpath.&quot;,
@@ -125,8 +125,8 @@ public class EntandoCustomResourceResolver&lt;R extends EntandoCustomResource, L
 <span class="nc" id="L125">                List&lt;HasMetadata&gt; list = client.load(loadYamlFile()).get();</span>
 <span class="nc" id="L126">                return (CustomResourceDefinition) list.get(0);</span>
             } else {
-<span class="nc" id="L128">                LOGGER.log(Level.SEVERE, &quot;Error&quot;, e);</span>
-<span class="nc" id="L129">                throw e;</span>
+<span class="fc" id="L128">                LOGGER.log(Level.SEVERE, &quot;Error&quot;, e);</span>
+<span class="fc" id="L129">                throw e;</span>
             }
 <span class="nc" id="L131">        } catch (RuntimeException e) {</span>
 <span class="nc" id="L132">            throw e;</span>
