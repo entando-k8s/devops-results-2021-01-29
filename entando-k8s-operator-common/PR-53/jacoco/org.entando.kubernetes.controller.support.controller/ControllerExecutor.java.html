@@ -148,30 +148,30 @@ public class ControllerExecutor {
 
     private &lt;T extends Serializable&gt; List&lt;EnvVar&gt; buildEnvVars(Action action, EntandoBaseCustomResource&lt;T&gt; resource) {
 <span class="fc" id="L150">        Map&lt;String, EnvVar&gt; result = new HashMap&lt;&gt;();</span>
-        //TODO test if we can remove this line now.
+        //TODO test if we can remove this line now given that we are copying all system properties and environment variables.
 <span class="fc" id="L152">        Stream.of(EntandoOperatorConfigProperty.values())</span>
 <span class="fc" id="L153">                .filter(prop -&gt; EntandoOperatorConfigBase.lookupProperty(prop).isPresent())</span>
 <span class="fc" id="L154">                .forEach(prop -&gt; addTo(result, new EnvVar(prop.name(), EntandoOperatorConfigBase.lookupProperty(prop).get(), null)));</span>
-<span class="pc bpc" id="L155" title="1 of 2 branches missed.">        if (!EntandoOperatorConfig.getCertificateAuthorityCertPaths().isEmpty()) {</span>
+<span class="fc" id="L155">        System.getProperties().entrySet().stream()</span>
+<span class="fc" id="L156">                .filter(this::matchesKnownSystemProperty).forEach(objectObjectEntry -&gt; addTo(result,</span>
+<span class="fc" id="L157">                new EnvVar(objectObjectEntry.getKey().toString().toUpperCase(Locale.ROOT).replace(&quot;.&quot;, &quot;_&quot;).replace(&quot;-&quot;, &quot;_&quot;),</span>
+<span class="fc" id="L158">                        objectObjectEntry.getValue().toString(), null)));</span>
+<span class="fc" id="L159">        System.getenv().entrySet().stream()</span>
+<span class="fc" id="L160">                .filter(this::matchesKnownEnvironmentVariable)</span>
+<span class="fc" id="L161">                .forEach(objectObjectEntry -&gt; addTo(result, new EnvVar(objectObjectEntry.getKey(),</span>
+<span class="fc" id="L162">                        objectObjectEntry.getValue(), null)));</span>
+<span class="pc bpc" id="L163" title="1 of 2 branches missed.">        if (!EntandoOperatorConfig.getCertificateAuthorityCertPaths().isEmpty()) {</span>
             //TODO no need to propagate the raw CA certs. But we do need to mount the resulting Java Truststore and override the
             // _JAVA_OPTS variable
-<span class="fc" id="L158">            StringBuilder sb = new StringBuilder();</span>
-<span class="fc" id="L159">            EntandoOperatorConfig.getCertificateAuthorityCertPaths().forEach(path -&gt;</span>
-<span class="fc" id="L160">                    sb.append(ETC_ENTANDO_CA).append(&quot;/&quot;).append(path.getFileName().toString()).append(&quot; &quot;));</span>
-<span class="fc" id="L161">            addTo(result, new EnvVar(EntandoOperatorConfigProperty.ENTANDO_CA_CERT_PATHS.name(), sb.toString().trim(), null));</span>
+<span class="fc" id="L166">            StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L167">            EntandoOperatorConfig.getCertificateAuthorityCertPaths().forEach(path -&gt;</span>
+<span class="fc" id="L168">                    sb.append(ETC_ENTANDO_CA).append(&quot;/&quot;).append(path.getFileName().toString()).append(&quot; &quot;));</span>
+<span class="fc" id="L169">            addTo(result, new EnvVar(EntandoOperatorConfigProperty.ENTANDO_CA_CERT_PATHS.name(), sb.toString().trim(), null));</span>
         }
-<span class="pc bpc" id="L163" title="1 of 2 branches missed.">        if (TlsHelper.isDefaultTlsKeyPairAvailable()) {</span>
+<span class="pc bpc" id="L171" title="1 of 2 branches missed.">        if (TlsHelper.isDefaultTlsKeyPairAvailable()) {</span>
             //TODO no need to propagate the Tls certs.
-<span class="nc" id="L165">            addTo(result, new EnvVar(EntandoOperatorConfigProperty.ENTANDO_PATH_TO_TLS_KEYPAIR.name(), ETC_ENTANDO_TLS, null));</span>
+<span class="nc" id="L173">            addTo(result, new EnvVar(EntandoOperatorConfigProperty.ENTANDO_PATH_TO_TLS_KEYPAIR.name(), ETC_ENTANDO_TLS, null));</span>
         }
-<span class="fc" id="L167">        System.getProperties().entrySet().stream()</span>
-<span class="fc" id="L168">                .filter(this::matchesKnownSystemProperty).forEach(objectObjectEntry -&gt; addTo(result,</span>
-<span class="fc" id="L169">                new EnvVar(objectObjectEntry.getKey().toString().toUpperCase(Locale.ROOT).replace(&quot;.&quot;, &quot;_&quot;).replace(&quot;-&quot;, &quot;_&quot;),</span>
-<span class="fc" id="L170">                        objectObjectEntry.getValue().toString(), null)));</span>
-<span class="fc" id="L171">        System.getenv().entrySet().stream()</span>
-<span class="fc" id="L172">                .filter(this::matchesKnownEnvironmentVariable)</span>
-<span class="fc" id="L173">                .forEach(objectObjectEntry -&gt; addTo(result, new EnvVar(objectObjectEntry.getKey(),</span>
-<span class="fc" id="L174">                        objectObjectEntry.getValue(), null)));</span>
         //Make sure we overwrite previously set resource info
 <span class="fc" id="L176">        addTo(result, new EnvVar(&quot;ENTANDO_RESOURCE_ACTION&quot;, action.name(), null));</span>
 <span class="fc" id="L177">        addTo(result, new EnvVar(&quot;ENTANDO_RESOURCE_NAMESPACE&quot;, resource.getMetadata().getNamespace(), null));</span>
