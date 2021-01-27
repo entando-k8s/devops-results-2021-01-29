@@ -24,15 +24,15 @@ import java.util.List;
 import java.util.Optional;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
-import org.entando.kubernetes.controller.AbstractDbAwareController;
-import org.entando.kubernetes.controller.DeployCommand;
-import org.entando.kubernetes.controller.EntandoOperatorConfig;
-import org.entando.kubernetes.controller.SimpleKeycloakClient;
-import org.entando.kubernetes.controller.common.CreateExternalServiceCommand;
-import org.entando.kubernetes.controller.database.DatabaseDeployable;
-import org.entando.kubernetes.controller.database.DatabaseDeploymentResult;
-import org.entando.kubernetes.controller.database.DbmsDockerVendorStrategy;
-import org.entando.kubernetes.controller.k8sclient.SimpleK8SClient;
+import org.entando.kubernetes.controller.spi.common.DbmsDockerVendorStrategy;
+import org.entando.kubernetes.controller.spi.common.EntandoOperatorSpiConfig;
+import org.entando.kubernetes.controller.spi.database.DatabaseDeployable;
+import org.entando.kubernetes.controller.spi.database.DatabaseDeploymentResult;
+import org.entando.kubernetes.controller.support.client.SimpleK8SClient;
+import org.entando.kubernetes.controller.support.client.SimpleKeycloakClient;
+import org.entando.kubernetes.controller.support.command.CreateExternalServiceCommand;
+import org.entando.kubernetes.controller.support.command.DeployCommand;
+import org.entando.kubernetes.controller.support.controller.AbstractDbAwareController;
 import org.entando.kubernetes.model.externaldatabase.EntandoDatabaseService;
 import org.entando.kubernetes.model.externaldatabase.EntandoDatabaseServiceSpec;
 
@@ -60,7 +60,7 @@ public class EntandoDatabaseServiceController extends AbstractDbAwareController&
 <span class="fc bfc" id="L60" title="All 2 branches covered.">        if (newEntandoDatabaseService.getSpec().getCreateDeployment().orElse(false)) {</span>
 <span class="fc" id="L61">            DatabaseDeployable&lt;EntandoDatabaseServiceSpec&gt; deployable = new DatabaseDeployable&lt;EntandoDatabaseServiceSpec&gt;(</span>
                     DbmsDockerVendorStrategy
-<span class="fc" id="L63">                            .forVendor(newEntandoDatabaseService.getSpec().getDbms(), EntandoOperatorConfig.getComplianceMode()),</span>
+<span class="fc" id="L63">                            .forVendor(newEntandoDatabaseService.getSpec().getDbms(), EntandoOperatorSpiConfig.getComplianceMode()),</span>
 <span class="fc" id="L64">                    newEntandoDatabaseService, newEntandoDatabaseService.getSpec().getPort().orElse(null)) {</span>
                 @Override
                 protected String getDatabaseAdminSecretName() {
@@ -68,12 +68,12 @@ public class EntandoDatabaseServiceController extends AbstractDbAwareController&
                 }
 
                 @Override
-                public List&lt;Secret&gt; buildSecrets() {
+                public List&lt;Secret&gt; getSecrets() {
 <span class="fc bfc" id="L72" title="All 2 branches covered.">                    if (getCustomResource().getSpec().getSecretName().isPresent()) {</span>
                         //because it already exists
 <span class="fc" id="L74">                        return Collections.emptyList();</span>
                     } else {
-<span class="fc" id="L76">                        return super.buildSecrets();</span>
+<span class="fc" id="L76">                        return super.getSecrets();</span>
                     }
                 }
 
