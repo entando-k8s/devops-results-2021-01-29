@@ -21,16 +21,20 @@ import io.fabric8.kubernetes.api.model.OwnerReferenceBuilder;
 import java.io.Serializable;
 import org.entando.kubernetes.model.EntandoBaseCustomResource;
 
-<span class="nc" id="L24">public class ResourceUtils {</span>
+public class ResourceUtils {
+
+    private ResourceUtils() {
+
+    }
 
     public static &lt;S extends Serializable&gt; OwnerReference buildOwnerReference(EntandoBaseCustomResource&lt;S&gt; entandoCustomResource) {
-<span class="fc" id="L27">        return new OwnerReferenceBuilder()</span>
-<span class="fc" id="L28">                .withApiVersion(entandoCustomResource.getApiVersion())</span>
-<span class="fc" id="L29">                .withBlockOwnerDeletion(true)</span>
-<span class="fc" id="L30">                .withController(true)</span>
-<span class="fc" id="L31">                .withKind(entandoCustomResource.getKind())</span>
-<span class="fc" id="L32">                .withName(entandoCustomResource.getMetadata().getName())</span>
-<span class="fc" id="L33">                .withUid(entandoCustomResource.getMetadata().getUid()).build();</span>
+<span class="fc" id="L31">        return new OwnerReferenceBuilder()</span>
+<span class="fc" id="L32">                .withApiVersion(entandoCustomResource.getApiVersion())</span>
+<span class="fc" id="L33">                .withBlockOwnerDeletion(true)</span>
+<span class="fc" id="L34">                .withController(true)</span>
+<span class="fc" id="L35">                .withKind(entandoCustomResource.getKind())</span>
+<span class="fc" id="L36">                .withName(entandoCustomResource.getMetadata().getName())</span>
+<span class="fc" id="L37">                .withUid(entandoCustomResource.getMetadata().getUid()).build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

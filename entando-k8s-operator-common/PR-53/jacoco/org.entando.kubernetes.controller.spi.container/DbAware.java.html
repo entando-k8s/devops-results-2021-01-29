@@ -46,8 +46,8 @@ public interface DbAware extends DeployableContainer {
 <span class="fc" id="L46">        String identifierSuffix = SecretUtils.randomAlphanumeric(3);</span>
 <span class="fc" id="L47">        return schemaQualifiers.stream().map(schemaQualifier -&gt; {</span>
 <span class="fc" id="L48">            String schemaName = NameUtils.snakeCaseOf(entandoBaseCustomResource.getMetadata().getName()) + &quot;_&quot; + schemaQualifier;</span>
-<span class="fc bfc" id="L49" title="All 2 branches covered.">            if (schemaName.length() &gt; databaseServiceResult.getVendor().getVendorConfig().getMaxNameLength()) {</span>
-<span class="fc" id="L50">                schemaName = schemaName.substring(0, databaseServiceResult.getVendor().getVendorConfig().getMaxNameLength() - 3)</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">            if (schemaName.length() &gt; databaseServiceResult.getVendor().getVendorConfig().getMaxNameLength()) {</span>
+<span class="nc" id="L50">                schemaName = schemaName.substring(0, databaseServiceResult.getVendor().getVendorConfig().getMaxNameLength() - 3)</span>
                         + identifierSuffix;
             }
 <span class="fc" id="L53">            return new DatabaseSchemaConnectionInfo(databaseServiceResult,</span>
