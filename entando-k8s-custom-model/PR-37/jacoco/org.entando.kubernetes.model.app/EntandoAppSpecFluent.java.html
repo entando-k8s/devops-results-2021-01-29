@@ -16,13 +16,13 @@
 
 package org.entando.kubernetes.model.app;
 
-import org.entando.kubernetes.model.ClusterInfrastructureAwareSpecBuilder;
+import org.entando.kubernetes.model.ClusterInfrastructureAwareSpecFluent;
 import org.entando.kubernetes.model.JeeServer;
 import org.entando.kubernetes.model.gitspec.GitSpec;
 import org.entando.kubernetes.model.gitspec.GitSpecBuilder;
 import org.entando.kubernetes.model.gitspec.GitSpecFluent;
 
-public class EntandoAppSpecFluent&lt;N extends EntandoAppSpecFluent&gt; extends ClusterInfrastructureAwareSpecBuilder&lt;N&gt; {
+public class EntandoAppSpecFluent&lt;N extends EntandoAppSpecFluent&lt;N&gt;&gt; extends ClusterInfrastructureAwareSpecFluent&lt;N&gt; {
 
     protected JeeServer standardServerImage;
     protected String customServerImage;
@@ -46,36 +46,36 @@ public class EntandoAppSpecFluent&lt;N extends EntandoAppSpecFluent&gt; extends 
     public N withStandardServerImage(JeeServer jeeServer) {
 <span class="fc" id="L47">        this.standardServerImage = jeeServer;</span>
 <span class="pc bpc" id="L48" title="1 of 2 branches missed.">        this.customServerImage = jeeServer == null ? this.customServerImage : null;</span>
-<span class="fc" id="L49">        return thisAsN();</span>
+<span class="fc" id="L49">        return thisAsF();</span>
     }
 
     public N withIngressPath(String ingressPath) {
 <span class="fc" id="L53">        this.ingressPath = ingressPath;</span>
-<span class="fc" id="L54">        return thisAsN();</span>
+<span class="fc" id="L54">        return thisAsF();</span>
     }
 
     public N withCustomServerImage(String customServerImage) {
 <span class="fc" id="L58">        this.customServerImage = customServerImage;</span>
 <span class="pc bpc" id="L59" title="1 of 2 branches missed.">        this.standardServerImage = customServerImage == null ? standardServerImage : null;</span>
-<span class="fc" id="L60">        return thisAsN();</span>
+<span class="fc" id="L60">        return thisAsF();</span>
     }
 
     public N withEcrGitSshSecretname(String ecrGitSshSecretName) {
 <span class="fc" id="L64">        this.ecrGitSshSecretName = ecrGitSshSecretName;</span>
-<span class="fc" id="L65">        return thisAsN();</span>
+<span class="fc" id="L65">        return thisAsF();</span>
     }
 
     public GitSpecBuilderNested&lt;N&gt; editBackupGitSpec() {
-<span class="fc" id="L69">        return new GitSpecBuilderNested&lt;&gt;(thisAsN(), this.backupGitSpec.build());</span>
+<span class="fc" id="L69">        return new GitSpecBuilderNested&lt;&gt;(thisAsF(), this.backupGitSpec.build());</span>
     }
 
     public GitSpecBuilderNested&lt;N&gt; withNewBackupGitSpec() {
-<span class="fc" id="L73">        return new GitSpecBuilderNested&lt;&gt;(thisAsN());</span>
+<span class="fc" id="L73">        return new GitSpecBuilderNested&lt;&gt;(thisAsF());</span>
     }
 
     public N withBackupGitSpec(GitSpec gitSpec) {
 <span class="fc" id="L77">        this.backupGitSpec = new GitSpecBuilder(gitSpec);</span>
-<span class="fc" id="L78">        return thisAsN();</span>
+<span class="fc" id="L78">        return thisAsF();</span>
     }
 
     public EntandoAppSpec build() {
