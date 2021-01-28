@@ -1,0 +1,478 @@
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-qkmmm-14[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-9xrgr[0m
+{"level":"warn","ts":1611841047.7337127,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1611841047.743183,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-qkmmm-14[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-6d6xg[0m
+{"level":"warn","ts":1611841050.8255613,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1611841050.8465123,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully e**cuted command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-qkmmm-14[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-qkmmm-14[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-k8s-entando-k8s-custom-5pc4l[0m
+{"level":"warn","ts":1611841088.3943088,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1611841089.9064121,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/entando-k8s/entando-k8s-custom-model.git @ master in path /workspace/source"}
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-qkmmm-14[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:df42cde13c12b875758ad029042ddb20ac084e41,37:bfa32b303a906c0977fd86ca750c560e03270e59
+DEBUG: ran git fetch --unshallow origin bfa32b303a906c0977fd86ca750c560e03270e59: df42cde13c12b875758ad029042ddb20ac084e41: in 
+DEBUG: ran git checkout master in 
+DEBUG: ran git reset --hard df42cde13c12b875758ad029042ddb20ac084e41 in 
+DEBUG: ran clean --force -d . in 
+DEBUG: ran git merge bfa32b303a906c0977fd86ca750c560e03270e59 in 
+Merged SHA bfa32b303a906c0977fd86ca750c560e03270e59 with commit message 'ENG-1737 introduced overrides from EntandoCompositeApp for improved quickstart experience' into base branch master
+Merged SHA a5ac71cb4befa8d484e8ad4f8fc2fd1b47662fc2 with commit message 'ENG-1737 some refinements for an OLM quickstart experience' into base branch master
+Merged SHA ceb4e436245a6e67d35f00e08ff97247353f7c50 with commit message 'ENG-1737 minor fi**s to the EntandoDeBundle status definition' into base branch master
+Merged SHA 644dc56fa446f9858a40d4fa048d89a3a4fe9cf0 with commit message 'ENG-1737 fi**d incorrect scope on DeBundle' into base branch master
+Merged SHA 770498fae6b84b0a8f2aa3022ca3552547394f19 with commit message 'ENG-1737 trying to fix integration tests' into base branch master
+Merged SHA 6572f818955b7250ef32d7816252c6785bd9e231 with commit message 'ENG-1737 EntandoDeBundle' into base branch master
+Merged SHA b3fdf23276e950a6c42b4e50f99a7b1e3edd9165 with commit message 'ENG-1737 fi**d typo in EntandoAppCRD.yaml' into base branch master
+Merged SHA 40637115cff692b9d20b6497503764ec7e9eb6d6 with commit message 'ENG-1737 modified EntandoApp and EntandoAppPluginLink CRDs' into base branch master
+Merged SHA 585ff5ffd990d34de20338c37a901aba5c72c28b with commit message 'ENG-1742 refined CRDs for Red Hat certification' into base branch master
+Merged SHA 67582b86d4818178d5740d6657e288d339c7c5cb with commit message 'ENG-1737 refined doneable logic' into base branch master
+Merged SHA 65318d53a5e23c6de6267fa9c334fc90d1920de9 with commit message 'ENG-1737 refined doneable logic' into base branch master
+Merged SHA ab4eecf6200effac1ff3b0ea28e08a82d103428b with commit message 'ENG-1737 fi**d EntandoClusterInfraustructre CRD' into base branch master
+Merged SHA 4f4b9b03d47072719f3a5474a6a425114023de27 with commit message 'ENG-1737 introduced observedGeneration logic' into base branch master
+Merged SHA 740819ef9c4ff536405a1ba960dcfa14d15a6895 with commit message 'ENG-1737 backported CRD for compatibility on Openshift 3.11' into base branch master
+Merged SHA c690d8c0dbd634537574366368798054acad3d05 with commit message 'ENG-1737 refined EntandoKeycloakServer additionalPrinterColums' into base branch master
+Merged SHA f49c22637a0e27001d1cc7c407f51d2e00b50f5e with commit message 'ENG-1737 migrated EntandoKeycloakServerCRD.yaml to v1 api' into base branch master
+Merged SHA be72400411db83e604e65b6b99cbb69612d690c3 with commit message 'ENG-1737 added StandardKeycloakImage' into base branch master
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-qkmmm-14[0m stage [32mfrom-build-pack[0m and container [32mstep-build-set-version[0m
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx8000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< org.entando:entando-k8s-custom-model >----------------
+[INFO] Building Entando Kubernetes Custom Model 6.3.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- versions-maven-plugin:2.8.1:set (default-cli) @ entando-k8s-custom-model ---
+[INFO] Local aggregation ****: /workspace/source
+[INFO] Processing change of org.entando:entando-k8s-custom-model:6.3.0-SNAPSHOT -> 0.0.0-SNAPSHOT-PR-37-14
+[INFO] Processing org.entando:entando-k8s-custom-model
+[INFO]     Updating project org.entando:entando-k8s-custom-model
+[INFO]         from version 6.3.0-SNAPSHOT to 0.0.0-SNAPSHOT-PR-37-14
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.338 s
+[INFO] Finished at: 2021-01-28T13:38:29Z
+[INFO] ------------------------------------------------------------------------
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-qkmmm-14[0m stage [32mfrom-build-pack[0m and container [32mstep-build-fix-git-for-sonar[0m
+Switched to a new branch 'PR-37'
+M	pom.xml
+Deleted branch master (was bfa32b3).
+From https://github.com/entando-k8s/entando-k8s-custom-model
+ * [new branch]      master     -> master
+
+Showing logs for build [32mentando-k8s-entando-k8s-custom-qkmmm-14[0m stage [32mfrom-build-pack[0m and container [32mstep-build-mvn-verify-pr[0m
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1859  100  1643  100   216   2586    340 --:--:-- --:--:-- --:--:--  2599
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-custom-model/statuses/bfa32b303a906c0977fd86ca750c560e03270e59",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 11996660304,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMTk5NjY2MDMwNA==",
+  "state": "pending",
+  "description": "Pre-deployment tests pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-custom-model/PR-37/surefire-report.html",
+  "context": "Pre-deployment tests",
+  "created_at": "2021-01-28T13:38:32Z",
+  "updated_at": "2021-01-28T13:38:32Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/entando-**/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/entando-**/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/entando-**/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/entando-**/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-custom-model/statuses/bfa32b303a906c0977fd86ca750c560e03270e59",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 11996660405,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMTk5NjY2MDQwNQ==",
+  "state": "pending",
+  "description": "Checkstyle pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-custom-model/PR-37/checkstyle.html",
+  "context": "Checkstyle",
+  "created_at": "2021-01-28T13:38:33Z",
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 10  1809    0     0  100   191      0    189  0:00:01  0:00:01 --:--:--   189100  1809  100  1618  100   191   1604    189  0:00:01  0:00:01 --:--:--  1605
+  "updated_at": "2021-01-28T13:38:33Z",
+  "creator": {
+    "login": "entando-**",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/entando-**",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/entando-**/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/entando-**/orgs",
+    "repos_url": "https://api.github.com/users/entando-**/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-custom-model/statuses/bfa32b303a906c0977fd86ca750c560e03270e59",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 11996660571,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMTk5NjY2MDU3MQ==",
+  "state": "pending",
+  "description": "OWASP CVE pending!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-custom-model/PR-37/dependency-check-report.html",
+  "context": "OWASP CVE",
+  "created_at": "2021-01-28T13:38:34Z",
+  "updated_at": "2021-01-28T13:38:34Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/entando-**/followers",
+    "following_url": "https://api.github.com/users/entando-**/following{/other_user}",
+    "gists_url": "https://api.github.com/users/entando-**/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/**********/subscriptions",
+    "organizations_url": "https://api.github.com/users/entando-**/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 11  1831    0     0  100   202      0    332 --:--:-- --:--:-- --:--:--   333100  1831  100  1629  100   202   2667    330 --:--:-- --:--:-- --:--:--  2683
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx8000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< org.entando:entando-k8s-custom-model >----------------
+[INFO] Building Entando Kubernetes Custom Model 0.0.0-SNAPSHOT-PR-37-14
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:check (validate) @ entando-k8s-custom-model ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.1.1:checkstyle (validate) @ entando-k8s-custom-model ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ entando-k8s-custom-model ---
+[INFO] argLine set to -javaagent:/home/jenkins/.mvnrepository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/workspace/source/target/jacoco.e**c
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ entando-k8s-custom-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 18 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ entando-k8s-custom-model ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 134 source files to /workspace/source/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/externaldatabase/EntandoDatabaseServiceFluent.java:[22,36] cannot find symbol
+  symbol:   class EntandoIngressingDeploymentBaseFluent
+  location: package org.entando.kubernetes.model
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/externaldatabase/EntandoDatabaseServiceFluent.java:[26,20] cannot find symbol
+  symbol: class EntandoIngressingDeploymentBaseFluent
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/NestedIngressingDeploymentSpecFluent.java:[21,65] cannot find symbol
+  symbol: class EntandoIngressingDeploymentBaseFluent
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/plugin/EntandoPluginFluent.java:[22,36] cannot find symbol
+  symbol:   class EntandoIngressingDeploymentBaseFluent
+  location: package org.entando.kubernetes.model
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/plugin/EntandoPluginFluent.java:[26,20] cannot find symbol
+  symbol: class EntandoIngressingDeploymentBaseFluent
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/keycloakserver/EntandoKeycloakServerFluent.java:[23,36] cannot find symbol
+  symbol:   class EntandoIngressingDeploymentBaseFluent
+  location: package org.entando.kubernetes.model
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/keycloakserver/EntandoKeycloakServerFluent.java:[27,31] cannot find symbol
+  symbol: class EntandoIngressingDeploymentBaseFluent
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/app/EntandoAppFluent.java:[22,36] cannot find symbol
+  symbol:   class EntandoIngressingDeploymentBaseFluent
+  location: package org.entando.kubernetes.model
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/app/EntandoAppFluent.java:[26,20] cannot find symbol
+  symbol: class EntandoIngressingDeploymentBaseFluent
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/infrastructure/EntandoClusterInfrastructureFluent.java:[22,36] cannot find symbol
+  symbol:   class EntandoIngressingDeploymentBaseFluent
+  location: package org.entando.kubernetes.model
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/infrastructure/EntandoClusterInfrastructureFluent.java:[26,20] cannot find symbol
+  symbol: class EntandoIngressingDeploymentBaseFluent
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/keycloakserver/EntandoKeycloakServerFluent.java:[53,5] method does not override or implement a method from a supertype
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/infrastructure/EntandoClusterInfrastructureFluent.java:[44,5] method does not override or implement a method from a supertype
+[INFO] 13 errors 
+[INFO] -------------------------------------------------------------
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Skipping Entando Kubernetes Custom Model
+[INFO] This project has been banned from the build due to previous failures.
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19.108 s
+[INFO] Finished at: 2021-01-28T13:38:55Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to e**cute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project entando-k8s-custom-model: Compilation failure: Compilation failure: 
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/externaldatabase/EntandoDatabaseServiceFluent.java:[22,36] cannot find symbol
+[ERROR]   symbol:   class EntandoIngressingDeploymentBaseFluent
+[ERROR]   location: package org.entando.kubernetes.model
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/externaldatabase/EntandoDatabaseServiceFluent.java:[26,20] cannot find symbol
+[ERROR]   symbol: class EntandoIngressingDeploymentBaseFluent
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/NestedIngressingDeploymentSpecFluent.java:[21,65] cannot find symbol
+[ERROR]   symbol: class EntandoIngressingDeploymentBaseFluent
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/plugin/EntandoPluginFluent.java:[22,36] cannot find symbol
+[ERROR]   symbol:   class EntandoIngressingDeploymentBaseFluent
+[ERROR]   location: package org.entando.kubernetes.model
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/plugin/EntandoPluginFluent.java:[26,20] cannot find symbol
+[ERROR]   symbol: class EntandoIngressingDeploymentBaseFluent
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/keycloakserver/EntandoKeycloakServerFluent.java:[23,36] cannot find symbol
+[ERROR]   symbol:   class EntandoIngressingDeploymentBaseFluent
+[ERROR]   location: package org.entando.kubernetes.model
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/keycloakserver/EntandoKeycloakServerFluent.java:[27,31] cannot find symbol
+[ERROR]   symbol: class EntandoIngressingDeploymentBaseFluent
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/app/EntandoAppFluent.java:[22,36] cannot find symbol
+[ERROR]   symbol:   class EntandoIngressingDeploymentBaseFluent
+[ERROR]   location: package org.entando.kubernetes.model
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/app/EntandoAppFluent.java:[26,20] cannot find symbol
+[ERROR]   symbol: class EntandoIngressingDeploymentBaseFluent
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/infrastructure/EntandoClusterInfrastructureFluent.java:[22,36] cannot find symbol
+[ERROR]   symbol:   class EntandoIngressingDeploymentBaseFluent
+[ERROR]   location: package org.entando.kubernetes.model
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/infrastructure/EntandoClusterInfrastructureFluent.java:[26,20] cannot find symbol
+[ERROR]   symbol: class EntandoIngressingDeploymentBaseFluent
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/keycloakserver/EntandoKeycloakServerFluent.java:[53,5] method does not override or implement a method from a supertype
+[ERROR] /workspace/source/src/main/java/org/entando/kubernetes/model/infrastructure/EntandoClusterInfrastructureFluent.java:[44,5] method does not override or implement a method from a supertype
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+Picked up _JAVA_OPTIONS: -XX:+UnlockExperimentalVMOptions -Dsun.zip.disableMemoryMapping=**** -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx8000m
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< org.entando:entando-k8s-custom-model >----------------
+[INFO] Building Entando Kubernetes Custom Model 0.0.0-SNAPSHOT-PR-37-14
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-site-plugin:3.9.0:site (default-site) @ entando-k8s-custom-model ---
+[INFO] configuring report plugin org.apache.maven.plugins:maven-project-info-reports-plugin:3.0.0
+[INFO] 9 reports configured for maven-project-info-reports-plugin:3.0.0: dependency-info, distribution-management, index, ci-management, issue-management, licenses, plugins, scm, summary
+[INFO] Rendering site with default locale English (en)
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Relativizing decoration links with respect to localized project URL: https://central.entando.com
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] Generating "Dependency Information" report --- maven-project-info-reports-plugin:3.0.0:dependency-info
+[INFO] Generating "About" report         --- maven-project-info-reports-plugin:3.0.0:index
+[INFO] Generating "Issue Management" report --- maven-project-info-reports-plugin:3.0.0:issue-management
+[INFO] Generating "Licenses" report      --- maven-project-info-reports-plugin:3.0.0:licenses
+[INFO] Generating "Plugins" report       --- maven-project-info-reports-plugin:3.0.0:plugins
+[INFO] Generating "Source Code Management" report --- maven-project-info-reports-plugin:3.0.0:scm
+[INFO] Generating "Summary" report       --- maven-project-info-reports-plugin:3.0.0:summary
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.637 s
+[INFO] Finished at: 2021-01-28T13:39:09Z
+[INFO] ------------------------------------------------------------------------
+shallow cloning https://github.com/entando-k8s/devops-results.git branch gh-pages
+ran git init in /tmp/jenkins-x-collect742524250
+ran git add remote origin https://github.com/entando-k8s/devops-results.git in /tmp/jenkins-x-collect742524250
+ran git fetch origin --depth=1 gh-pages in dir /tmp/jenkins-x-collect742524250
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/checkstyle.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/checkstyle.rss
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/css/maven-base.css
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/css/maven-theme.css
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/css/print.css
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/css/site.css
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/dependency-info.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/collapsed.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/expanded.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/external.png
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/icon_error_sml.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/icon_info_sml.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/icon_success_sml.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/icon_warning_sml.gif
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/logos/build-by-maven-black.png
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/logos/build-by-maven-white.png
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/logos/maven-feather.png
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/newwindow.png
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/rss.png
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/index.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/issue-management.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/licenses.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/plugins.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/project-info.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/scm.html
+Publishing https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/summary.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/checkstyle.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/checkstyle.rss
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/css/maven-base.css
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/css/maven-theme.css
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/css/print.css
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/css/site.css
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/dependency-info.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/collapsed.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/expanded.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/external.png
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/icon_error_sml.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/icon_info_sml.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/icon_success_sml.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/icon_warning_sml.gif
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/logos/build-by-maven-black.png
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/logos/build-by-maven-white.png
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/logos/maven-feather.png
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/newwindow.png
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/images/rss.png
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/index.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/issue-management.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/licenses.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/plugins.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/project-info.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/scm.html
+stashed: https://raw.githubusercontent.com/entando-k8s/devops-results/gh-pages/entando-k8s-custom-model/PR-37/summary.html
+No pre-deployment test results found for entando-k8s-custom-model-PR-37.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 12  1899    0     0  100   236      0    271 --:--:-- --:--:-- --:--:--   271100  1899  100  1663  100   236   1914    271 --:--:-- --:--:-- --:--:--  1913
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-custom-model/statuses/bfa32b303a906c0977fd86ca750c560e03270e59",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 11996670570,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMTk5NjY3MDU3MA==",
+  "state": "pending",
+  "description": "No pre-deployment test results produced by build!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-custom-model/PR-37/surefire-report.html",
+  "context": "Pre-deployment tests",
+  "created_at": "2021-01-28T13:39:29Z",
+  "updated_at": "2021-01-28T13:39:29Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/entando-**/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/entando-**/subscriptions",
+    "organizations_url": "https://api.github.com/users/entando-**/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/entando-**/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1809  100  1618  100   191   2640    311 --:--:-- --:--:-- --:--:--  2643
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-custom-model/statuses/bfa32b303a906c0977fd86ca750c560e03270e59",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 11996670665,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMTk5NjY3MDY2NQ==",
+  "state": "success",
+  "description": "Checkstyle success!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-custom-model/PR-37/checkstyle.html",
+  "context": "Checkstyle",
+  "created_at": "2021-01-28T13:39:30Z",
+  "updated_at": "2021-01-28T13:39:30Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/**********",
+    "followers_url": "https://api.github.com/users/**********/followers",
+    "following_url": "https://api.github.com/users/**********/following{/other_user}",
+    "gists_url": "https://api.github.com/users/**********/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/**********/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/entando-**/subscriptions",
+    "organizations_url": "https://api.github.com/users/**********/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/**********/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+No OWASP dependency check found for entando-k8s-custom-model-PR-37.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  1899  100  1663  100   236   2588    367 --:--:-- --:--:-- --:--:--  2586
+{
+  "url": "https://api.github.com/repos/entando-k8s/entando-k8s-custom-model/statuses/bfa32b303a906c0977fd86ca750c560e03270e59",
+  "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+  "id": 11996670758,
+  "node_id": "MDEzOlN0YXR1c0NvbnRleHQxMTk5NjY3MDc1OA==",
+  "state": "pending",
+  "description": "No OWASP dependency check results produced by build!",
+  "target_url": "https://entando-k8s.github.io/devops-results/entando-k8s-custom-model/PR-37/dependency-check-report.html",
+  "context": "OWASP CVE",
+  "created_at": "2021-01-28T13:39:30Z",
+  "updated_at": "2021-01-28T13:39:30Z",
+  "creator": {
+    "login": "**********",
+    "id": 57885396,
+    "node_id": "MDQ6VXNlcjU3ODg1Mzk2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/57885396?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/**********",
+    "html_url": "https://github.com/entando-**",
+    "followers_url": "https://api.github.com/users/entando-**/followers",
+    "following_url": "https://api.github.com/users/entando-**/following{/other_user}",
+    "gists_url": "https://api.github.com/users/entando-**/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/entando-**/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/entando-**/subscriptions",
+    "organizations_url": "https://api.github.com/users/entando-**/orgs",
+    "repos_url": "https://api.github.com/users/**********/repos",
+    "events_url": "https://api.github.com/users/entando-**/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/**********/received_events",
+    "type": "User",
+    "site_*****": false
+  }
+}
+The following checks failed for entando-k8s-custom-model-PR-37:
+No pre-deployment test results produced by build
+No OWASP dependency check results produced by build
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-mvn-verify-pr'. The execution of the pipeline has stopped.[0m
