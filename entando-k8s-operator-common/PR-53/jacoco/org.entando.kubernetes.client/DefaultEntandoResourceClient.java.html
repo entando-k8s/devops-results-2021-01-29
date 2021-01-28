@@ -234,7 +234,7 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 <span class="nc" id="L234">                                    newStatus -&gt; newStatus.finishWith(new EntandoControllerFailureBuilder().withException(reason).build()));</span>
 <span class="nc" id="L235">                    t.getStatus().updateDeploymentPhase(EntandoDeploymentPhase.FAILED, t.getMetadata().getGeneration());</span>
 <span class="nc" id="L236">                },</span>
-<span class="fc" id="L237">                e -&gt; e.withAction(&quot;Failed&quot;).withReason(reason.getMessage()).withType(reason.getClass().getSimpleName()));</span>
+<span class="nc" id="L237">                e -&gt; e.withAction(&quot;Failed&quot;).withReason(reason.getMessage()).withType(reason.getClass().getSimpleName()));</span>
 <span class="nc" id="L238">    }</span>
 
     private &lt;S extends Serializable, T extends EntandoBaseCustomResource&lt;S&gt;&gt; Service loadService(T peerInNamespace, String name) {
@@ -261,7 +261,7 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 <span class="fc" id="L261">                .endMetadata()</span>
 <span class="fc" id="L262">                .withNewInvolvedObject()</span>
 <span class="fc" id="L263">                .withNamespace(customResource.getMetadata().getNamespace())</span>
-<span class="fc" id="L264">                .withNamespace(customResource.getMetadata().getName())</span>
+<span class="fc" id="L264">                .withName(customResource.getMetadata().getName())</span>
 <span class="fc" id="L265">                .withUid(customResource.getMetadata().getUid())</span>
 <span class="fc" id="L266">                .withResourceVersion(customResource.getMetadata().getResourceVersion())</span>
 <span class="fc" id="L267">                .withApiVersion(customResource.getApiVersion())</span>
