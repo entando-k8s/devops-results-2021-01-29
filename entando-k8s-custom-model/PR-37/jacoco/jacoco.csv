@@ -5,11 +5,11 @@ Entando Kubernetes Custom Model,org.entando.kubernetes.model.compositeapp,Entand
 Entando Kubernetes Custom Model,org.entando.kubernetes.model.compositeapp,EntandoCompositeAppOperationFactory,0,12,0,0,0,2,0,2,0,2
 Entando Kubernetes Custom Model,org.entando.kubernetes.model.compositeapp,EntandoCompositeAppSpecFluent.EntandoDatabaseServiceNested,0,22,0,0,0,6,0,3,0,3
 Entando Kubernetes Custom Model,org.entando.kubernetes.model.compositeapp,EntandoCompositeAppSpecFluent.EntandoPluginNested,0,22,0,0,0,6,0,3,0,3
-Entando Kubernetes Custom Model,org.entando.kubernetes.model.compositeapp,EntandoCompositeAppSpecFluent,6,254,0,0,2,50,0,25,0,25
+Entando Kubernetes Custom Model,org.entando.kubernetes.model.compositeapp,EntandoCompositeAppSpecFluent,6,284,0,0,2,56,0,27,0,27
 Entando Kubernetes Custom Model,org.entando.kubernetes.model.compositeapp,EntandoCompositeAppFluent,0,53,0,0,0,12,0,7,0,7
 Entando Kubernetes Custom Model,org.entando.kubernetes.model.compositeapp,EntandoCustomResourceReferenceSpec,0,22,0,0,0,8,0,4,0,4
 Entando Kubernetes Custom Model,org.entando.kubernetes.model.compositeapp,EntandoCompositeApp,0,25,0,0,0,9,0,5,0,5
-Entando Kubernetes Custom Model,org.entando.kubernetes.model.compositeapp,EntandoCompositeAppSpec,2,15,1,1,0,6,1,3,0,3
+Entando Kubernetes Custom Model,org.entando.kubernetes.model.compositeapp,EntandoCompositeAppSpec,5,26,1,1,2,8,2,4,1,4
 Entando Kubernetes Custom Model,org.entando.kubernetes.model.compositeapp,EntandoCustomResourceReferenceSpecFluent,0,51,0,0,0,15,0,7,0,7
 Entando Kubernetes Custom Model,org.entando.kubernetes.model.compositeapp,EntandoCompositeAppSpecFluent.EntandoAppNested,0,22,0,0,0,6,0,3,0,3
 Entando Kubernetes Custom Model,org.entando.kubernetes.model.compositeapp,DoneableEntandoCompositeApp,0,48,0,0,0,9,0,3,0,3
