@@ -56,13 +56,13 @@ public abstract class EntandoCompositeAppSpecFluent&lt;A extends EntandoComposit
 <span class="fc" id="L56">            Class&lt;? extends EntandoFluent&lt;?&gt;&gt;&gt; BUILDERS = createBuilderMap();</span>
     protected List&lt;EntandoFluent&lt;?&gt;&gt; components;
     private String ingressHostNameOverride;
-    private DbmsVendor dbmsOVerride;
+    private DbmsVendor dbmsOverride;
     private String tlsSecretNameOverride;
 
 <span class="fc" id="L62">    protected EntandoCompositeAppSpecFluent(EntandoCompositeAppSpec spec) {</span>
 <span class="fc" id="L63">        this.components = createComponentBuilders(spec.getComponents());</span>
 <span class="fc" id="L64">        this.ingressHostNameOverride = spec.getIngressHostNameOverride().orElse(null);</span>
-<span class="fc" id="L65">        this.dbmsOVerride = spec.getDbmsOverride().orElse(null);</span>
+<span class="fc" id="L65">        this.dbmsOverride = spec.getDbmsOverride().orElse(null);</span>
 <span class="fc" id="L66">        this.tlsSecretNameOverride = spec.getTlsSecretNameOverride().orElse(null);</span>
 <span class="fc" id="L67">    }</span>
 
@@ -94,7 +94,7 @@ public abstract class EntandoCompositeAppSpecFluent&lt;A extends EntandoComposit
     }
 
     public final A withDbmsOverride(DbmsVendor dbmsOverride) {
-<span class="fc" id="L97">        this.dbmsOVerride = dbmsOverride;</span>
+<span class="fc" id="L97">        this.dbmsOverride = dbmsOverride;</span>
 <span class="fc" id="L98">        return thisAsA();</span>
     }
 
@@ -133,7 +133,7 @@ public abstract class EntandoCompositeAppSpecFluent&lt;A extends EntandoComposit
 <span class="fc" id="L133">                .map(Builder.class::cast)</span>
 <span class="fc" id="L134">                .map(Builder::build)</span>
 <span class="fc" id="L135">                .map(o -&gt; (EntandoBaseCustomResource&lt;? extends Serializable&gt;) o)</span>
-<span class="fc" id="L136">                .collect(Collectors.toList()), ingressHostNameOverride, dbmsOVerride, tlsSecretNameOverride);</span>
+<span class="fc" id="L136">                .collect(Collectors.toList()), ingressHostNameOverride, dbmsOverride, tlsSecretNameOverride);</span>
     }
 
     public EntandoKeycloakServerNested&lt;A&gt; addNewEntandoKeycloakServer() {
