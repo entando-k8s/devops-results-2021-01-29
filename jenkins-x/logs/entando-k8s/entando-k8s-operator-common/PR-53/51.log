@@ -1,0 +1,27 @@
+
+Showing logs for build [32mentando-k8s-entando-k8s-operato-nq494-51[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-lnqld[0m
+{"level":"warn","ts":1611903548.3796613,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1611903548.387592,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-k8s-entando-k8s-operato-nq494-51[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-2tdpf[0m
+failed to open log file "/var/log/pods/769aa05e-61ff-11eb-ad12-2a726b6f9ff7/step-working-dir-initializer-2tdpf/0.log": open /var/log/pods/769aa05e-61ff-11eb-ad12-2a726b6f9ff7/step-working-dir-initializer-2tdpf/0.log: no such file or directory
+
+Showing logs for build [32mentando-k8s-entando-k8s-operato-nq494-51[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+Unable to retrieve container logs for docker://5bcc77f1d0e98d3343bda253d72dda40bbb856db77579a244eae686ee9ce963a
+
+Showing logs for build [32mentando-k8s-entando-k8s-operato-nq494-51[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-entando-k8s-entando-k8s-operato-kqtpc[0m
+Unable to retrieve container logs for docker://f071ef300ffd4d3332e2045c9259ce24e8170bc941163528e25f592c3d796523
+
+Showing logs for build [32mentando-k8s-entando-k8s-operato-nq494-51[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Unable to retrieve container logs for docker://c5ce9f4edf79ce0a050d401d5c61dc1d79bdd8cfcee8d136b1f7253a1ced9f34
+
+Showing logs for build [32mentando-k8s-entando-k8s-operato-nq494-51[0m stage [32mfrom-build-pack[0m and container [32mstep-build-set-version[0m
+Unable to retrieve container logs for docker://db1309071c474778684d87b15d181260b4eb24118302fa5cb9765a35fda3f266
+
+Showing logs for build [32mentando-k8s-entando-k8s-operato-nq494-51[0m stage [32mfrom-build-pack[0m and container [32mstep-build-fix-git-for-sonar[0m
+Unable to retrieve container logs for docker://295795726bc860472fcfa6dddba05f342bbad6e152aa2a1942cb36de0a06196b
+
+Showing logs for build [32mentando-k8s-entando-k8s-operato-nq494-51[0m stage [32mfrom-build-pack[0m and container [32mstep-build-mvn-verify-pr[0m
+Unable to retrieve container logs for docker://8cc89e7f4dd99235a8cc2be74411ef106d7e705c0a058f69fcdeb4e9909cae7f
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-mvn-verify-pr'. The execution of the pipeline has stopped.[0m
