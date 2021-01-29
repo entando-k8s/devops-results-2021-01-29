@@ -45,7 +45,7 @@ public class EntandoPluginDeployableContainer implements PersistentVolumeAware, 
     public static final String PLUGINDB = &quot;plugindb&quot;;
     private final EntandoPlugin entandoPlugin;
     private final KeycloakConnectionConfig keycloakConnectionConfig;
-    private List&lt;DatabaseSchemaConnectionInfo&gt; databaseSchemaConnectionInfo;
+    private final List&lt;DatabaseSchemaConnectionInfo&gt; databaseSchemaConnectionInfo;
 
     public EntandoPluginDeployableContainer(EntandoPlugin entandoPlugin, KeycloakConnectionConfig keycloakConnectionConfig,
 <span class="fc" id="L51">            DatabaseServiceResult databaseServiceResult) {</span>
