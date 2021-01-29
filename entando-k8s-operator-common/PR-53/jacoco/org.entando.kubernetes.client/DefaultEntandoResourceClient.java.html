@@ -245,25 +245,25 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 
     @Override
     public &lt;S extends Serializable, T extends EntandoBaseCustomResource&lt;S&gt;&gt; void deploymentFailed(T customResource, Exception reason) {
-<span class="nc" id="L248">        performStatusUpdate(customResource,</span>
+<span class="fc" id="L248">        performStatusUpdate(customResource,</span>
                 t -&gt; {
-<span class="nc" id="L250">                    t.getStatus().findCurrentServerStatus()</span>
-<span class="nc" id="L251">                            .ifPresent(</span>
-<span class="nc" id="L252">                                    newStatus -&gt; newStatus.finishWith(new EntandoControllerFailureBuilder().withException(reason).build()));</span>
-<span class="nc" id="L253">                    t.getStatus().updateDeploymentPhase(EntandoDeploymentPhase.FAILED, t.getMetadata().getGeneration());</span>
-<span class="nc" id="L254">                },</span>
-<span class="nc" id="L255">                e -&gt; e.withType(&quot;Error&quot;)</span>
-<span class="nc" id="L256">                        .withReason(&quot;Failed&quot;)</span>
-<span class="nc" id="L257">                        .withMessage(</span>
-<span class="nc" id="L258">                                format(&quot;The deployment of %s %s/%s failed due to %s. Fix the root cause and then trigger a redeployment &quot;</span>
+<span class="fc" id="L250">                    t.getStatus().findCurrentServerStatus()</span>
+<span class="fc" id="L251">                            .ifPresent(</span>
+<span class="fc" id="L252">                                    newStatus -&gt; newStatus.finishWith(new EntandoControllerFailureBuilder().withException(reason).build()));</span>
+<span class="fc" id="L253">                    t.getStatus().updateDeploymentPhase(EntandoDeploymentPhase.FAILED, t.getMetadata().getGeneration());</span>
+<span class="fc" id="L254">                },</span>
+<span class="fc" id="L255">                e -&gt; e.withType(&quot;Error&quot;)</span>
+<span class="fc" id="L256">                        .withReason(&quot;Failed&quot;)</span>
+<span class="fc" id="L257">                        .withMessage(</span>
+<span class="fc" id="L258">                                format(&quot;The deployment of %s %s/%s failed due to %s. Fix the root cause and then trigger a redeployment &quot;</span>
                                                 + &quot;by adding the annotation 'entando.org/processing-instruction: force'&quot;,
-<span class="nc" id="L260">                                        customResource.getKind(),</span>
-<span class="nc" id="L261">                                        customResource.getMetadata().getNamespace(),</span>
-<span class="nc" id="L262">                                        customResource.getMetadata().getName(),</span>
-<span class="nc" id="L263">                                        reason.getMessage()))</span>
-<span class="nc" id="L264">                        .withAction(&quot;FAILED&quot;)</span>
+<span class="fc" id="L260">                                        customResource.getKind(),</span>
+<span class="fc" id="L261">                                        customResource.getMetadata().getNamespace(),</span>
+<span class="fc" id="L262">                                        customResource.getMetadata().getName(),</span>
+<span class="fc" id="L263">                                        reason.getMessage()))</span>
+<span class="fc" id="L264">                        .withAction(&quot;FAILED&quot;)</span>
         );
-<span class="nc" id="L266">    }</span>
+<span class="fc" id="L266">    }</span>
 
     private &lt;S extends Serializable, T extends EntandoBaseCustomResource&lt;S&gt;&gt; Service loadService(T peerInNamespace, String name) {
 <span class="fc" id="L269">        return client.services().inNamespace(peerInNamespace.getMetadata().getNamespace()).withName(name).get();</span>
@@ -291,21 +291,22 @@ public class DefaultEntandoResourceClient implements EntandoResourceClient, Patc
 <span class="fc" id="L291">                .withLastTimestamp(dateTimeFormatter.format(LocalDateTime.now()))</span>
 <span class="fc" id="L292">                .withNewSource(NameUtils.controllerNameOf(customResource), null)</span>
 <span class="fc" id="L293">                .withNewInvolvedObject()</span>
-<span class="fc" id="L294">                .withNamespace(customResource.getMetadata().getNamespace())</span>
-<span class="fc" id="L295">                .withName(customResource.getMetadata().getName())</span>
-<span class="fc" id="L296">                .withUid(customResource.getMetadata().getUid())</span>
-<span class="fc" id="L297">                .withResourceVersion(customResource.getMetadata().getResourceVersion())</span>
-<span class="fc" id="L298">                .withApiVersion(customResource.getApiVersion())</span>
-<span class="fc" id="L299">                .withFieldPath(&quot;status&quot;)</span>
-<span class="fc" id="L300">                .endInvolvedObject();</span>
-<span class="fc" id="L301">        eventPopulator.apply(doneableEvent).done();</span>
-<span class="fc" id="L302">        Resource&lt;T, ?&gt; resource = getOperations((Class&lt;T&gt;) customResource.getClass())</span>
-<span class="fc" id="L303">                .inNamespace(customResource.getMetadata().getNamespace())</span>
-<span class="fc" id="L304">                .withName(customResource.getMetadata().getName());</span>
-<span class="fc" id="L305">        T latest = resource.fromServer().get();</span>
-<span class="fc" id="L306">        consumer.accept(latest);</span>
-<span class="fc" id="L307">        resource.updateStatus(latest);</span>
-<span class="fc" id="L308">    }</span>
+<span class="fc" id="L294">                .withKind(customResource.getKind())</span>
+<span class="fc" id="L295">                .withNamespace(customResource.getMetadata().getNamespace())</span>
+<span class="fc" id="L296">                .withName(customResource.getMetadata().getName())</span>
+<span class="fc" id="L297">                .withUid(customResource.getMetadata().getUid())</span>
+<span class="fc" id="L298">                .withResourceVersion(customResource.getMetadata().getResourceVersion())</span>
+<span class="fc" id="L299">                .withApiVersion(customResource.getApiVersion())</span>
+<span class="fc" id="L300">                .withFieldPath(&quot;status&quot;)</span>
+<span class="fc" id="L301">                .endInvolvedObject();</span>
+<span class="fc" id="L302">        eventPopulator.apply(doneableEvent).done();</span>
+<span class="fc" id="L303">        Resource&lt;T, ?&gt; resource = getOperations((Class&lt;T&gt;) customResource.getClass())</span>
+<span class="fc" id="L304">                .inNamespace(customResource.getMetadata().getNamespace())</span>
+<span class="fc" id="L305">                .withName(customResource.getMetadata().getName());</span>
+<span class="fc" id="L306">        T latest = resource.fromServer().get();</span>
+<span class="fc" id="L307">        consumer.accept(latest);</span>
+<span class="fc" id="L308">        resource.updateStatus(latest);</span>
+<span class="fc" id="L309">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

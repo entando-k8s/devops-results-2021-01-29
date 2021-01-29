@@ -164,7 +164,7 @@ public class DeploymentCreator&lt;S extends EntandoDeploymentSpec&gt; extends Ab
             DeployableContainer deployableContainer) {
 <span class="fc" id="L165">        return new ContainerBuilder().withName(deployableContainer.getNameQualifier() + CONTAINER_SUFFIX)</span>
 <span class="fc" id="L166">                .withImage(imageResolver.determineImageUri(deployableContainer.getDockerImageInfo()))</span>
-<span class="fc" id="L167">                .withImagePullPolicy(&quot;Always&quot;)</span>
+<span class="fc" id="L167">                .withImagePullPolicy(EntandoOperatorConfig.getPullPolicyOverride().orElse(&quot;IfNotPresent&quot;))</span>
 <span class="fc" id="L168">                .withPorts(buildPorts(deployableContainer))</span>
 <span class="fc" id="L169">                .withReadinessProbe(buildReadinessProbe(deployableContainer))</span>
 <span class="fc" id="L170">                .withVolumeMounts(buildVolumeMounts(deployableContainer))</span>
