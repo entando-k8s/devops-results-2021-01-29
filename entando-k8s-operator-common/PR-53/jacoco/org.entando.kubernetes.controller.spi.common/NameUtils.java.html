@@ -16,7 +16,12 @@
 
 package org.entando.kubernetes.controller.spi.common;
 
+import java.beans.Introspector;
+import java.io.Serializable;
 import java.security.SecureRandom;
+import java.util.Locale;
+import java.util.regex.Pattern;
+import org.entando.kubernetes.model.EntandoBaseCustomResource;
 import org.entando.kubernetes.model.EntandoCustomResource;
 
 public class NameUtils {
@@ -27,7 +32,7 @@ public class NameUtils {
     public static final String DEFAULT_SERVICE_SUFFIX = &quot;service&quot;;
     public static final String DEFAULT_SERVER_QUALIFIER = &quot;server&quot;;
     public static final String DEFAULT_INGRESS_SUFFIX = &quot;ingress&quot;;
-<span class="fc" id="L30">    private static final SecureRandom SECURE_RANDOM = new SecureRandom();</span>
+<span class="fc" id="L35">    private static final SecureRandom SECURE_RANDOM = new SecureRandom();</span>
 
     private NameUtils() {
     }
@@ -36,27 +41,37 @@ public class NameUtils {
      * Useful for labelvalues and container names.
      */
     public static String shortenTo63Chars(String s) {
-<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (s.length() &gt; 63) {</span>
-<span class="fc" id="L40">            s = s.substring(0, 63 - 4) + randomNumeric(4);</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if (s.length() &gt; 63) {</span>
+<span class="fc" id="L45">            s = s.substring(0, 63 - 4) + randomNumeric(4);</span>
         }
-<span class="fc" id="L42">        return s;</span>
+<span class="fc" id="L47">        return s;</span>
     }
 
     public static String randomNumeric(int size) {
         String suffix;
         do {
             //+1 to avoid Long.MIN_VALUE that stays negative after Math.abs
-<span class="fc" id="L49">            suffix = String.valueOf(Math.abs(SECURE_RANDOM.nextLong() + 1));</span>
-<span class="pc bpc" id="L50" title="1 of 2 branches missed.">        } while (suffix.length() &lt; size);</span>
-<span class="fc" id="L51">        return suffix.substring(0, size);</span>
+<span class="fc" id="L54">            suffix = String.valueOf(Math.abs(SECURE_RANDOM.nextLong() + 1));</span>
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">        } while (suffix.length() &lt; size);</span>
+<span class="fc" id="L56">        return suffix.substring(0, size);</span>
+    }
+
+    public static String camelCaseToDashDelimited(String in) {
+<span class="fc" id="L60">        final String regex = &quot;(?=[A-Z][a-z])&quot;;</span>
+<span class="fc" id="L61">        final Pattern pattern = Pattern.compile(regex);</span>
+<span class="fc" id="L62">        return pattern.matcher(Introspector.decapitalize(in)).replaceAll(&quot;-&quot;).toLowerCase(Locale.ROOT);</span>
     }
 
     public static String snakeCaseOf(String in) {
-<span class="fc" id="L55">        return in.replace(&quot;-&quot;, &quot;_&quot;).replace(&quot;.&quot;, &quot;_&quot;);</span>
+<span class="fc" id="L66">        return in.replace(&quot;-&quot;, &quot;_&quot;).replace(&quot;.&quot;, &quot;_&quot;);</span>
     }
 
     public static String standardIngressName(EntandoCustomResource entandoCustomResource) {
-<span class="fc" id="L59">        return entandoCustomResource.getMetadata().getName() + &quot;-&quot; + DEFAULT_INGRESS_SUFFIX;</span>
+<span class="fc" id="L70">        return entandoCustomResource.getMetadata().getName() + &quot;-&quot; + DEFAULT_INGRESS_SUFFIX;</span>
+    }
+
+    public static &lt;S extends Serializable, T extends EntandoBaseCustomResource&lt;S&gt;&gt; String controllerNameOf(T customResource) {
+<span class="fc" id="L74">        return &quot;entando-k8s-&quot; + camelCaseToDashDelimited(customResource.getKind().substring(&quot;Entando&quot;.length())) + &quot;-controller&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

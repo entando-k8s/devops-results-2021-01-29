@@ -231,8 +231,8 @@ public class DefaultKeycloakClient implements SimpleKeycloakClient {
 <span class="fc" id="L231">        ensureRealm(config.getRealm());</span>
 <span class="fc" id="L232">        RealmResource realmResource = keycloak.realm(config.getRealm());</span>
 <span class="fc" id="L233">        Optional&lt;ClientRepresentation&gt; clientRepresentation = findClient(config);</span>
-<span class="pc bpc" id="L234" title="1 of 2 branches missed.">        if (clientRepresentation.isPresent()) {</span>
-<span class="nc" id="L235">            return clientRepresentation.get().getId();</span>
+<span class="fc bfc" id="L234" title="All 2 branches covered.">        if (clientRepresentation.isPresent()) {</span>
+<span class="fc" id="L235">            return clientRepresentation.get().getId();</span>
         } else {
 <span class="fc" id="L237">            ClientRepresentation client = new ClientRepresentation();</span>
 <span class="fc" id="L238">            client.setName(config.getClientName());</span>
